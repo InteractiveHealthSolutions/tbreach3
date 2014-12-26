@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+  <property name="hibernate.connection.username">root</property>
+  <property name="hibernate.connection.password">jingle94</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/smssurvey?zeroDateTimeBehavior=convertToNull</property>
+  <property name="hibernate.default_schema">smssurvey</property>
+  <property name="hibernate.connection.pool_size">0</property>
+  <property name="hibernate.connection.autocommit">true</property>
+  <property name="hibernate.show_sql">true</property>
+  <property name="hibernate.hbm2ddl.auto">drop-create</property>
+  <property name="hibernate.use_sql_comments">false</property>
+  <property name="hibernate.format_sql">false</property>
+  <property name="hibernate.transaction.auto_close_session">true</property>
+
+  <mapping resource="com/ihsinformatics/tbr3smssurvey/model/Answer.hbm.xml"/>
+  <mapping resource="com/ihsinformatics/tbr3smssurvey/model/Participant.hbm.xml"/>
+  <mapping resource="com/ihsinformatics/tbr3smssurvey/model/Question.hbm.xml"/>
+  <mapping resource="com/ihsinformatics/tbr3smssurvey/model/Survey.hbm.xml"/>
+  <mapping resource="com/ihsinformatics/tbr3smssurvey/model/Transaction.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

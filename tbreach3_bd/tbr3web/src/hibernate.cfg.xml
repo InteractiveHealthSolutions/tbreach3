@@ -4,9 +4,9 @@
 <hibernate-configuration>
  <session-factory name="">
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.username">tbr3webuser</property>
-  <property name="hibernate.connection.password">ThinkVision</property>
-  <property name="hibernate.connection.url">jdbc:mysql://199.172.1.13:3306/openmrs_rpt?zeroDateTimeBehavior=convertToNull</property>
+  <property name="hibernate.connection.username">tbreachuser</property>
+  <property name="hibernate.connection.password">tbreachuser</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/openmrs_rpt?zeroDateTimeBehavior=convertToNull</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <property name="hibernate.connection.pool_size">0</property>
   <property name="hibernate.connection.autocommit">true</property>
