@@ -13,6 +13,10 @@
     <string name="address">Address</string>
     <string name="colony">Colony</string>
     <string name="colony_hint">Enter Name of Colony</string>
+    <string name="address2">Address 2</string>
+    <string name="address2_hint">Enter Address Line 2</string>
+    <string name="landmark">Landmark</string>
+    <string name="landmark_hint">Enter Landmark</string>
     <string name="town">City/Town</string>
     <string name="town_hint">Select Town</string>
 

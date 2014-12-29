@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="contact_provided">Are you willing to provide your contact number?</string>
     <string name="primary_phone">Phone 1</string>
     <string name="primary_phone_hint">Enter Phone Number</string>
     <string name="self_owned">Self Owned</string>

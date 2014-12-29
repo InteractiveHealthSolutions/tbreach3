@@ -13,6 +13,10 @@
     <string name="address">گھر کا پتہ</string>
     <string name="colony">گھر کا پتہ</string>
     <string name="colony_hint">اپنے گھر کا پتہ داخل کریں</string>
+	<string name="address2">گھر کا پتہ ۲</string>
+    <string name="address2_hint">اپنے گھر کے پتے کا بقیہ حصہ داخل کریں</string>
+    <string name="landmark">قریبی مشہور جگہ</string>
+    <string name="landmark_hint">اپنے گھر کے قریب کوئی مشہور جگہ داخل کریں</string>
     <string name="town">شہر/گاؤں</string>
     <string name="town_hint">اپنے شہر یا گاؤں کا نام داخل کریں</string>
 

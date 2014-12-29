@@ -4,6 +4,8 @@
     <string name="loading_message">..انتظار فرمائیں</string>
     <string name="app_name">ٹی بی ریچ ۳</string>
     <string name="menu_settings">ترتیب</string>
+    <string name="server">Server Address</string>
+    <string name="use_secure">Use SSL/TLS</string>
     <string name="password_hint">اپنا خفیہ پاس ورڈ درج کریں</string>
     <string name="login_name">صارف کا نام</string>
     <string name="login_name_hint">صارف کا نام درج کریں</string>
@@ -26,8 +28,9 @@
     <string name="form_date">فارم کی تاریخ</string>
     <string name="patient_id">مریض کی آئی ڈی</string>
     <string name="patient_id_hint">مریض کی ۱۴ اعداد پر مشتمل آئی ڈی درج کریں</string>
+    <string name="refresh_database">ڈیٹا ریفریش</string>
     <string name="scan_barcode">بار کوڈ دیکھیں</string>
-    <string name="empty_string"></string>
+    <string name="text_copied">پیشنٹ کی آئی ڈی کاپی ہو گئی ہے۔۔</string>
 
     <string-array name="gender">
         <item>مرد</item>
@@ -56,5 +59,6 @@
 
     <string name="age_group">عمر</string>
     <string name="search_patients">تلاش کریں۔۔۔</string>
+    <string name="offline">آف لائن کام کریں</string>
 
 </resources>

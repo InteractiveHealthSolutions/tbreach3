@@ -33,8 +33,9 @@
     <string name="text_copied">Patient ID copied..</string>
     <string name="goto_first">&lt;&lt;</string>
     <string name="goto_last">>></string>
-    <string name="empty_string"></string>
-    
+    <string name="empty_string" translatable="false"></string>
+    <string name="dot_dot_dot" translatable="false">...</string>
+
     <string-array name="gender">
         <item>Male</item>
         <item>Female</item>
@@ -59,5 +60,7 @@
         <item>Suggestion</item>
         <item>Other</item>
     </string-array>
-        <string name="offline">Work Offline</string>
+
+    <string name="offline">Work Offline</string>
+
 </resources>

@@ -16,6 +16,8 @@
     <string name="age">عمر</string>
     <string name="age_hint">اپنی عمر داخل کریں</string>
     <string name="dob">تاریخ پیدائش</string>
+    <string name="ethnicity">ذات</string>
+    <string name="measurement">کیا مریض کا قد ناپا گیا تھا؟</string>
     <string name="height">قد</string>
     <string name="height_hint">اپنا قد لکھیں(۱۰ تا ۴۰۰ سینٹی میٹر)۔</string>
     <string name="weight">وزن</string>
@@ -42,7 +44,11 @@
     <string name="child_fever_duration_hint">ایک تا ۹۹ تک دورانیہ داخل کریں</string>
     <string name="respiratory_rate">سانس کی رفتار فی منٹ</string>
     <string name="respiratory_rate_hint">دس تا ۱۲۰ تک رفتار لکھیں</string>
-    
+
+    <string name="getting_cold">کیا آپ کو ٹھنڈ لگتی ہے؟</string>
+    <string name="breathing_problem">کیا آپ کو سانس کے مسائل درپیش ہیں؟</string>
+    <string name="hiv">کیا آپ کو کبھی ایچ آئی وی تشخیص ہوا ہے؟</string>
+
     <!-- Othe Disease History strings -->
     <string name="diabetes_patient">کیا کبھی کسی ڈاکٹر نے آپکو کہا ہے کہ آپ کو زیابیطس کا مرض ہے؟</string>
     <string name="family_diabetes">کیا آپ کے والدین، بہن، بھائی یا دیگر اہل خانہ میں سے کسی کو ذیابیطس کا مرض ہے؟</string>
@@ -101,5 +107,23 @@
         <item>متعلقہ فرد</item>
         <item>ینگ وومین انیشئیٹو</item>
     </string-array>
-
+    <string-array name="ethnicity_options">
+        <item>مہاجر</item>
+        <item>سندھی</item>
+        <item>پختون</item>
+        <item>پنجابی</item>
+        <item>بلوچی</item>
+        <item>بنگالی</item>
+        <item>بہاری</item>
+        <item>میمن</item>
+        <item>گجراتی</item>
+        <item>بروہی</item>
+        <item>ہندکو</item>
+        <item>سرائیکی</item>
+        <item>جدگل</item>
+        <item>دیگر</item>
+        <item>معلوم نہیں</item>
+        <item>انکار</item>
+    </string-array>
+    
 </resources>

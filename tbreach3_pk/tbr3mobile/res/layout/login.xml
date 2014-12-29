@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+login_id/mainLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="@dimen/tiny" >
+    android:padding="@dimen/tiny"
+    tools:ignore="InvalidId,InvalidId" >
 
     <TableRow
         android:id="@+login_id/usernameTableRow"

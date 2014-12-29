@@ -15,5 +15,7 @@
     <string name="session_renewed">سرور سے آپکا رابطہ بحال کر دیا گیا ہے</string>
     <string name="update_metadata">یہ کاروائی بنیادی معلعمات اپ ڈیٹ کرے گی اور اس میں کافی وقت لگ سکتا ہے۔ کیا آپ جاری رکھنا چاہتے ہیں؟</string>
     <string name="updated">معلومات محفوظ کر دی گئی ہے</string>
-
+    <string name="offline_forms">ایپلی کیشن میں کچھ فارم محفوظ ہیں جو ابھی تک ارسال نہیں ہوئے</string>
+    <string name="delete_forms">کیا آپ فون میں محفوظ فارم ختم کرنا چاہتے ہیں؟</string>
+    
 </resources>

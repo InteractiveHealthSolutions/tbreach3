@@ -45,6 +45,10 @@
     <string name="respiratory_rate">Respiratory rate (breaths per minute)</string>
     <string name="respiratory_rate_hint">Enter between 10 and 120</string>
 
+    <string name="getting_cold">Are you getting any common cold?</string>
+    <string name="breathing_problem">Do you experience any problems in breathing?</string>
+    <string name="hiv">Have you been diagnosed with HIV?</string>
+    
     <!-- Othe Disease History strings -->
     <string name="diabetes_patient">Has a doctor ever told you that you have diabetes (sugar)?</string>
     <string name="family_diabetes">Do any of your parents, siblings or children have diabetes (sugar)?</string>

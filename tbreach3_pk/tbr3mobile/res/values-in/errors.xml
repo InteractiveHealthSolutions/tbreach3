@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="error_title">Error!</string>
     <string name="authentication_error">Authentication failed! Please enter valid password/code</string>
     <string name="data_access_error">Access to data failed! You may not have sufficient rights</string>
     <string name="data_connection_error">Could not connect to Data source! Please check your connection settings</string>
@@ -9,6 +10,9 @@
     <string name="delete_error">Error in deleting data. Some other data may be dependent on the item you want to delete</string>
     <string name="duplication">Duplication error! Another copy of the same data or ID already exists</string>
     <string name="empty_data">Empty data! Please fill in the required field(s)</string>
+    <string name="empty_selection">At least one option must be selected form the list</string>
+    <string name="form_unavailable">This Form/Report is not available right now</string>
+    <string name="incomplete_operation">Incomplete operation error! Patient created but encounter and observations were not saved</string>
     <string name="insert_error">Error in inserting data. Please make sure you are not violating validation rules</string>
     <string name="item_not_found">No data was found matching the criteria</string>
     <string name="invalid_data">Invalid value! Please make sure your input is in correct format</string>
@@ -20,6 +24,7 @@
     <string name="parsing_error">Data cannot be parsed. Please make sure data is in valid format</string>
     <string name="patient_id_missing">Patient ID does not exist. Please make sure you have entered correct Patient ID</string>
     <string name="session_expired">Session expired! Please re-login to continue operation</string>
+    <string name="similar_form_submitted">This form has already been submitted for same ID/code</string>
     <string name="unknown_error">Unknown error encountered! Please check error log for details</string>
     <string name="update_error">Error in updating data. Please make sure you are not violating validation rules</string>
     <string name="user_not_found">User not found! Please enter correct user name</string>

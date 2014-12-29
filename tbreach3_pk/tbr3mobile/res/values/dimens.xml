@@ -29,12 +29,12 @@
         <item>41 - 50</item>
         <item>50 - 100</item>
     </string-array>
-    <string-array name="delay">
+    <string-array name="delay" translatable="false">
         <item>10000</item>
         <item>30000</item>
         <item>60000</item>
     </string-array>
-	<string-array name="language">
+	<string-array name="language" translatable="false">
         <item>bn - Bengali</item>
         <item>en - English</item>
         <item>in - Bahasa</item>

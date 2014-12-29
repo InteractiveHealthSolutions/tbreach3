@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="countries">
+    <string-array name="countries" translatable="false">
         <item>Afghanistan</item>
         <item>Albania</item>
         <item>Algeria</item>
@@ -242,7 +242,7 @@
         <item>Zimbabwe</item>
     </string-array>
 
-    <string-array name="towns">
+    <string-array name="towns" translatable="false">
         <item>Default Town</item>
         <item>Baldia Town</item>
         <item>Bin Qasim Town</item>

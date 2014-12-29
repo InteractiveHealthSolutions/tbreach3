@@ -33,6 +33,11 @@ public class GPSTracker extends Service implements LocationListener
 
 	protected LocationManager	locationManager;
 
+	public GPSTracker ()
+	{
+		this.mContext = null;
+	}
+	
 	public GPSTracker (Context context)
 	{
 		this.mContext = context;
