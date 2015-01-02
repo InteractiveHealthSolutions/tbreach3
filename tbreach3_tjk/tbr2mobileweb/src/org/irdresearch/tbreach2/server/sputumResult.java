@@ -1,3 +1,13 @@
+/* Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. */
 package org.irdresearch.tbreach2.server;
 
 import java.io.IOException;
@@ -92,7 +102,7 @@ public class sputumResult extends HttpServlet {
 		
 		if(sr!=null)
 		{
-			request.setAttribute("Error", "Натичаи балгами ин бемор ворид карда шудааст!");
+			request.setAttribute("Error", "�?атичаи балгами ин бемор ворид карда шудаа�?т!");
 			dispatcher=getServletContext().getRequestDispatcher(dest);
 	        dispatcher.forward(request,response);
 	        return;
@@ -103,7 +113,7 @@ public class sputumResult extends HttpServlet {
 		
 		
 		boolean sx = areRussianStringsEqual(smearResult,"Манфй");
-		boolean sx1 = areRussianStringsEqual(smearResult,"Пусиш");
+		boolean sx1 = areRussianStringsEqual(smearResult,"Пу�?иш");
 		if(sx == true)
 		{
 			smearResult1Eng = "NEGATIVE";
@@ -120,7 +130,7 @@ public class sputumResult extends HttpServlet {
 		
 		
 		boolean sx2 = areRussianStringsEqual(smearResult1,"Манфй");
-		boolean sx3 = areRussianStringsEqual(smearResult1,"Пусиш");
+		boolean sx3 = areRussianStringsEqual(smearResult1,"Пу�?иш");
 		
 		if(sx2 == true)
 		{
@@ -137,7 +147,7 @@ public class sputumResult extends HttpServlet {
 		}
 		
 		boolean sx4 = areRussianStringsEqual(smearResult2,"Манфй");
-		boolean sx5 = areRussianStringsEqual(smearResult2,"Пусиш");
+		boolean sx5 = areRussianStringsEqual(smearResult2,"Пу�?иш");
 		
 		if(sx4 == true)
 		{
@@ -192,7 +202,7 @@ public class sputumResult extends HttpServlet {
 		catch (Exception e1)
 		{
 			e1.printStackTrace ();
-			request.setAttribute("Error", "Таърих нодуруст. Такрор кунед!");
+			request.setAttribute("Error", "Таърих нодуру�?т. Такрор кунед!");
 			dispatcher=getServletContext().getRequestDispatcher(dest);
 	        dispatcher.forward(request,response);
 	        return;
@@ -250,7 +260,7 @@ public class sputumResult extends HttpServlet {
 
 			if (!resultSave)
 			{
-				request.setAttribute("Error", "Хато шудааст. Такрор кунед!");
+				request.setAttribute("Error", "Хато шудаа�?т. Такрор кунед!");
 				dispatcher=getServletContext().getRequestDispatcher(dest);
 		        dispatcher.forward(request,response);
 		        return;

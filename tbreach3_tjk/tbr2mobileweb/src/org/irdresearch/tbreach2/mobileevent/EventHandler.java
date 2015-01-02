@@ -1,3 +1,13 @@
+/* Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. */
 
 package org.irdresearch.tbreach2.mobileevent;
 
@@ -507,13 +517,13 @@ public class EventHandler
 	
 	private String translateSurveySelectedOption(String russianText){
 		
-		if(areRussianStringsEqual(russianText,"Совершенно согласен"))
+		if(areRussianStringsEqual(russianText,"Совершенно �?огла�?ен"))
 			return "STRONGLY AGREE";
-		else if (areRussianStringsEqual(russianText,"Cогласен"))
+		else if (areRussianStringsEqual(russianText,"Cогла�?ен"))
 			return "AGREE";
-		else if (areRussianStringsEqual(russianText,"Ничто"))
+		else if (areRussianStringsEqual(russianText,"�?ичто"))
 			return "REFUSED";
-		else if (areRussianStringsEqual(russianText,"Не согласен"))
+		else if (areRussianStringsEqual(russianText,"�?е �?огла�?ен"))
 			return "DISAGREE";
 		else 
 			return "STRONGLY DISAGREE";
@@ -606,7 +616,7 @@ public class EventHandler
 				mr.setBaselineSmear("NEGATIVE");
 			else if (areRussianStringsEqual(baselineSmearResult,"1-9 КУБ"))
 				mr.setBaselineSmear("1-9 AFB");
-			else if (areRussianStringsEqual(baselineSmearResult,"Нет"))
+			else if (areRussianStringsEqual(baselineSmearResult,"�?ет"))
 				mr.setBaselineSmear ("NONE");
 			else
 				mr.setBaselineSmear(baselineSmearResult);
@@ -615,7 +625,7 @@ public class EventHandler
 				mr.setSmearResult("NEGATIVE");
 			else if (areRussianStringsEqual(smearResult,"1-9 КУБ"))
 				mr.setSmearResult("1-9 AFB");
-			else if (areRussianStringsEqual(smearResult,"Нет"))
+			else if (areRussianStringsEqual(smearResult,"�?ет"))
 				mr.setSmearResult("NONE");
 			else
 				mr.setSmearResult(smearResult);
@@ -702,15 +712,15 @@ public class EventHandler
 				String[] splits = patientSideEffects.split(",");
 				String patientSideEffectFull = "";
 				for(String string : splits){
-					if(areRussianStringsEqual(string,"Головная боль"))
+					if(areRussianStringsEqual(string,"Головна�? боль"))
 						patientSideEffectFull= patientSideEffectFull + "HEADACHE,";
 					else if (areRussianStringsEqual(string,"Рвота"))
 						patientSideEffectFull= patientSideEffectFull + "VOMITING,";
 					else if (areRussianStringsEqual(string,"Боль в животе"))
 						patientSideEffectFull= patientSideEffectFull + "ABDOMINAL PAIN,";
-					else if (areRussianStringsEqual(string,"Боль в суставах"))
+					else if (areRussianStringsEqual(string,"Боль в �?у�?тавах"))
 						patientSideEffectFull= patientSideEffectFull + "ARTHRALGIA,";
-					else if (areRussianStringsEqual(string,"Ухудшение зрения"))
+					else if (areRussianStringsEqual(string,"Ухудшение зрени�?"))
 						patientSideEffectFull= patientSideEffectFull + "REDUCTION IN VISION,";
 					else if (areRussianStringsEqual(string,"Другие"))
 						patientSideEffectFull= patientSideEffectFull + otherSideEffects + ",";
@@ -728,11 +738,11 @@ public class EventHandler
 				String[] splits = healthFacility.split(",");
 				String healthFacilityFull = "";
 				for(String string : splits){
-					if(areRussianStringsEqual(string,"Центр здоровья"))
+					if(areRussianStringsEqual(string,"Центр здоровь�?"))
 						healthFacilityFull= healthFacilityFull + "HEALTH CENTER,";
 					else if (areRussianStringsEqual(string,"ТБ центр"))
 						healthFacilityFull= healthFacilityFull + "TB CONTROL CENTER,";
-					else if (areRussianStringsEqual(string,"Гос.больница"))
+					else if (areRussianStringsEqual(string,"Го�?.больница"))
 						healthFacilityFull= healthFacilityFull +"PUBLIC HOSPITAL,";
 					else
 						healthFacilityFull= healthFacilityFull +"PRIVATE HOSPITAL,";
@@ -1178,7 +1188,7 @@ public class EventHandler
 		catch (Exception e)
 		{
 			e.printStackTrace ();
-			//return XmlUtil.createErrorXml ("Ð’Ð¾Ñ€Ð¸Ð´ÑˆÐ°Ð²Ð¸ Ð½Ð¾Ð´ÑƒÑ€ÑƒÑ�Ñ‚ Ð°Ñ�Ñ‚. Ð¢Ð°ÐºÑ€Ð¾Ñ€ ÐºÑƒÐ½ÐµÐ´.");
+			//return XmlUtil.createErrorXml ("�?’�?¾Ñ€�?¸�?´Ñˆ�?°�?²�?¸ �?½�?¾�?´ÑƒÑ€ÑƒÑ�Ñ‚ �?°Ñ�Ñ‚. �?¢�?°�?ºÑ€�?¾Ñ€ �?ºÑƒ�?½�?µ�?´.");
 			return XmlUtil.tajikErrorLoggingXml ("ErrorLogging");
 		}
 		
@@ -1267,7 +1277,7 @@ public class EventHandler
 		bsd.setLocationId(locationId);
 		bsd.setWeight(weight);
 		
-		if(areRussianStringsEqual(baseSputum,"Нет"))
+		if(areRussianStringsEqual(baseSputum,"�?ет"))
 			bsd.setBaselineSputum("NONE");
 		else if(areRussianStringsEqual(baseSputum,"Отр"))
 			bsd.setBaselineSputum("NEGATIVE");
@@ -1276,71 +1286,71 @@ public class EventHandler
 		else
 			bsd.setBaselineSputum(baseSputum);
 		
-		if(areRussianStringsEqual(baseChest,"Нет"))
+		if(areRussianStringsEqual(baseChest,"�?ет"))
 			bsd.setBaselineChest("NONE");
-		else if(areRussianStringsEqual(baseChest,"Нормальный"))
+		else if(areRussianStringsEqual(baseChest,"�?ормальный"))
 			bsd.setBaselineChest("NORMAL");
 		else if(areRussianStringsEqual(baseChest,"Подозрение на ТБ"))
 			bsd.setBaselineChest("SUGGESTIVE OF TB");
 		else if(areRussianStringsEqual(baseChest,"Большое подозрение на ТБ"))
 			bsd.setBaselineChest("TB PROCESS");
-		else if(areRussianStringsEqual(baseChest,"Деструктивность (обусловлена ТБ)"))
+		else if(areRussianStringsEqual(baseChest,"Де�?труктивно�?ть (обу�?ловлена ТБ)"))
 			bsd.setBaselineChest("GROSSLY ABNORMAL (TB RELATED)");
-		else if(areRussianStringsEqual(baseChest,"Деструктивность (обусловлена не ТБ)"))
+		else if(areRussianStringsEqual(baseChest,"Де�?труктивно�?ть (обу�?ловлена не ТБ)"))
 			bsd.setBaselineChest("GROSSLY ABNORMAL (UNRELATED TO TB)");
 		
 		if(areRussianStringsEqual(otherXraySite,"Легкие"))
 			bsd.setOtherXraySite ("LUNGS");
 		else if (areRussianStringsEqual(otherXraySite,"Таз"))
 			bsd.setOtherXraySite ("PELVIS");
-		else if (areRussianStringsEqual(otherXraySite,"Кости"))
+		else if (areRussianStringsEqual(otherXraySite,"Ко�?ти"))
 			bsd.setOtherXraySite ("BONES");
 		else
 			bsd.setOtherXraySite ("OTHER");
 		
-		if(areRussianStringsEqual(resultXray,"Нет"))
+		if(areRussianStringsEqual(resultXray,"�?ет"))
 			bsd.setXrayResult("NONE");
-		else if(areRussianStringsEqual(resultXray,"Нормальный"))
+		else if(areRussianStringsEqual(resultXray,"�?ормальный"))
 			bsd.setXrayResult("NORMAL");
 		else if(areRussianStringsEqual(resultXray,"Подозрение на ТБ"))
 			bsd.setXrayResult("SUGGESTIVE OF TB");
 		else if(areRussianStringsEqual(resultXray,"Большое подозрение на ТБ"))
 			bsd.setXrayResult("TB PROCESS");
-		else if(areRussianStringsEqual(resultXray,"Деструктивность (обусловлена ТБ)"))
+		else if(areRussianStringsEqual(resultXray,"Де�?труктивно�?ть (обу�?ловлена ТБ)"))
 			bsd.setXrayResult("GROSSLY ABNORMAL (TB RELATED)");
 		else
 			bsd.setXrayResult("GROSSLY ABNORMAL (UNRELATED TO TB)");
 
-		if(areRussianStringsEqual(baseGenexpert,"Нет"))
+		if(areRussianStringsEqual(baseGenexpert,"�?ет"))
 			bsd.setBaselineGeneXpert("NONE");
 		else if(baseGenexpert.equals ("MTB Negative"))
 			bsd.setBaselineGeneXpert("MTB -");
 		else
 			bsd.setBaselineGeneXpert("MTB +");
 		
-		if(areRussianStringsEqual(drugsensitive,"Нет"))
+		if(areRussianStringsEqual(drugsensitive,"�?ет"))
 			bsd.setBaselineGeneXpert("NONE");	
 		else if(drugsensitive.equals ("MTB Rif Positive"))
 			 bsd.setGeneXpertDrugSensitivity("MTB Rif +");
 		else 
 			bsd.setGeneXpertDrugSensitivity("MTB Rif -");
 			
-		if(areRussianStringsEqual(typePatient,"Новый случай"))
+		if(areRussianStringsEqual(typePatient,"�?овый �?лучай"))
 			bsd.setTypePatient("NEW");
 		else if(areRussianStringsEqual(typePatient,"Рецидив"))
 			bsd.setTypePatient("RELAPSE");
 		else if(areRussianStringsEqual(typePatient,"Переведен из"))
 			bsd.setTypePatient("TRANSFER IN");
-		else if(areRussianStringsEqual(typePatient,"После отрыва"))
+		else if(areRussianStringsEqual(typePatient,"По�?ле отрыва"))
 			bsd.setTypePatient("TREATMENT AFTER DEFAULT");
-		else if(areRussianStringsEqual(typePatient,"После неудачи лечения"))
+		else if(areRussianStringsEqual(typePatient,"По�?ле неудачи лечени�?"))
 			bsd.setTypePatient("TREATMENT AFTER FAILURE");
 		else
 			bsd.setTypePatient("OTHER");
 		
-		if(areRussianStringsEqual(patientCategory,"Категория 1"))
+		if(areRussianStringsEqual(patientCategory,"Категори�? 1"))
 			bsd.setPatientCategory("CATEGORY 1");
-		else if(areRussianStringsEqual(patientCategory,"Категория 2"))
+		else if(areRussianStringsEqual(patientCategory,"Категори�? 2"))
 			bsd.setPatientCategory("CATEGORY 2");
 		else
 			bsd.setPatientCategory("CATEGORY 3");
@@ -1490,7 +1500,7 @@ public class EventHandler
 		catch (Exception e)
 		{
 			e.printStackTrace ();
-			//return XmlUtil.createErrorXml ("Ð’Ð¾Ñ€Ð¸Ð´ÑˆÐ°Ð²Ð¸ Ð½Ð¾Ð´ÑƒÑ€ÑƒÑ�Ñ‚ Ð°Ñ�Ñ‚. Ð¢Ð°ÐºÑ€Ð¾Ñ€ ÐºÑƒÐ½ÐµÐ´.");
+			//return XmlUtil.createErrorXml ("�?’�?¾Ñ€�?¸�?´Ñˆ�?°�?²�?¸ �?½�?¾�?´ÑƒÑ€ÑƒÑ�Ñ‚ �?°Ñ�Ñ‚. �?¢�?°�?ºÑ€�?¾Ñ€ �?ºÑƒ�?½�?µ�?´.");
 			return XmlUtil.tajikErrorLoggingXml ("ErrorLogging");
 		}
 		
@@ -1581,23 +1591,23 @@ public class EventHandler
 				pdetails.setRelationshipFamily("CHILD");
 			else if (areRussianStringsEqual(relationship,"Мать/отец"))
 				pdetails.setRelationshipFamily("PARENT");
-			else if (areRussianStringsEqual(relationship,"Брат/сестра"))
+			else if (areRussianStringsEqual(relationship,"Брат/�?е�?тра"))
 				pdetails.setRelationshipFamily("SIBLING");
-			else if (areRussianStringsEqual(relationship,"Супруг/супруга"))
+			else if (areRussianStringsEqual(relationship,"Супруг/�?упруга"))
 				pdetails.setRelationshipFamily("SPOUSE");
 			else if (areRussianStringsEqual(relationship,"Бабушка/дедушка"))
 				pdetails.setRelationshipFamily("GRANDPARENT");
 			else if (areRussianStringsEqual(relationship,"Внук/внучка"))
 				pdetails.setRelationshipFamily("GRANDCHILD");
-			else if (areRussianStringsEqual(relationship,"Тетя/дядя"))
+			else if (areRussianStringsEqual(relationship,"Тет�?/д�?д�?"))
 				pdetails.setRelationshipFamily("AUNT/UNCLE");
-			else if (areRussianStringsEqual(relationship,"Двоюродная сестра/брат"))
+			else if (areRussianStringsEqual(relationship,"Двоюродна�? �?е�?тра/брат"))
 				pdetails.setRelationshipFamily("COUSIN");
 			else 
 				pdetails.setRelationshipFamily(relationother.toUpperCase());
 		}
 		
-		if(areRussianStringsEqual(maritalStatus,"Не женат/не замужем"))
+		if(areRussianStringsEqual(maritalStatus,"�?е женат/не замужем"))
 			pdetails.setMaritalStatus("SINGLE");
 		else if(areRussianStringsEqual(maritalStatus,"Женат/замужем"))
 			pdetails.setMaritalStatus("MARRIED");
@@ -1610,28 +1620,28 @@ public class EventHandler
 		else
 			pdetails.setMaritalStatus("REFUSED");
 		
-		if(areRussianStringsEqual(incomeFamilyMember,"До 100 сомони"))
+		if(areRussianStringsEqual(incomeFamilyMember,"До 100 �?омони"))
 			pdetails.setIncomeFamilyMember("");
-		else if(areRussianStringsEqual(incomeFamilyMember,"До 200 сомони"))
+		else if(areRussianStringsEqual(incomeFamilyMember,"До 200 �?омони"))
 			pdetails.setIncomeFamilyMember("UP TO 200 SOMONI");
-		else if(areRussianStringsEqual(incomeFamilyMember,"До 300 сомони"))
+		else if(areRussianStringsEqual(incomeFamilyMember,"До 300 �?омони"))
 			pdetails.setIncomeFamilyMember("UP TO 300 SOMONI");
-		else if(areRussianStringsEqual(incomeFamilyMember,"До 400 сомони"))
+		else if(areRussianStringsEqual(incomeFamilyMember,"До 400 �?омони"))
 			pdetails.setIncomeFamilyMember("UP TO 400 SOMONI");
-		else if(areRussianStringsEqual(incomeFamilyMember,"Более 400 сомони"))
+		else if(areRussianStringsEqual(incomeFamilyMember,"Более 400 �?омони"))
 			pdetails.setIncomeFamilyMember("More than 400 Somoni");
 		else
 			pdetails.setIncomeFamilyMember("REFUSED");
 		
 		if(areRussianStringsEqual(education,"Дошкольное"))
 			pdetails.setEducation("PRE-SCHOOL");
-		else if(areRussianStringsEqual(education,"Начальная школа"))
+		else if(areRussianStringsEqual(education,"�?ачальна�? школа"))
 			pdetails.setEducation("PRIMARY SCHOOL");
-		else if(areRussianStringsEqual(education,"Средняя школа"))
+		else if(areRussianStringsEqual(education,"Средн�?�? школа"))
 			pdetails.setEducation("SECONDARY SCHOOL");
-		else if(areRussianStringsEqual(education,"Среднее специальное"))
+		else if(areRussianStringsEqual(education,"Среднее �?пециальное"))
 			pdetails.setEducation("POST-SECONDARY SCHOOL");
-		else if(areRussianStringsEqual(education,"Высшее"))
+		else if(areRussianStringsEqual(education,"Вы�?шее"))
 			pdetails.setEducation("UNIVERSITY");
 		else
 			pdetails.setEducation("NONE");
@@ -4607,7 +4617,7 @@ public class EventHandler
 			catch (Exception e)
 			{
 				e.printStackTrace ();
-				//return XmlUtil.createErrorXml ("Ð’Ð¾Ñ€Ð¸Ð´ÑˆÐ°Ð²Ð¸ Ð½Ð¾Ð´ÑƒÑ€ÑƒÑ�Ñ‚ Ð°Ñ�Ñ‚. Ð¢Ð°ÐºÑ€Ð¾Ñ€ ÐºÑƒÐ½ÐµÐ´.");
+				//return XmlUtil.createErrorXml ("�?’�?¾Ñ€�?¸�?´Ñˆ�?°�?²�?¸ �?½�?¾�?´ÑƒÑ€ÑƒÑ�Ñ‚ �?°Ñ�Ñ‚. �?¢�?°�?ºÑ€�?¾Ñ€ �?ºÑƒ�?½�?µ�?´.");
 				return XmlUtil.tajikErrorLoggingXml ("ErrorLogging");
 			}
 			
@@ -7389,7 +7399,7 @@ public class EventHandler
 		}
 		
 		if(cough!=null){
-			boolean cx = areRussianStringsEqual(cough,"Не");
+			boolean cx = areRussianStringsEqual(cough,"�?е");
 		if(cx == true)
 		{
 			coughString = "NO";
@@ -7404,8 +7414,8 @@ public class EventHandler
 		 boolean cduration = areRussianStringsEqual(coughDuration,"Камтар аз 2");
 	        boolean cduration1 = areRussianStringsEqual(coughDuration,"2-3 хафта");
 	        boolean cduration2 = areRussianStringsEqual(coughDuration,"Зиёд аз 3 хафта");
-	        boolean cduration3 = areRussianStringsEqual(coughDuration,"Намедонам");
-	        boolean cduration4 = areRussianStringsEqual(coughDuration,"Чавоб нест");
+	        boolean cduration3 = areRussianStringsEqual(coughDuration,"�?амедонам");
+	        boolean cduration4 = areRussianStringsEqual(coughDuration,"Чавоб не�?т");
 		if(cduration == true)
 		{
 			coughDurationString = "LESS THAN 2 WEEKS";
@@ -7438,7 +7448,7 @@ public class EventHandler
 		String productiveString = null;
 		if(productiveCough!=null){
 		
-			boolean px = areRussianStringsEqual(productiveCough,"Не");
+			boolean px = areRussianStringsEqual(productiveCough,"�?е");
 		
 		if(px == true)
 		{
@@ -7455,7 +7465,7 @@ public class EventHandler
 		if(tbHistory!=null){
 		
 		
-			boolean tbx = areRussianStringsEqual(tbHistory,"Не");
+			boolean tbx = areRussianStringsEqual(tbHistory,"�?е");
 		
 		if(tbx == true)
 		{
@@ -7482,7 +7492,7 @@ public class EventHandler
 		if(tbFamilyHistory!=null){
 		
 		
-			boolean tbfx = areRussianStringsEqual(tbFamilyHistory,"Не");
+			boolean tbfx = areRussianStringsEqual(tbFamilyHistory,"�?е");
 		
 		if(tbfx == true)
 		{
@@ -7503,7 +7513,7 @@ public class EventHandler
 		if(fever!=null){
 		
 		
-			boolean fx = areRussianStringsEqual(fever,"Не");
+			boolean fx = areRussianStringsEqual(fever,"�?е");
 		
 		if(fx == true)
 		{
@@ -7521,7 +7531,7 @@ public class EventHandler
 		if(nightSweat!=null){
 		
 		
-			boolean nsx = areRussianStringsEqual(nightSweat,"Не");
+			boolean nsx = areRussianStringsEqual(nightSweat,"�?е");
 		
 		if(nsx ==true)
 		{
@@ -7537,7 +7547,7 @@ public class EventHandler
 		if(weightLoss!=null){
 		
 		
-			boolean wlx = areRussianStringsEqual(weightLoss,"Не");
+			boolean wlx = areRussianStringsEqual(weightLoss,"�?е");
 		
 		if(wlx == true)
 		{
@@ -7554,7 +7564,7 @@ public class EventHandler
 		if(haemoptysis!=null){
 		
 		
-			boolean stx = areRussianStringsEqual(haemoptysis,"Не");
+			boolean stx = areRussianStringsEqual(haemoptysis,"�?е");
 		
 		if(stx == true)
 		{
@@ -7574,7 +7584,7 @@ public class EventHandler
 		String conclusion = request.getParameter ("conc");
 		String conclusionString = "";
 		
-		boolean ccs = areRussianStringsEqual(conclusion,"Шубха ба сил");
+		boolean ccs = areRussianStringsEqual(conclusion,"Шубха ба �?ил");
 		boolean ccseng = conclusion.equalsIgnoreCase("suspect");
 		if(ccs == true || ccseng == true)
 		{
@@ -7780,7 +7790,7 @@ public class EventHandler
 		catch (Exception e1)
 		{
 			e1.printStackTrace ();
-			return XmlUtil.createErrorXml ("Ð¢Ð°ÑŠÑ€Ð¸Ñ… Ð½Ð¾Ð´ÑƒÑ€ÑƒÑ�Ñ‚. Ð¢Ð°ÐºÑ€Ð¾Ñ€ ÐºÑƒÐ½ÐµÐ´");
+			return XmlUtil.createErrorXml ("�?¢�?°ÑŠÑ€�?¸Ñ… �?½�?¾�?´ÑƒÑ€ÑƒÑ�Ñ‚. �?¢�?°�?ºÑ€�?¾Ñ€ �?ºÑƒ�?½�?µ�?´");
 		}
 		
 		EncounterId encId = new EncounterId (0, uniqueID.toUpperCase(), chwId.toUpperCase());
@@ -7873,7 +7883,7 @@ public class EventHandler
 			}
 			if (!resultSave)
 			{
-				return XmlUtil.createErrorXml ("Ð¥Ð°Ñ‚Ð¾ ÑˆÑƒÐ´Ð°Ð°Ñ�Ñ‚. Ð¢Ð°ÐºÑ€Ð¾Ñ€ ÐºÑƒÐ½ÐµÐ´");
+				return XmlUtil.createErrorXml ("�?¥�?°Ñ‚�?¾ ÑˆÑƒ�?´�?°�?°Ñ�Ñ‚. �?¢�?°�?ºÑ€�?¾Ñ€ �?ºÑƒ�?½�?µ�?´");
 			}
 		}
 

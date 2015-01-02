@@ -1,3 +1,13 @@
+<%-- Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. --%>
 <%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
  --%><%@page import="javax.xml.crypto.AlgorithmMethod"%>
 <%@ page contentType="text/html; charset=UTF-8" 
@@ -128,12 +138,12 @@ function addingrows()
  <%--  <%@ include file="grid.jsp"%>  --%>
  <table border="1" width="100%" id="chav">
     <thead>
-    <tr>				<th>Раками шахсии иштирокчи</th>
+    <tr>				<th>Раками шах�?ии иштирокчи</th>
 						<th>№</th>
 						<th>Сана</th>
-						<th>Номгуи муассиса тибби</th>
+						<th>�?омгуи муа�?�?и�?а тибби</th>
 						<!-- <th>Type of Analysis</th> -->
-						<th>Натичаи ташхис</th>
+						<th>�?атичаи ташхи�?</th>
 						
 						</tr>
 						 <tr>
@@ -167,7 +177,7 @@ function addingrows()
     <td><select id="sino" name="sino" >
  	<option>Манфй</option>
  	<option>1-9 AFB</option>
- 	<option>Пусиш</option>
+ 	<option>Пу�?иш</option>
  	<option>1+</option>
  	<option>2+</option>
  	<option>3+</option>
@@ -175,7 +185,7 @@ function addingrows()
     <select id="pino" name="pino" >
  	<option>Манфй</option>
  	<option>1-9 AFB</option>
- 	<option>Пусиш</option>
+ 	<option>Пу�?иш</option>
  	<option>1+</option>
  	<option>2+</option>
  	<option>3+</option>
@@ -183,7 +193,7 @@ function addingrows()
     <select id="tino" name="tino" >
  	<option>Манфй</option>
  	<option>1-9 AFB</option>
- 	<option>Пусиш</option>
+ 	<option>Пу�?иш</option>
  	<option>1+</option>
  	<option>2+</option>
  	<option>3+</option>

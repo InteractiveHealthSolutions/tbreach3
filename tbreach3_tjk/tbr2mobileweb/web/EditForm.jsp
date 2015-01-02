@@ -1,3 +1,13 @@
+<%-- Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. --%>
 <%@page import="javax.xml.crypto.AlgorithmMethod"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
@@ -595,7 +605,7 @@ a:active {
        <% if (request.getAttribute ("patreg") != null){%>
              <div align="left" class="divCenter">
     
-             <h3>Регистрация пациента</h3>
+             <h3>Реги�?траци�? пациента</h3>
              <form id="frm2" action="editServlet" method="post">
              
              <input type="hidden" name="frm" id="frm" value = "regform">
@@ -611,7 +621,7 @@ a:active {
 		         }
 	         %> </span>	
              <br>
-		    Имя:
+		    Им�?:
 		    <% 
 		    if (request.getAttribute("firstname") != null){
 		    %>
@@ -627,7 +637,7 @@ a:active {
 	         }
 	         %> </span>
 		    <br>
-		    Фамилия:
+		    Фамили�?:
 		    <% 
 		    if (request.getAttribute("lastname") != null){
 		    %>
@@ -649,7 +659,7 @@ a:active {
 							<option <% if(request.getAttribute("gender") != null) { String value = (String)request.getAttribute("gender"); if(value.equals("F")) { %> selected="selected" <% } } %> value="F" >Жен</option>
 				    </select>
 			<br>	
-		    Адрес: номер дома:
+		    �?дре�?: номер дома:
 		    <% 
 		    if (request.getAttribute("addhouse") != null){
 		    %>
@@ -665,7 +675,7 @@ a:active {
 	         }
 	         %> </span>	
 		    <br>
-		    Адрес: улица:
+		    �?дре�?: улица:
 		    <% 
 		    if (request.getAttribute("addstreet") != null){
 		    %>
@@ -681,7 +691,7 @@ a:active {
 	         }
 	         %> </span>		
 		    <br>
-		    Адрес: микрорайон:
+		    �?дре�?: микрорайон:
 		    <% 
 		    if (request.getAttribute("adddistrict") != null){
 		    %>
@@ -697,7 +707,7 @@ a:active {
 	         }
 	         %> </span>		
 		    <br>
-		    Адрес: номер квартиры:
+		    �?дре�?: номер квартиры:
 		    <% 
 		    if (request.getAttribute("addflat") != null){
 		    %>
@@ -713,7 +723,7 @@ a:active {
 	         }
 	         %> </span>		
 		    <br>
-		    Номер телефона для СМС:
+		    �?омер телефона дл�? СМС:
 		    <% 
 		    if (request.getAttribute("phone1") != null){
 		    %>
@@ -729,7 +739,7 @@ a:active {
 	         }
 	         %> </span>		
 		    <br>
-		    Номер телефона для связи:
+		    �?омер телефона дл�? �?в�?зи:
 		    <% 
 		    if (request.getAttribute("homephone") != null){
 		    %>
@@ -745,7 +755,7 @@ a:active {
 	         }
 	         %> </span>		
 		    <br>
-		    Дата рождения:
+		    Дата рождени�?:
 		    <% 
 		    if (request.getAttribute("dob") != null){
 		    %>
@@ -762,7 +772,7 @@ a:active {
 	         }
 	         %> </span>		
 		    <br>
-		    Дата начала лечения:
+		    Дата начала лечени�?:
 		    <% 
 		    if (request.getAttribute("dateTreatment") != null){
 		    %>
@@ -779,17 +789,17 @@ a:active {
 	         }
 	         %> </span>	
 		    <br>
-		    Кем волонтер является для пациента?
+		    Кем волонтер �?вл�?ет�?�? дл�? пациента?
 			<select id="relationshipOption" name="relationshipOption" onchange="copy();">
 			                <option value=1 selected="selected">Другие</option>
 							<option <% if(request.getAttribute("realtionshipfamily") != null) { String value = (String)request.getAttribute("realtionshipfamily"); if(value.equals("CHILD")) { %> selected="selected" <% } } %> value="CHILD">Сын/дочь</option>
 							<option <% if(request.getAttribute("realtionshipfamily") != null) { String value = (String)request.getAttribute("realtionshipfamily"); if(value.equals("PARENT")) { %> selected="selected" <% } } %> value="PARENT">Мать/отец</option>
-				            <option <% if(request.getAttribute("realtionshipfamily") != null) { String value = (String)request.getAttribute("realtionshipfamily"); if(value.equals("SIBLING")) { %> selected="selected" <% } } %> value="SIBLING">Брат/сестра</option>
-				            <option <% if(request.getAttribute("realtionshipfamily") != null) { String value = (String)request.getAttribute("realtionshipfamily"); if(value.equals("SPOUSE")) { %> selected="selected" <% } } %> value="SPOUSE">Супруг/супруга</option>
+				            <option <% if(request.getAttribute("realtionshipfamily") != null) { String value = (String)request.getAttribute("realtionshipfamily"); if(value.equals("SIBLING")) { %> selected="selected" <% } } %> value="SIBLING">Брат/�?е�?тра</option>
+				            <option <% if(request.getAttribute("realtionshipfamily") != null) { String value = (String)request.getAttribute("realtionshipfamily"); if(value.equals("SPOUSE")) { %> selected="selected" <% } } %> value="SPOUSE">Супруг/�?упруга</option>
 				            <option <% if(request.getAttribute("realtionshipfamily") != null) { String value = (String)request.getAttribute("realtionshipfamily"); if(value.equals("GRANDPARENT")) { %> selected="selected" <% } } %> value="GRANDPARENT">Бабушка/дедушка</option>
 				            <option <% if(request.getAttribute("realtionshipfamily") != null) { String value = (String)request.getAttribute("realtionshipfamily"); if(value.equals("GRANDCHILD")) { %> selected="selected" <% } } %> value="GRANDCHILD">Внук/внучка</option>
-				            <option <% if(request.getAttribute("realtionshipfamily") != null) { String value = (String)request.getAttribute("realtionshipfamily"); if(value.equals("AUNT/UNCLE")) { %> selected="selected" <% } } %> value="AUNT/UNCLE">Тетя/дядя</option>
-				            <option <% if(request.getAttribute("realtionshipfamily") != null) { String value = (String)request.getAttribute("realtionshipfamily"); if(value.equals("COUSIN")) { %> selected="selected" <% } } %> value="COUSIN">Двоюродная сестра/брат</option>
+				            <option <% if(request.getAttribute("realtionshipfamily") != null) { String value = (String)request.getAttribute("realtionshipfamily"); if(value.equals("AUNT/UNCLE")) { %> selected="selected" <% } } %> value="AUNT/UNCLE">Тет�?/д�?д�?</option>
+				            <option <% if(request.getAttribute("realtionshipfamily") != null) { String value = (String)request.getAttribute("realtionshipfamily"); if(value.equals("COUSIN")) { %> selected="selected" <% } } %> value="COUSIN">Двоюродна�? �?е�?тра/брат</option>
 				    </select>
 			<br>
 			Другие:
@@ -804,31 +814,31 @@ a:active {
 			<br>
 			Семейное положение:
 			<select id="MartialOption" name="MartialOption">
-							<option <% if(request.getAttribute("maritalstatus") != null) { String value = (String)request.getAttribute("maritalstatus"); if(value.equals("SINGLE")) { %> selected="selected" <% } } %> value="SINGLE">Не женат/не замужем</option>
+							<option <% if(request.getAttribute("maritalstatus") != null) { String value = (String)request.getAttribute("maritalstatus"); if(value.equals("SINGLE")) { %> selected="selected" <% } } %> value="SINGLE">�?е женат/не замужем</option>
 							<option <% if(request.getAttribute("maritalstatus") != null) { String value = (String)request.getAttribute("maritalstatus"); if(value.equals("MARRIED")) { %> selected="selected" <% } } %> value="MARRIED">Женат/замужем</option>
 				            <option <% if(request.getAttribute("maritalstatus") != null) { String value = (String)request.getAttribute("maritalstatus"); if(value.equals("DIVORCED")) { %> selected="selected" <% } } %> value="DIVORCED">Разведен/а</option>
 				            <option <% if(request.getAttribute("maritalstatus") != null) { String value = (String)request.getAttribute("maritalstatus"); if(value.equals("WIDOW")) { %> selected="selected" <% } } %> value="WIDOW">Живу раздельно</option>
 				            <option <% if(request.getAttribute("maritalstatus") != null) { String value = (String)request.getAttribute("maritalstatus"); if(value.equals("WIDOWER")) { %> selected="selected" <% } } %> value="WIDOWER">Вдовец/Вдова</option>
-				            <option <% if(request.getAttribute("maritalstatus") != null) { String value = (String)request.getAttribute("maritalstatus"); if(value.equals("REFUSED")) { %> selected="selected" <% } } %> value="REFUSED">Нет ответа</option>
+				            <option <% if(request.getAttribute("maritalstatus") != null) { String value = (String)request.getAttribute("maritalstatus"); if(value.equals("REFUSED")) { %> selected="selected" <% } } %> value="REFUSED">�?ет ответа</option>
 				    </select>
 			<br>
 			Образование:
 			<select id="EducationOption" name="EducationOption">
 							<option <% if(request.getAttribute("education") != null) { String value = (String)request.getAttribute("education"); if(value.equals("PRE-SCHOOL")) { %> selected="selected" <% } } %> value="PRE-SCHOOL">Дошкольное</option>
-							<option <% if(request.getAttribute("education") != null) { String value = (String)request.getAttribute("education"); if(value.equals("PRIMARY SCHOOL")) { %> selected="selected" <% } } %> value="PRIMARY SCHOOL">Начальная школа</option>
-				            <option <% if(request.getAttribute("education") != null) { String value = (String)request.getAttribute("education"); if(value.equals("SECONDARY SCHOOL")) { %> selected="selected" <% } } %> value="SECONDARY SCHOOL">Средняя школа</option>
-				            <option <% if(request.getAttribute("education") != null) { String value = (String)request.getAttribute("education"); if(value.equals("POST-SECONDARY SCHOOL")) { %> selected="selected" <% } } %> value="POST-SECONDARY SCHOOL">Среднее специальное</option>
-				            <option <% if(request.getAttribute("education") != null) { String value = (String)request.getAttribute("education"); if(value.equals("UNIVERSITY")) { %> selected="selected" <% } } %> value="UNIVERSITY">Высшее</option>
-				            <option <% if(request.getAttribute("education") != null) { String value = (String)request.getAttribute("education"); if(value.equals("NONE")) { %> selected="selected" <% } } %> value="NONE">Нет</option>
+							<option <% if(request.getAttribute("education") != null) { String value = (String)request.getAttribute("education"); if(value.equals("PRIMARY SCHOOL")) { %> selected="selected" <% } } %> value="PRIMARY SCHOOL">�?ачальна�? школа</option>
+				            <option <% if(request.getAttribute("education") != null) { String value = (String)request.getAttribute("education"); if(value.equals("SECONDARY SCHOOL")) { %> selected="selected" <% } } %> value="SECONDARY SCHOOL">Средн�?�? школа</option>
+				            <option <% if(request.getAttribute("education") != null) { String value = (String)request.getAttribute("education"); if(value.equals("POST-SECONDARY SCHOOL")) { %> selected="selected" <% } } %> value="POST-SECONDARY SCHOOL">Среднее �?пециальное</option>
+				            <option <% if(request.getAttribute("education") != null) { String value = (String)request.getAttribute("education"); if(value.equals("UNIVERSITY")) { %> selected="selected" <% } } %> value="UNIVERSITY">Вы�?шее</option>
+				            <option <% if(request.getAttribute("education") != null) { String value = (String)request.getAttribute("education"); if(value.equals("NONE")) { %> selected="selected" <% } } %> value="NONE">�?ет</option>
 				    </select>
 			<br>
-			Доход на 1 члена семьи в месяц:
+			Доход на 1 члена �?емьи в ме�?�?ц:
 			<select id="FamilyOption" name="FamilyOption">
-							<option <% if(request.getAttribute("incomefamily") != null) { String value = (String)request.getAttribute("incomefamily"); if(value.equals("UP TO 100 SOMONI")) { %> selected="selected" <% } } %> value="UP TO 100 SOMONI">До 100 сомони</option>
-							<option <% if(request.getAttribute("incomefamily") != null) { String value = (String)request.getAttribute("incomefamily"); if(value.equals("UP TO 200 SOMONI")) { %> selected="selected" <% } } %> value="UP TO 200 SOMONI">До 200 сомони</option>
-				            <option <% if(request.getAttribute("incomefamily") != null) { String value = (String)request.getAttribute("incomefamily"); if(value.equals("UP TO 300 SOMONI")) { %> selected="selected" <% } } %> value="UP TO 300 SOMONI">До 300 сомони</option>
-				            <option <% if(request.getAttribute("incomefamily") != null) { String value = (String)request.getAttribute("incomefamily"); if(value.equals("UP TO 400 SOMONI")) { %> selected="selected" <% } } %> value="UP TO 400 SOMONI">До 400 сомони</option>
-				            <option <% if(request.getAttribute("incomefamily") != null) { String value = (String)request.getAttribute("incomefamily"); if(value.equals("More than 400 Somoni")) { %> selected="selected" <% } } %> value="More than 400 Somoni">Более 400 сомони</option>
+							<option <% if(request.getAttribute("incomefamily") != null) { String value = (String)request.getAttribute("incomefamily"); if(value.equals("UP TO 100 SOMONI")) { %> selected="selected" <% } } %> value="UP TO 100 SOMONI">До 100 �?омони</option>
+							<option <% if(request.getAttribute("incomefamily") != null) { String value = (String)request.getAttribute("incomefamily"); if(value.equals("UP TO 200 SOMONI")) { %> selected="selected" <% } } %> value="UP TO 200 SOMONI">До 200 �?омони</option>
+				            <option <% if(request.getAttribute("incomefamily") != null) { String value = (String)request.getAttribute("incomefamily"); if(value.equals("UP TO 300 SOMONI")) { %> selected="selected" <% } } %> value="UP TO 300 SOMONI">До 300 �?омони</option>
+				            <option <% if(request.getAttribute("incomefamily") != null) { String value = (String)request.getAttribute("incomefamily"); if(value.equals("UP TO 400 SOMONI")) { %> selected="selected" <% } } %> value="UP TO 400 SOMONI">До 400 �?омони</option>
+				            <option <% if(request.getAttribute("incomefamily") != null) { String value = (String)request.getAttribute("incomefamily"); if(value.equals("More than 400 Somoni")) { %> selected="selected" <% } } %> value="More than 400 Somoni">Более 400 �?омони</option>
 				            <option <% if(request.getAttribute("incomefamily") != null) { String value = (String)request.getAttribute("incomefamily"); if(value.equals("REFUSED")) { %> selected="selected" <% } } %> value="REFUSED">нет ответа</option>
 				    </select>
 			<br> 
@@ -852,7 +862,7 @@ a:active {
        <% if (request.getAttribute ("basdet") != null){%>
               <div align="left" class="diCenter">
     
-              <h3>Исходные данные</h3>
+              <h3>И�?ходные данные</h3>
               <form id="frm3" action="editServlet" method="post">
              
             <input type="hidden" name="frm" id="frm" value = "baseform">  
@@ -868,7 +878,7 @@ a:active {
 				         }
 			       %> </span>	
 		    <br>
-		    Вес пациента (кг):
+		    Ве�? пациента (кг):
 		    <% 
 		    if (request.getAttribute("weightbd") != null){
 		    %>
@@ -884,9 +894,9 @@ a:active {
 	         }
 	         %> </span>	
 		    <br> 
-		    Микроскопия мазка (диагностика):
+		    Микро�?копи�? мазка (диагно�?тика):
 			<select id="baselinesputum" name="baselinesputum">
-			                <option <% if(request.getAttribute("baselinesputumbd") != null) { String value = (String)request.getAttribute("baselinesputumbd"); if(value.equals("NONE")) { %> selected="selected" <% } } %> value="NONE" >Нет</option>
+			                <option <% if(request.getAttribute("baselinesputumbd") != null) { String value = (String)request.getAttribute("baselinesputumbd"); if(value.equals("NONE")) { %> selected="selected" <% } } %> value="NONE" >�?ет</option>
 							<option <% if(request.getAttribute("baselinesputumbd") != null) { String value = (String)request.getAttribute("baselinesputumbd"); if(value.equals("NEGATIVE")) { %> selected="selected" <% } } %> value="NEGATIVE" >Отр</option>
 							<option <% if(request.getAttribute("baselinesputumbd") != null) { String value = (String)request.getAttribute("baselinesputumbd"); if(value.equals("1-9 AFB")) { %> selected="selected" <% } } %> value="1-9 AFB" >1-9 КУБ</option>
 				            <option <% if(request.getAttribute("baselinesputumbd") != null) { String value = (String)request.getAttribute("baselinesputumbd"); if(value.contains("1")) { %> selected="selected" <% } } %> value="1" >1+</option>
@@ -894,66 +904,66 @@ a:active {
 				            <option <% if(request.getAttribute("baselinesputumbd") != null) { String value = (String)request.getAttribute("baselinesputumbd"); if(value.contains("3")) { %> selected="selected" <% } } %> value="3" >3+</option>
 				    </select>
 			<br>
-			Рентгенография легких (диагностика):<br>
+			Рентгенографи�? легких (диагно�?тика):<br>
 		    <select id="baselinechest" name="baselinechest">
-		                    <option <% if(request.getAttribute("baselinechestbd") != null) { String value = (String)request.getAttribute("baselinechestbd"); if(value.equals("NONE")) { %> selected="selected" <% } } %> value="NONE">Нет</option>
-							<option <% if(request.getAttribute("baselinechestbd") != null) { String value = (String)request.getAttribute("baselinechestbd"); if(value.equals("NORMAL")) { %> selected="selected" <% } } %> value="NORMAL">Нормальный</option>
+		                    <option <% if(request.getAttribute("baselinechestbd") != null) { String value = (String)request.getAttribute("baselinechestbd"); if(value.equals("NONE")) { %> selected="selected" <% } } %> value="NONE">�?ет</option>
+							<option <% if(request.getAttribute("baselinechestbd") != null) { String value = (String)request.getAttribute("baselinechestbd"); if(value.equals("NORMAL")) { %> selected="selected" <% } } %> value="NORMAL">�?ормальный</option>
 							<option <% if(request.getAttribute("baselinechestbd") != null) { String value = (String)request.getAttribute("baselinechestbd"); if(value.equals("SUGGESTIVE OF TB")) { %> selected="selected" <% } } %> value="SUGGESTIVE OF TB">Подозрение на ТБ</option>
 				            <option <% if(request.getAttribute("baselinechestbd") != null) { String value = (String)request.getAttribute("baselinechestbd"); if(value.contains("TB PROCESS")) { %> selected="selected" <% } } %> value="TB PROCESS">Большое подозрение на ТБ</option>
-				            <option <% if(request.getAttribute("baselinechestbd") != null) { String value = (String)request.getAttribute("baselinechestbd"); if(value.contains("GROSSLY ABNORMAL (TB RELATED)")) { %> selected="selected" <% } } %> value="GROSSLY ABNORMAL (TB RELATED)">Деструктивность (обусловлена ТБ)</option>
-				            <option <% if(request.getAttribute("baselinechestbd") != null) { String value = (String)request.getAttribute("baselinechestbd"); if(value.contains("GROSSLY ABNORMAL (UNRELATED TO TB)")) { %> selected="selected" <% } } %> value="GROSSLY ABNORMAL">Деструктивность (обусловлена не ТБ)</option>
+				            <option <% if(request.getAttribute("baselinechestbd") != null) { String value = (String)request.getAttribute("baselinechestbd"); if(value.contains("GROSSLY ABNORMAL (TB RELATED)")) { %> selected="selected" <% } } %> value="GROSSLY ABNORMAL (TB RELATED)">Де�?труктивно�?ть (обу�?ловлена ТБ)</option>
+				            <option <% if(request.getAttribute("baselinechestbd") != null) { String value = (String)request.getAttribute("baselinechestbd"); if(value.contains("GROSSLY ABNORMAL (UNRELATED TO TB)")) { %> selected="selected" <% } } %> value="GROSSLY ABNORMAL">Де�?труктивно�?ть (обу�?ловлена не ТБ)</option>
 				    </select>
 			<br>
-			Локализация ТБ:
+			Локализаци�? ТБ:
 		    <select id="anyotherxray" name="anyotherxray" onchange="otherXrayResult();">
 							<option <% if(request.getAttribute("otherxraysitebd") != null) { String value = (String)request.getAttribute("otherxraysitebd"); if(value.equals("LUNGS")) { %> selected="selected" <% } } %> value="LUNGS">Легкие</option>
 							<option <% if(request.getAttribute("otherxraysitebd") != null) { String value = (String)request.getAttribute("otherxraysitebd"); if(value.equals("PELVIS")) { %> selected="selected" <% } } %> value="PELVIS">Таз</option>
-				            <option <% if(request.getAttribute("otherxraysitebd") != null) { String value = (String)request.getAttribute("otherxraysitebd"); if(value.contains("BONES")) { %> selected="selected" <% } } %> value="BONES">Кости</option>
+				            <option <% if(request.getAttribute("otherxraysitebd") != null) { String value = (String)request.getAttribute("otherxraysitebd"); if(value.contains("BONES")) { %> selected="selected" <% } } %> value="BONES">Ко�?ти</option>
 				            <option <% if(request.getAttribute("otherxraysitebd") != null) { String value = (String)request.getAttribute("otherxraysitebd"); if(value.contains("OTHER")) { %> selected="selected" <% } } %> value="OTHER">Другие</option>
 				    </select>   
 			<br>
-			Рентгенография органов (диагностика):<br>
+			Рентгенографи�? органов (диагно�?тика):<br>
 		    <select id="xrayresult" name="xrayresult">
-		                    <option <% if(request.getAttribute("xrayresultbd") != null) { String value = (String)request.getAttribute("xrayresultbd"); if(value.equals("NONE")) { %> selected="selected" <% } } %> value="NONE">Нет</option>
-							<option <% if(request.getAttribute("xrayresultbd") != null) { String value = (String)request.getAttribute("xrayresultbd"); if(value.equals("NORMAL")) { %> selected="selected" <% } } %> value="NORMAL">Нормальный</option>
+		                    <option <% if(request.getAttribute("xrayresultbd") != null) { String value = (String)request.getAttribute("xrayresultbd"); if(value.equals("NONE")) { %> selected="selected" <% } } %> value="NONE">�?ет</option>
+							<option <% if(request.getAttribute("xrayresultbd") != null) { String value = (String)request.getAttribute("xrayresultbd"); if(value.equals("NORMAL")) { %> selected="selected" <% } } %> value="NORMAL">�?ормальный</option>
 							<option <% if(request.getAttribute("xrayresultbd") != null) { String value = (String)request.getAttribute("xrayresultbd"); if(value.equals("SUGGESTIVE OF TB")) { %> selected="selected" <% } } %> value="SUGGESTIVE OF TB">Подозрение на ТБ</option>
 				            <option <% if(request.getAttribute("xrayresultbd") != null) { String value = (String)request.getAttribute("xrayresultbd"); if(value.contains("TB PROCESS")) { %> selected="selected" <% } } %> value="TB PROCESS">Большое подозрение на ТБ</option>
-				            <option <% if(request.getAttribute("xrayresultbd") != null) { String value = (String)request.getAttribute("xrayresultbd"); if(value.contains("GROSSLY ABNORMAL (TB RELATED)")) { %> selected="selected" <% } } %> value="GROSSLY ABNORMAL (TB RELATED)">Деструктивность (обусловлена ТБ)</option>
-				            <option <% if(request.getAttribute("xrayresultbd") != null) { String value = (String)request.getAttribute("xrayresultbd"); if(value.contains("GROSSLY ABNORMAL (UNRELATED TO TB)")) { %> selected="selected" <% } } %> value="GROSSLY ABNORMAL (UNRELATED TO TB)">Деструктивность (обусловлена не ТБ)</option>
+				            <option <% if(request.getAttribute("xrayresultbd") != null) { String value = (String)request.getAttribute("xrayresultbd"); if(value.contains("GROSSLY ABNORMAL (TB RELATED)")) { %> selected="selected" <% } } %> value="GROSSLY ABNORMAL (TB RELATED)">Де�?труктивно�?ть (обу�?ловлена ТБ)</option>
+				            <option <% if(request.getAttribute("xrayresultbd") != null) { String value = (String)request.getAttribute("xrayresultbd"); if(value.contains("GROSSLY ABNORMAL (UNRELATED TO TB)")) { %> selected="selected" <% } } %> value="GROSSLY ABNORMAL (UNRELATED TO TB)">Де�?труктивно�?ть (обу�?ловлена не ТБ)</option>
 				    </select>	 	    
 			<br>
 			Результаты GeneXpert:
 			<select id="genexpertresult" name="genexpertresult">
-			                <option <% if(request.getAttribute("baselinegenexpertbd") != null) { String value = (String)request.getAttribute("baselinegenexpertbd"); if(value.equals("NONE")) { %> selected="selected" <% } } %> value="NONE">Нет</option>
+			                <option <% if(request.getAttribute("baselinegenexpertbd") != null) { String value = (String)request.getAttribute("baselinegenexpertbd"); if(value.equals("NONE")) { %> selected="selected" <% } } %> value="NONE">�?ет</option>
 							<option <% if(request.getAttribute("baselinegenexpertbd") != null) { String value = (String)request.getAttribute("baselinegenexpertbd"); if(value.equals("MTB +")) { %> selected="selected" <% } } %> value="MTB +">МБТ +</option>
 							<option <% if(request.getAttribute("baselinegenexpertbd") != null) { String value = (String)request.getAttribute("baselinegenexpertbd"); if(value.equals("MTB -")) { %> selected="selected" <% } } %> value="MTB -">МБТ -</option>
 				    </select>
 			<br>
-			Чувствительность к Rif:
+			Чув�?твительно�?ть к Rif:
 			<select id="genexpertdrugresult" name="genexpertdrugresult">
-			                <option <% if(request.getAttribute("drugsensitivity") != null) { String value = (String)request.getAttribute("drugsensitivity"); if(value.equals("NONE")) { %> selected="selected" <% } } %> value="NONE">Нет</option>
+			                <option <% if(request.getAttribute("drugsensitivity") != null) { String value = (String)request.getAttribute("drugsensitivity"); if(value.equals("NONE")) { %> selected="selected" <% } } %> value="NONE">�?ет</option>
 							<option <% if(request.getAttribute("drugsensitivity") != null) { String value = (String)request.getAttribute("drugsensitivity"); if(value.equals("MTB Rif +")) { %> selected="selected" <% } } %> value="MTB Rif +">МБТ Rif +</option>
 							<option <% if(request.getAttribute("drugsensitivity") != null) { String value = (String)request.getAttribute("drugsensitivity"); if(value.equals("MTB Rif -")) { %> selected="selected" <% } } %> value="MTB Rif -">МБТ Rif -</option>
 				    </select>
 			<br>
 			Тип пациента:
 			<select id="patienttype" name="patienttype">
-							<option <% if(request.getAttribute("typepatientbd") != null) { String value = (String)request.getAttribute("typepatientbd"); if(value.equals("NEW")) { %> selected="selected" <% } } %> value="NEW">Новый случай</option>
+							<option <% if(request.getAttribute("typepatientbd") != null) { String value = (String)request.getAttribute("typepatientbd"); if(value.equals("NEW")) { %> selected="selected" <% } } %> value="NEW">�?овый �?лучай</option>
 							<option <% if(request.getAttribute("typepatientbd") != null) { String value = (String)request.getAttribute("typepatientbd"); if(value.equals("RELAPSE")) { %> selected="selected" <% } } %> value="RELAPSE">Рецидив</option>
 				            <option <% if(request.getAttribute("typepatientbd") != null) { String value = (String)request.getAttribute("typepatientbd"); if(value.contains("TRANSFER IN")) { %> selected="selected" <% } } %> value="TRANSFER IN">Переведен из</option>
-				            <option <% if(request.getAttribute("typepatientbd") != null) { String value = (String)request.getAttribute("typepatientbd"); if(value.contains("TREATMENT AFTER DEFAULT")) { %> selected="selected" <% } } %> value="TREATMENT AFTER DEFAULT">После отрыва</option>
-				            <option <% if(request.getAttribute("typepatientbd") != null) { String value = (String)request.getAttribute("typepatientbd"); if(value.contains("TREATMENT AFTER FAILURE")) { %> selected="selected" <% } } %> value="TREATMENT AFTER FAILURE">После неудачи лечения</option>
+				            <option <% if(request.getAttribute("typepatientbd") != null) { String value = (String)request.getAttribute("typepatientbd"); if(value.contains("TREATMENT AFTER DEFAULT")) { %> selected="selected" <% } } %> value="TREATMENT AFTER DEFAULT">По�?ле отрыва</option>
+				            <option <% if(request.getAttribute("typepatientbd") != null) { String value = (String)request.getAttribute("typepatientbd"); if(value.contains("TREATMENT AFTER FAILURE")) { %> selected="selected" <% } } %> value="TREATMENT AFTER FAILURE">По�?ле неудачи лечени�?</option>
 				            <option <% if(request.getAttribute("typepatientbd") != null) { String value = (String)request.getAttribute("typepatientbd"); if(value.contains("OTHER")) { %> selected="selected" <% } } %> value="OTHER">Другие</option>
 		            </select>
 			<br>
-			Категория лечения пациента:
+			Категори�? лечени�? пациента:
 			<select id="catpatientbd" name="catpatientbd">
-							<option <% if(request.getAttribute("catpatientbd") != null) { String value = (String)request.getAttribute("catpatientbd"); if(value.equals("CATEGORY 1")) { %> selected="selected" <% } } %> value="CATEGORY 1">Категория 1</option>
-							<option <% if(request.getAttribute("catpatientbd") != null) { String value = (String)request.getAttribute("catpatientbd"); if(value.equals("CATEGORY 2")) { %> selected="selected" <% } } %> value="CATEGORY 2">Категория 2</option>
-				            <option <% if(request.getAttribute("catpatientbd") != null) { String value = (String)request.getAttribute("catpatientbd"); if(value.contains("CATEGORY 3")) { %> selected="selected" <% } } %> value="CATEGORY 3">Категория 3</option>
+							<option <% if(request.getAttribute("catpatientbd") != null) { String value = (String)request.getAttribute("catpatientbd"); if(value.equals("CATEGORY 1")) { %> selected="selected" <% } } %> value="CATEGORY 1">Категори�? 1</option>
+							<option <% if(request.getAttribute("catpatientbd") != null) { String value = (String)request.getAttribute("catpatientbd"); if(value.equals("CATEGORY 2")) { %> selected="selected" <% } } %> value="CATEGORY 2">Категори�? 2</option>
+				            <option <% if(request.getAttribute("catpatientbd") != null) { String value = (String)request.getAttribute("catpatientbd"); if(value.contains("CATEGORY 3")) { %> selected="selected" <% } } %> value="CATEGORY 3">Категори�? 3</option>
 		            </select>
 			<br>
-			Режим лечения:
+			Режим лечени�?:
 			<select id="regimenbd" name="regimenbd" onchange="changeRegimen();">
 							<option <% if(request.getAttribute("regimenbd") != null) { String value = (String)request.getAttribute("regimenbd"); if(value.equals("RHZE")) { %> selected="selected" <% } } %> value="RHZE">RHZE</option>
 							<option <% if(request.getAttribute("regimenbd") != null) { String value = (String)request.getAttribute("regimenbd"); if(value.equals("RHZES")) { %> selected="selected" <% } } %> value="RHZES">RHZES</option>
@@ -969,7 +979,7 @@ a:active {
 							<option <% if(request.getAttribute("fixeddosebd") != null) { String value = (String)request.getAttribute("fixeddosebd"); if(value.equals("5")) { %> selected="selected" <% } } %> value="5">5</option>					
 		            </select>
 			<br>
-			Доза стрептомицина:
+			Доза �?трептомицина:
 			<select id="streptomycin" name="streptomycin" <% if( String.valueOf(request.getAttribute("regimenbd")).equals("RHZE")){%> disabled="disabled" <% } %>>
 							<option value="---">-------</option>
 							<option <% if(request.getAttribute("streptomycinbd") != null) { String value = (String)request.getAttribute("streptomycinbd"); if(value.equals("250")) { %> selected="selected" <% } } %> value="250">250</option>
@@ -1018,7 +1028,7 @@ a:active {
           <input type="hidden" name="basesmear" id="basesmear" value = "">
           <input type="hidden" id="reqType" name="reqType" value = "EditOrForms"> 
           
-          Месяц лечения:
+          Ме�?�?ц лечени�?:
           <SELECT NAME="Month_list" id="Month_list" onchange="fillMonitoringDetails();">
           </SELECT>
           <br>
@@ -1027,13 +1037,13 @@ a:active {
           <span id="formValue"> </span>	
           <br>
 		  
-		  Микроскопия мазка (диагностика)
+		  Микро�?копи�? мазка (диагно�?тика)
 		  <input type ="text" name="baselinesmearmd" id="baselinesmearmd" value=""  disabled="disabled"/>
 		  <br>
 		  
-		  Микроскопия мазка (<span id="mon"></span>&nbsp;мес.):
+		  Микро�?копи�? мазка (<span id="mon"></span>&nbsp;ме�?.):
           <SELECT NAME="smearresult" id="smearresult">
-           <option value="Нет">Отр</option>
+           <option value="�?ет">Отр</option>
            <option value="NEGATIVE">Отр</option>
            <option value="1-9 AFB">1-9 КУБ</option>
            <option value="1+">1+</option>
@@ -1042,27 +1052,27 @@ a:active {
           </SELECT>
           <br>
           
-          Самочувствие:
+          Самочув�?твие:
           <SELECT NAME="patientfeel" id="patientfeel">
            <option value="BETTER THAN BEFORE">Улучшение</option>
            <option value="WORSE THAN BEFORE">Ухудшение</option>
            <option value="SAME AS BEFORE">Без изменений</option>
-           <option value="NOT SURE">Не знаю</option>
+           <option value="NOT SURE">�?е знаю</option>
           </SELECT>
           <br>
           
-          Были побочные действия?
+          Были побочные дей�?тви�??
           <SELECT NAME="expsideeffect" id="expsideeffect" onChange="change(1)">
            <option value="1">Да</option>
-           <option value="2">Нет</option>
+           <option value="2">�?ет</option>
           </SELECT>
           <br>
          
-          Какие побочные действия?
+          Какие побочные дей�?тви�??
           <table>
            <tr>
            <td>
-             <input type="checkbox" id="option1" name="option1" value="HEADACHE"> Головная боль
+             <input type="checkbox" id="option1" name="option1" value="HEADACHE"> Головна�? боль
            </td>
            <td>
              <input type="checkbox" id="option2" name="option2" value="VOMITING"> Рвота
@@ -1073,12 +1083,12 @@ a:active {
              <input type="checkbox" id="option3" name="option3" value="ABDOMINAL PAIN"> Боль в животе
            </td>
            <td>
-             <input type="checkbox" id="option4" name="option4" value="ARTHRALGIA"> Боль в суставах
+             <input type="checkbox" id="option4" name="option4" value="ARTHRALGIA"> Боль в �?у�?тавах
            </td>
            </tr>
            <tr>
            <td>
-             <input type="checkbox" id="option5" name="option5" value="REDUCTION IN VISION"> Ухудшение зрения
+             <input type="checkbox" id="option5" name="option5" value="REDUCTION IN VISION"> Ухудшение зрени�?
            </td> 
            <td>
              <input type="checkbox" id="option6" name="option6" value="OTHERS" onclick="otherSideEffect();"> Другие
@@ -1107,17 +1117,17 @@ a:active {
 	         %> </span>
 	         <br>
 		  
-		  Получали консультацию при побочных действиях?
+		  Получали кон�?ультацию при побочных дей�?тви�?х?
 		  <SELECT NAME="patientconsult" id="patientconsult" onChange="change(2)">
            <option value="1">Да</option>
-           <option value="2">Нет</option>
+           <option value="2">�?ет</option>
           </SELECT>
           <br>
           
-          Где получали консультацию при побочных действиях?<br>
+          Где получали кон�?ультацию при побочных дей�?тви�?х?<br>
           <table>
           <tr>
-          <td> <input type="checkbox" id="facility1" name="facility1" value="HEALTH CENTER">Центр здоровья </td>
+          <td> <input type="checkbox" id="facility1" name="facility1" value="HEALTH CENTER">Центр здоровь�? </td>
           <td> <input type="checkbox" id="facility2" name="facility2" value="TB CONTROL CENTER">ТБ центр</td>
           <td>
             <span id="msg3" style="color: red"> <%
@@ -1130,19 +1140,19 @@ a:active {
            </td>
           </tr>
           <tr>
-           <td> <input type="checkbox" id="facility3" name="facility3" value="PUBLIC HOSPITAL"> Гос.больница</td>
-           <td> <input type="checkbox" id="facility4" name="facility4" value="PRIVATE HOSPITAL"> Частная больница</td>
+           <td> <input type="checkbox" id="facility3" name="facility3" value="PUBLIC HOSPITAL"> Го�?.больница</td>
+           <td> <input type="checkbox" id="facility4" name="facility4" value="PRIVATE HOSPITAL"> Ча�?тна�? больница</td>
           </tr>
           </table>
          
-          Пропускали ли прием препаратов в прошлом месяце?
+          Пропу�?кали ли прием препаратов в прошлом ме�?�?це?
           <SELECT NAME="missmedication" id="missmedication" onChange="change(3)">
            <option value="1">Да</option>
-           <option value="2">Нет</option>
+           <option value="2">�?ет</option>
           </SELECT>
           <br>
           
-          Сколько раз пропускали прием препаратов?
+          Сколько раз пропу�?кали прием препаратов?
           <SELECT NAME="durationmissmedication" id="durationmissmedication">
            <option value="ONCE">один раз</option>
            <option value="TWICE">два раза</option>
@@ -1153,14 +1163,14 @@ a:active {
           </SELECT>
           <br>
           
-           Упаковка препаратов за прошедший месяц пустая?
+           Упаковка препаратов за прошедший ме�?�?ц пу�?та�??
           <SELECT NAME="medicinewrapper" id="medicinewrapper" onChange="change(4)">
            <option value="1">Да</option>
-           <option value="2">Нет</option>
+           <option value="2">�?ет</option>
           </SELECT>
           <br>
           
-           Сколько доз не было принято?
+           Сколько доз не было прин�?то?
            <SELECT NAME="doseconsumption" id="doseconsumption">
            <option value="1">1</option>
            <option value="2">2</option>
