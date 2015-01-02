@@ -1,3 +1,13 @@
+/* Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. */
 package org.irdresearch.tbreach.mobile.ui;
 
 
@@ -82,66 +92,66 @@ public class SurveyForm extends BaseTBReachForm implements CommandListener, Item
 	{
 		
 		healthWorkerID = new TextField( "Личный номер медработника" , tbrMidlet.getCurrentUserId() , 10 , TextField.UNEDITABLE);
-		participantID = new TextField( "Регистрационный номер пациента" , "" , 8 , TextField.NUMERIC );
-		participantIDConfirm = new TextField( "Регистрационный номер пациента (повторить)" , "" , 8 , TextField.NUMERIC );
+		participantID = new TextField( "Реги�?трационный номер пациента" , "" , 8 , TextField.NUMERIC );
+		participantIDConfirm = new TextField( "Реги�?трационный номер пациента (повторить)" , "" , 8 , TextField.NUMERIC );
 		
-		satisfiedWithSystem = new ChoiceGroup( "Вы довольны системой хранения и приема медпрепаратов на дому?" , ChoiceGroup.POPUP );
-		satisfiedWithSystem.append("Совершенно согласен", null);
-		satisfiedWithSystem.append("Cогласен", null);
-		satisfiedWithSystem.append("Ничто", null);
-		satisfiedWithSystem.append("Не согласен", null);
-		satisfiedWithSystem.append("Совершенно не согласен", null);
+		satisfiedWithSystem = new ChoiceGroup( "Вы довольны �?и�?темой хранени�? и приема медпрепаратов на дому?" , ChoiceGroup.POPUP );
+		satisfiedWithSystem.append("Совершенно �?огла�?ен", null);
+		satisfiedWithSystem.append("Cогла�?ен", null);
+		satisfiedWithSystem.append("�?ичто", null);
+		satisfiedWithSystem.append("�?е �?огла�?ен", null);
+		satisfiedWithSystem.append("Совершенно не �?огла�?ен", null);
 		
-		unsatisfactoryApsectsOfSystem = new TextField( "Если нет, то почему?" , "" , 256  , TextField.ANY );
+		unsatisfactoryApsectsOfSystem = new TextField( "Е�?ли нет, то почему?" , "" , 256  , TextField.ANY );
 		unsatisfactoryApsectsOfSystem.setInitialInputMode("UCB_CYRILLIC"); 
 		
-		systemImproved = new TextField( "Как можно улучшить эту систему?" , "" , 256  , TextField.ANY );
+		systemImproved = new TextField( "Как можно улучшить �?ту �?и�?тему?" , "" , 256  , TextField.ANY );
 		systemImproved.setInitialInputMode("UCB_CYRILLIC"); 
 		
-		satisfyWithReminderSystem = new ChoiceGroup("Вы довольны системой СМС напоминаний?" , ChoiceGroup.POPUP );
-		satisfyWithReminderSystem.append("Совершенно согласен", null);
-		satisfyWithReminderSystem.append("Cогласен", null);
-		satisfyWithReminderSystem.append("Ничто", null);
-		satisfyWithReminderSystem.append("Не согласен", null);
-		satisfyWithReminderSystem.append("Совершенно не согласен", null);
+		satisfyWithReminderSystem = new ChoiceGroup("Вы довольны �?и�?темой СМС напоминаний?" , ChoiceGroup.POPUP );
+		satisfyWithReminderSystem.append("Совершенно �?огла�?ен", null);
+		satisfyWithReminderSystem.append("Cогла�?ен", null);
+		satisfyWithReminderSystem.append("�?ичто", null);
+		satisfyWithReminderSystem.append("�?е �?огла�?ен", null);
+		satisfyWithReminderSystem.append("Совершенно не �?огла�?ен", null);
 		
-		unsatisfactoryApectsOfReminderSystem = new TextField( "Если нет, то почему?" , "" , 256  , TextField.ANY );
+		unsatisfactoryApectsOfReminderSystem = new TextField( "Е�?ли нет, то почему?" , "" , 256  , TextField.ANY );
 		unsatisfactoryApectsOfReminderSystem.setInitialInputMode("UCB_CYRILLIC"); 
 		
-		smsSystemAdditionalEffort = new ChoiceGroup("Требует ли система СМС напоминаний от вас дополнительных усилий?" , ChoiceGroup.POPUP );
-		smsSystemAdditionalEffort.append("Совершенно согласен", null);
-		smsSystemAdditionalEffort.append("Cогласен", null);
-		smsSystemAdditionalEffort.append("Ничто", null);
-		smsSystemAdditionalEffort.append("Не согласен", null);
-		smsSystemAdditionalEffort.append("Совершенно не согласен", null);
+		smsSystemAdditionalEffort = new ChoiceGroup("Требует ли �?и�?тема СМС напоминаний от ва�? дополнительных у�?илий?" , ChoiceGroup.POPUP );
+		smsSystemAdditionalEffort.append("Совершенно �?огла�?ен", null);
+		smsSystemAdditionalEffort.append("Cогла�?ен", null);
+		smsSystemAdditionalEffort.append("�?ичто", null);
+		smsSystemAdditionalEffort.append("�?е �?огла�?ен", null);
+		smsSystemAdditionalEffort.append("Совершенно не �?огла�?ен", null);
 		
-		smsSystemTreatmentCompliance = new ChoiceGroup("Помогает ли система СМС напоминаний соблюдать режим лечения?" , ChoiceGroup.POPUP );
-		smsSystemTreatmentCompliance.append("Совершенно согласен", null);
-		smsSystemTreatmentCompliance.append("Cогласен", null);
-		smsSystemTreatmentCompliance.append("Ничто", null);
-		smsSystemTreatmentCompliance.append("Не согласен", null);
-		smsSystemTreatmentCompliance.append("Совершенно не согласен", null);
+		smsSystemTreatmentCompliance = new ChoiceGroup("Помогает ли �?и�?тема СМС напоминаний �?облюдать режим лечени�??" , ChoiceGroup.POPUP );
+		smsSystemTreatmentCompliance.append("Совершенно �?огла�?ен", null);
+		smsSystemTreatmentCompliance.append("Cогла�?ен", null);
+		smsSystemTreatmentCompliance.append("�?ичто", null);
+		smsSystemTreatmentCompliance.append("�?е �?огла�?ен", null);
+		smsSystemTreatmentCompliance.append("Совершенно не �?огла�?ен", null);
 		
-		serviceByHealthFacility = new ChoiceGroup("Как вы оцениваете качество услуг в медучреждении?" , ChoiceGroup.POPUP );
-		serviceByHealthFacility.append("Совершенно согласен", null);
-		serviceByHealthFacility.append("Cогласен", null);
-		serviceByHealthFacility.append("Ничто", null);
-		serviceByHealthFacility.append("Не согласен", null);
-		serviceByHealthFacility.append("Совершенно не согласен", null);
+		serviceByHealthFacility = new ChoiceGroup("Как вы оцениваете каче�?тво у�?луг в медучреждении?" , ChoiceGroup.POPUP );
+		serviceByHealthFacility.append("Совершенно �?огла�?ен", null);
+		serviceByHealthFacility.append("Cогла�?ен", null);
+		serviceByHealthFacility.append("�?ичто", null);
+		serviceByHealthFacility.append("�?е �?огла�?ен", null);
+		serviceByHealthFacility.append("Совершенно не �?огла�?ен", null);
 		
-		careByTbSpecialist = new ChoiceGroup("Как вы оцениваете качество работы специалиста по ТБ?" , ChoiceGroup.POPUP );
-		careByTbSpecialist.append("Совершенно согласен", null);
-		careByTbSpecialist.append("Cогласен", null);
-		careByTbSpecialist.append("Ничто", null);
-		careByTbSpecialist.append("Не согласен", null);
-		careByTbSpecialist.append("Совершенно не согласен", null);
+		careByTbSpecialist = new ChoiceGroup("Как вы оцениваете каче�?тво работы �?пециали�?та по ТБ?" , ChoiceGroup.POPUP );
+		careByTbSpecialist.append("Совершенно �?огла�?ен", null);
+		careByTbSpecialist.append("Cогла�?ен", null);
+		careByTbSpecialist.append("�?ичто", null);
+		careByTbSpecialist.append("�?е �?огла�?ен", null);
+		careByTbSpecialist.append("Совершенно не �?огла�?ен", null);
 		
-		tbTreatmentSystem = new ChoiceGroup("Вас устраивает система лечения ТБ пациентов в стране?" , ChoiceGroup.POPUP );
-		tbTreatmentSystem.append("Совершенно согласен", null);
-		tbTreatmentSystem.append("Cогласен", null);
-		tbTreatmentSystem.append("Ничто", null);
-		tbTreatmentSystem.append("Не согласен", null);
-		tbTreatmentSystem.append("Совершенно не согласен", null);
+		tbTreatmentSystem = new ChoiceGroup("Ва�? у�?траивает �?и�?тема лечени�? ТБ пациентов в �?тране?" , ChoiceGroup.POPUP );
+		tbTreatmentSystem.append("Совершенно �?огла�?ен", null);
+		tbTreatmentSystem.append("Cогла�?ен", null);
+		tbTreatmentSystem.append("�?ичто", null);
+		tbTreatmentSystem.append("�?е �?огла�?ен", null);
+		tbTreatmentSystem.append("Совершенно не �?огла�?ен", null);
 		
 		endOfForm = new StringItem( "Конец формы" , "" );
 		
@@ -198,7 +208,7 @@ public class SurveyForm extends BaseTBReachForm implements CommandListener, Item
 	private boolean validate()
 	{
 		boolean result = true;
-		String error = "Исправьте все ошибки: \n";
+		String error = "И�?правьте в�?е ошибки: \n";
 		if(participantID.getString().equals( "" ) || participantIDConfirm.getString().equals( "" ))
 		{
 			error = error + "Укажите номер пациента. \n";
@@ -207,7 +217,7 @@ public class SurveyForm extends BaseTBReachForm implements CommandListener, Item
 		}else
 		
 		if (!participantIDConfirm.getString ().equals (participantID.getString ())){
-			error = error + "Номера не совпадают. \n";
+			error = error + "�?омера не �?овпадают. \n";
 			//tbrMidlet.showAlert ("IDs do not match", null);
 			result = false;
 		}	
@@ -242,7 +252,7 @@ public class SurveyForm extends BaseTBReachForm implements CommandListener, Item
 						removeCommand( cmdOK );
 						removeCommand( cmdBack );
 						init();
-						tbrMidlet.showAlert("Данные сохранены!" , null );
+						tbrMidlet.showAlert("Данные �?охранены!" , null );
 
 
 				}

@@ -1,3 +1,13 @@
+/* Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. */
 package org.irdresearch.tbreach.mobile.ui;
 
 import java.util.Hashtable;
@@ -70,74 +80,74 @@ public class BaselineForm extends BaseTBReachForm implements CommandListener, It
 	public void init()
 	{
 		//healthWorkerID = new TextField( "Личный номер медработника" , tbrMidlet.getCurrentUserId() , 10 , TextField.UNEDITABLE);
-		participantID = new TextField( "Регистрационный номер пациента" , (String)queryData.get("pid") , 8 , TextField.UNEDITABLE );
-		oldStartTreatment = new TextField("Дата начала лечения" , (String)queryData.get("treatmentinitate"), 10, TextField.UNEDITABLE);
-		//startTreatment = new DateField( "новый: Дата начала лечения (если изменилось)" ,  DateField.DATE);
+		participantID = new TextField( "Реги�?трационный номер пациента" , (String)queryData.get("pid") , 8 , TextField.UNEDITABLE );
+		oldStartTreatment = new TextField("Дата начала лечени�?" , (String)queryData.get("treatmentinitate"), 10, TextField.UNEDITABLE);
+		//startTreatment = new DateField( "новый: Дата начала лечени�? (е�?ли изменило�?ь)" ,  DateField.DATE);
 		//startTreatment.setDate( null );
 		
-		weight = new TextField( "Вес пациента (кг)" , "" , 3  , TextField.NUMERIC );
+		weight = new TextField( "Ве�? пациента (кг)" , "" , 3  , TextField.NUMERIC );
 		
-		baselineSputum = new ChoiceGroup( "Микроскопия мазка (диагностика)" , ChoiceGroup.POPUP );
-		baselineSputum.append( "Нет" , null );
+		baselineSputum = new ChoiceGroup( "Микро�?копи�? мазка (диагно�?тика)" , ChoiceGroup.POPUP );
+		baselineSputum.append( "�?ет" , null );
 		baselineSputum.append( "Отр" , null );
 		baselineSputum.append( "1-9 КУБ" , null );
 		baselineSputum.append( "1+" , null );
 		baselineSputum.append( "2+" , null );
 		baselineSputum.append( "3+" , null );
 		
-		baselineChest = new ChoiceGroup( "Рентгенография легких (диагностика)" , ChoiceGroup.POPUP );
-		baselineChest.append( "Нет" , null );
-		baselineChest.append( "Нормальный" , null );
+		baselineChest = new ChoiceGroup( "Рентгенографи�? легких (диагно�?тика)" , ChoiceGroup.POPUP );
+		baselineChest.append( "�?ет" , null );
+		baselineChest.append( "�?ормальный" , null );
 		baselineChest.append( "Подозрение на ТБ" , null );
 		baselineChest.append( "Большое подозрение на ТБ" , null );
-		baselineChest.append( "Деструктивность (обусловлена ТБ)" , null );
-		baselineChest.append( "Деструктивность (обусловлена не ТБ)" , null );
+		baselineChest.append( "Де�?труктивно�?ть (обу�?ловлена ТБ)" , null );
+		baselineChest.append( "Де�?труктивно�?ть (обу�?ловлена не ТБ)" , null );
 		
-		otherXraySite = new ChoiceGroup("Локализация ТБ", ChoiceGroup.POPUP);
+		otherXraySite = new ChoiceGroup("Локализаци�? ТБ", ChoiceGroup.POPUP);
 		otherXraySite.append( "Легкие" , null );
 		otherXraySite.append( "Таз" , null );
-		otherXraySite.append( "Кости" , null );
+		otherXraySite.append( "Ко�?ти" , null );
 		otherXraySite.append( "Другие" , null );
 		
-		resultXray = new ChoiceGroup("Рентгенография органов (диагностика)", ChoiceGroup.POPUP);
-		resultXray.append( "Нет" , null );
-		resultXray.append( "Нормальный" , null );
+		resultXray = new ChoiceGroup("Рентгенографи�? органов (диагно�?тика)", ChoiceGroup.POPUP);
+		resultXray.append( "�?ет" , null );
+		resultXray.append( "�?ормальный" , null );
 		resultXray.append( "Подозрение на ТБ" , null );
 		resultXray.append( "Большое подозрение на ТБ" , null );
-		resultXray.append( "Деструктивность (обусловлена ТБ)" , null );
-		resultXray.append( "Деструктивность (обусловлена не ТБ)" , null );
+		resultXray.append( "Де�?труктивно�?ть (обу�?ловлена ТБ)" , null );
+		resultXray.append( "Де�?труктивно�?ть (обу�?ловлена не ТБ)" , null );
 		
 		//TODO: Should we remove extra option? 
 		
 		baselineGeneXpert = new ChoiceGroup( "Результаты GeneXpert" , ChoiceGroup.POPUP );
-		baselineGeneXpert.append( "Нет" , null );
+		baselineGeneXpert.append( "�?ет" , null );
 		baselineGeneXpert.append( "МБТ -" , null );
 		baselineGeneXpert.append( "МБТ +" , null );
-		//baselineGeneXpert.append( "Номаълум" , null );
+		//baselineGeneXpert.append( "�?омаълум" , null );
 		//baselineGeneXpert.append( "Хато" , null );
 		
-		geneXpertDrugSensitivity = new ChoiceGroup( "Чувствительность к Rif" , ChoiceGroup.POPUP );
-		geneXpertDrugSensitivity.append( "Нет" , null );
+		geneXpertDrugSensitivity = new ChoiceGroup( "Чув�?твительно�?ть к Rif" , ChoiceGroup.POPUP );
+		geneXpertDrugSensitivity.append( "�?ет" , null );
 		geneXpertDrugSensitivity.append( "МБТ Rif +" , null );
 		geneXpertDrugSensitivity.append( "МБТ Rif -" , null );
-		//geneXpertDrugSensitivity.append( "Номаълум" , null );
+		//geneXpertDrugSensitivity.append( "�?омаълум" , null );
 		//geneXpertDrugSensitivity.append( "Хато" , null );
-		//geneXpertDrugSensitivity.append( "Нест" , null );
+		//geneXpertDrugSensitivity.append( "�?е�?т" , null );
 		
 		typePatient = new ChoiceGroup( "Тип пациента" , ChoiceGroup.POPUP );
-		typePatient.append( "Новый случай" , null );
+		typePatient.append( "�?овый �?лучай" , null );
 		typePatient.append( "Рецидив" , null );
 		typePatient.append( "Переведен из" , null );
-		typePatient.append( "После отрыва" , null );
-		typePatient.append( "После неудачи лечения" , null );
+		typePatient.append( "По�?ле отрыва" , null );
+		typePatient.append( "По�?ле неудачи лечени�?" , null );
 		typePatient.append( "Другие" , null );
 		
-		patientCategory = new ChoiceGroup( "Категория лечения пациента" , ChoiceGroup.POPUP );
-		patientCategory.append( "Категория 1" , null );
-		patientCategory.append( "Категория 2" , null );
-		patientCategory.append( "Категория 3" , null );
+		patientCategory = new ChoiceGroup( "Категори�? лечени�? пациента" , ChoiceGroup.POPUP );
+		patientCategory.append( "Категори�? 1" , null );
+		patientCategory.append( "Категори�? 2" , null );
+		patientCategory.append( "Категори�? 3" , null );
 		
-		regimen = new ChoiceGroup( "Режим лечения" , ChoiceGroup.POPUP );
+		regimen = new ChoiceGroup( "Режим лечени�?" , ChoiceGroup.POPUP );
 		regimen.append( "RHZE" , null );
 		regimen.append( "RHZES" , null );
 		
@@ -149,7 +159,7 @@ public class BaselineForm extends BaseTBReachForm implements CommandListener, It
 		fixedDose.append( "4" , null );
 		fixedDose.append( "5" , null );
 		
-		strepto = new ChoiceGroup( "Доза стрептомицина" , ChoiceGroup.POPUP );
+		strepto = new ChoiceGroup( "Доза �?трептомицина" , ChoiceGroup.POPUP );
 		strepto.append( "250" , null );
 		strepto.append( "500" , null );
 		strepto.append( "750" , null );
@@ -197,7 +207,7 @@ public class BaselineForm extends BaseTBReachForm implements CommandListener, It
 						removeCommand( cmdOK );
 						removeCommand( cmdBack );
 						init();
-						tbrMidlet.showAlert("Данные сохранены!" , null );
+						tbrMidlet.showAlert("Данные �?охранены!" , null );
 
 
 				}
@@ -295,13 +305,13 @@ public class BaselineForm extends BaseTBReachForm implements CommandListener, It
 		
 		if(i == patientCategory)
 		{
-			if(patientCategory.getString( patientCategory.getSelectedIndex() ).equals( "Категория 1" ))
+			if(patientCategory.getString( patientCategory.getSelectedIndex() ).equals( "Категори�? 1" ))
 			{
 				regimen.setSelectedIndex( 0 , true);
 				
 			}
 			
-			else if(patientCategory.getString( patientCategory.getSelectedIndex() ).equals( "Категория 2" ))
+			else if(patientCategory.getString( patientCategory.getSelectedIndex() ).equals( "Категори�? 2" ))
 			{
 				regimen.setSelectedIndex( 1 , true);
 			}
@@ -316,7 +326,7 @@ public class BaselineForm extends BaseTBReachForm implements CommandListener, It
 		
 		if(weight.getString().equals( "" ))
 		{
-			tbrMidlet.showAlert ("Укажите вес пациента", null);
+			tbrMidlet.showAlert ("Укажите ве�? пациента", null);
 			result = false;
 		}
 		return result;

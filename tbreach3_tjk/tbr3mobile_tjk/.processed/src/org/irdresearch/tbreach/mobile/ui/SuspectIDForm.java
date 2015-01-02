@@ -1,3 +1,13 @@
+/* Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. */
 package org.irdresearch.tbreach.mobile.ui;
 
 
@@ -155,7 +165,7 @@ public class SuspectIDForm extends BaseTBReachForm implements CommandListener, I
 			gpIdField.setString(tbrMidlet.getCurrentUserId());
 			chwIdField.setConstraints(TextField.UNEDITABLE);
 		}*/
-		dateField = new DateField("Санаи мусохиба", DateField.DATE);
+		dateField = new DateField("Санаи му�?охиба", DateField.DATE);
 		dateField.setDate(new Date());
 		 list = new ChoiceGroup("Як-то интихоб", Choice.EXCLUSIVE);
 		 list.append( "Руз" , null);
@@ -167,58 +177,58 @@ public class SuspectIDForm extends BaseTBReachForm implements CommandListener, I
 		 indexHospital = new TextField( "Index # of Hospital" , ""  , 15 , TextField.ANY);
 		 districtregistration = new TextField( "District Registration on TB03" , "" , 15 , TextField.ANY);
 */
-		firstNameField = new TextField("Ном:", "", 25, TextField.ANY);
-		lastNameField = new TextField("Насаб:", "", 25, TextField.ANY);
+		firstNameField = new TextField("�?ом:", "", 25, TextField.ANY);
+		lastNameField = new TextField("�?а�?аб:", "", 25, TextField.ANY);
 		//labTestOtherField = new TextField("If other, specify:", "", 15, TextField.ANY);
 
-		sexGroup = new ChoiceGroup("Чинс:", Choice.POPUP);
+		sexGroup = new ChoiceGroup("Чин�?:", Choice.POPUP);
 		sexGroup.append("M",null);
 		sexGroup.append("З", null);
 		
-		ageField = new TextField("Сину сол:", "", 3, TextField.NUMERIC);
+		ageField = new TextField("Сину �?ол:", "", 3, TextField.NUMERIC);
 		//phoneField = new TextField("Phone:" , "", 20, TextField.ANY);	
 		
-		treatmentquestion = new ChoiceGroup( "Табобати зидди сили мегиред?" , ChoiceGroup.POPUP);
-		treatmentquestion.append("Не",null);
+		treatmentquestion = new ChoiceGroup( "Табобати зидди �?или мегиред?" , ChoiceGroup.POPUP);
+		treatmentquestion.append("�?е",null);
 		treatmentquestion.append("Xa",null);
 		treatmentquestion.setSelectedIndex(0, true);
 
 		coughGroup = new ChoiceGroup("Сулфа доред?", ChoiceGroup.POPUP);
-		coughGroup.append("Не",null);
+		coughGroup.append("�?е",null);
 		coughGroup.append("Xa",null);
 		coughGroup.setSelectedIndex(0, true);
 		
-		coughDurationGroup=  new ChoiceGroup("Чанд хафта Шумо месулфед?", ChoiceGroup.POPUP);
+		coughDurationGroup=  new ChoiceGroup("Чанд хафта Шумо ме�?улфед?", ChoiceGroup.POPUP);
 		coughDurationGroup.append("Камтар аз 2 ", null);
 		coughDurationGroup.append("2-3 хафта", null);
 		coughDurationGroup.append("Зиёд аз 3 хафта", null);
-		coughDurationGroup.append("Намедонам", null);
-		coughDurationGroup.append("Чавоб нест", null);
+		coughDurationGroup.append("�?амедонам", null);
+		coughDurationGroup.append("Чавоб не�?т", null);
 		coughDurationGroup.setSelectedIndex(0,true);
 		
 		coughDurationString=new StringItem("", "");
 		
-		productiveCoughGroup = new ChoiceGroup("Хангоми сулфидан балгам доред?", ChoiceGroup.POPUP);
-		productiveCoughGroup.append("Не", null);
+		productiveCoughGroup = new ChoiceGroup("Хангоми �?улфидан балгам доред?", ChoiceGroup.POPUP);
+		productiveCoughGroup.append("�?е", null);
 		productiveCoughGroup.append("Ха",null);
-		productiveCoughGroup.append("Чавоб нест", null);
+		productiveCoughGroup.append("Чавоб не�?т", null);
 		//productiveCough.append("Don't know", null);
 		productiveCoughGroup.setSelectedIndex(0, true);
 		
 		productiveCoughString=new StringItem("", "");
 		
-		tbHistoryGroup = new ChoiceGroup("Бемории сил шудаед?", ChoiceGroup.POPUP);
-		tbHistoryGroup.append("Не", null);
+		tbHistoryGroup = new ChoiceGroup("Бемории �?ил шудаед?", ChoiceGroup.POPUP);
+		tbHistoryGroup.append("�?е", null);
 		tbHistoryGroup.append("Ха",null);
-		tbHistoryGroup.append("Чавоб нест", null);
+		tbHistoryGroup.append("Чавоб не�?т", null);
 		//tbHistory.append("Don't Know", null);
 		tbHistoryGroup.setSelectedIndex(0, true);
 		
 		
-		tbFamilyHistoryGroup = new ChoiceGroup("Дар оила бемори сил хаст?", ChoiceGroup.POPUP);
-		tbFamilyHistoryGroup.append("Не", null);
+		tbFamilyHistoryGroup = new ChoiceGroup("Дар оила бемори �?ил ха�?т?", ChoiceGroup.POPUP);
+		tbFamilyHistoryGroup.append("�?е", null);
 		tbFamilyHistoryGroup.append("Ха",null);
-		tbFamilyHistoryGroup.append("Чавоб нест", null);
+		tbFamilyHistoryGroup.append("Чавоб не�?т", null);
 		//tbFamilyHistory.append("Don't Know", null);
 		tbFamilyHistoryGroup.setSelectedIndex(0, true);
 		
@@ -226,15 +236,15 @@ public class SuspectIDForm extends BaseTBReachForm implements CommandListener, I
 		gpConfirmed.append("No", null);
 		gpConfirmed.append("Yes",null);*/
 		
-		conclusionGroup = new TextField("Шубха ба сил хаст ё не?","",15, TextField.UNEDITABLE);
+		conclusionGroup = new TextField("Шубха ба �?ил ха�?т ё не?","",15, TextField.UNEDITABLE);
 		//conclusionGroup.setString("Suspect");
 		//
 		SUSPECT_INDEX=0;
 		NOT_SUSPECT_INDEX=1;
 		//conclusionGroup.setSelectedIndex(NOT_SUSPECT_INDEX, true);
-		conclusionGroup.setString("Сил нест");
-	//	idField = new TextField("Раками шахсии иштирокчи:", "", IdValidateUtil.MAX_PAT_LENGTH, TextField.NUMERIC);
-	//	idConfirm = new TextField("Раками шахсии иштирокчи:", "", IdValidateUtil.MAX_PAT_LENGTH, TextField.NUMERIC);
+		conclusionGroup.setString("Сил не�?т");
+	//	idField = new TextField("Раками шах�?ии иштирокчи:", "", IdValidateUtil.MAX_PAT_LENGTH, TextField.NUMERIC);
+	//	idConfirm = new TextField("Раками шах�?ии иштирокчи:", "", IdValidateUtil.MAX_PAT_LENGTH, TextField.NUMERIC);
 		
 		locationGroup = new ChoiceGroup("Чойгиршави:" , Choice.POPUP);
 		locationGroup.append("Poly Clinic Dushanbe 1" , null);
@@ -257,28 +267,28 @@ public class SuspectIDForm extends BaseTBReachForm implements CommandListener, I
 		locationGroup.append("Prison system" , null);
 				
 		
-		feverGroup = new ChoiceGroup("Ду хафтаи охир тасб доред?", Choice.POPUP);
-		feverGroup.append("Не", null);
+		feverGroup = new ChoiceGroup("Ду хафтаи охир та�?б доред?", Choice.POPUP);
+		feverGroup.append("�?е", null);
 		feverGroup.append("Ха",  null);
-		feverGroup.append("Чавоб нест", null);
+		feverGroup.append("Чавоб не�?т", null);
 		//fever.append("Don't know", null);
 		
 		nightSweatGroup = new ChoiceGroup("Ду хафтаи охир шабхо \nарак мекунед?", Choice.POPUP);
-		nightSweatGroup.append("Не", null);
+		nightSweatGroup.append("�?е", null);
 		nightSweatGroup.append("Ха", null);
-		nightSweatGroup.append("Чавоб нест", null);
+		nightSweatGroup.append("Чавоб не�?т", null);
 		//nightSweat.append("Don't know", null);
 		
-		weightLossGroup = new ChoiceGroup("Пастшавии иштихо ва вазн хаст?", Choice.POPUP);
-		weightLossGroup.append("Не", null);
+		weightLossGroup = new ChoiceGroup("Па�?тшавии иштихо ва вазн ха�?т?", Choice.POPUP);
+		weightLossGroup.append("�?е", null);
 		weightLossGroup.append("Ха", null);
-		weightLossGroup.append("Чавоб нест", null);
+		weightLossGroup.append("Чавоб не�?т", null);
 		//weightLoss.append("Don't know", null);
 		
-		haemoptysisGroup = new ChoiceGroup("Хунтуфкуни хангоми сулфа хаст?", Choice.POPUP);
-		haemoptysisGroup.append("Не", null);
+		haemoptysisGroup = new ChoiceGroup("Хунтуфкуни хангоми �?улфа ха�?т?", Choice.POPUP);
+		haemoptysisGroup.append("�?е", null);
 		haemoptysisGroup.append("Ха", null);
-		haemoptysisGroup.append("Чавоб нест", null);
+		haemoptysisGroup.append("Чавоб не�?т", null);
 		//haemoptysis.append("Don't know", null);
 	
 		
@@ -369,7 +379,7 @@ public class SuspectIDForm extends BaseTBReachForm implements CommandListener, I
 							removeCommand(cmdOK);
 							removeCommand(cmdBack);
 							init();
-							tbrMidlet.showAlert("Маълумотхо сабт шудаанд. Барои бозгашт ба Менюи аввал тугмачаи Done-ро зер намоед. Раками бакайдгирии ин шахс "+uniqueID+" аст",null);
+							tbrMidlet.showAlert("Маълумотхо �?абт шудаанд. Барои бозгашт ба Менюи аввал тугмачаи Done-ро зер намоед. Раками бакайдгирии ин шах�? "+uniqueID+" а�?т",null);
 							
 						}
 						else{
@@ -377,7 +387,7 @@ public class SuspectIDForm extends BaseTBReachForm implements CommandListener, I
 							removeCommand(cmdOK);
 							removeCommand(cmdBack);
 							init();
-							tbrMidlet.showAlert("Ин шахс гумонбар ба сил нест. Маълумотхо сабт шудаанд. Барои бозгашт ба Менюи аввал тугмачаи Done-ро зер намоед",null);
+							tbrMidlet.showAlert("Ин шах�? гумонбар ба �?ил не�?т. Маълумотхо �?абт шудаанд. Барои бозгашт ба Менюи аввал тугмачаи Done-ро зер намоед",null);
 							
 						}
 						
@@ -532,7 +542,7 @@ public class SuspectIDForm extends BaseTBReachForm implements CommandListener, I
 			removeCommand(cmdOK);
 			removeCommand(cmdBack);
 			init();
-			tbrMidlet.showAlert( "Ин бемор дар табобат карор дорад, гумонбар нест. Барои бозгашт ба Менюи аввал тугмачаи Done-ро зер намоед" , null );
+			tbrMidlet.showAlert( "Ин бемор дар табобат карор дорад, гумонбар не�?т. Барои бозгашт ба Менюи аввал тугмачаи Done-ро зер намоед" , null );
 			result = false;
 		}
 		//TODO id validations not implemented
@@ -688,7 +698,7 @@ public class SuspectIDForm extends BaseTBReachForm implements CommandListener, I
 	
 		if(IS_SUSPECT){
 		//	conclusionGroup.setSelectedIndex(SUSPECT_INDEX, true);
-			conclusionGroup.setString( "Шубха ба сил" );
+			conclusionGroup.setString( "Шубха ба �?ил" );
 			if(!isPatientInfoFieldsVisible){
 				//idField.setString( "" );
 				//idConfirm.setString( "" );
@@ -715,7 +725,7 @@ public class SuspectIDForm extends BaseTBReachForm implements CommandListener, I
 		}
 		else{
 			//conclusionGroup.setSelectedIndex(NOT_SUSPECT_INDEX, true);
-			conclusionGroup.setString( "Сил нест" );
+			conclusionGroup.setString( "Сил не�?т" );
 			if(isPatientInfoFieldsVisible){
 				while (true)
 				{//delete all till conclusion group

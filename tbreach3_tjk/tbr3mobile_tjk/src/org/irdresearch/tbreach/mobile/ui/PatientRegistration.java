@@ -1,3 +1,13 @@
+/* Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. */
 package org.irdresearch.tbreach.mobile.ui;
 
 
@@ -93,70 +103,70 @@ public class PatientRegistration extends BaseTBReachForm implements CommandListe
 	{
 		
 		healthWorkerID = new TextField( "Личный номер медработника" , tbrMidlet.getCurrentUserId() , 10 , TextField.UNEDITABLE);
-		participantID = new TextField( "Регистрационный номер пациента" , "" , 8 , TextField.NUMERIC );
-		participantIDConfirm = new TextField( "Регистрационный номер пациента (повторить)" , "" , 8 , TextField.NUMERIC );
-		startTreatment = new DateField( "Дата начала лечения  (YYYY-MM-DD)" ,  DateField.DATE);
+		participantID = new TextField( "Реги�?трационный номер пациента" , "" , 8 , TextField.NUMERIC );
+		participantIDConfirm = new TextField( "Реги�?трационный номер пациента (повторить)" , "" , 8 , TextField.NUMERIC );
+		startTreatment = new DateField( "Дата начала лечени�?  (YYYY-MM-DD)" ,  DateField.DATE);
 		
-		homePhoneNo = new TextField( "Номер телефона для связи" , "" , 25  , TextField.NUMERIC );
-		phoneNumber1 = new TextField( "Номер телефона для СМС" , "" , 25  , TextField.NUMERIC );
+		homePhoneNo = new TextField( "�?омер телефона дл�? �?в�?зи" , "" , 25  , TextField.NUMERIC );
+		phoneNumber1 = new TextField( "�?омер телефона дл�? СМС" , "" , 25  , TextField.NUMERIC );
 
-		addressStreet = new TextField( "Адрес: улица" , "" , 25  , TextField.ANY );
+		addressStreet = new TextField( "�?дре�?: улица" , "" , 25  , TextField.ANY );
 		addressStreet.setInitialInputMode("UCB_CYRILLIC"); 
-		addressDistrict = new TextField( "Адрес: микрорайон" , "" , 25 , TextField.ANY );
+		addressDistrict = new TextField( "�?дре�?: микрорайон" , "" , 25 , TextField.ANY );
 		addressDistrict.setInitialInputMode("UCB_CYRILLIC"); 
-		addressHouse = new TextField( "Адрес: номер дома" , "" , 20 , TextField.ANY );
+		addressHouse = new TextField( "�?дре�?: номер дома" , "" , 20 , TextField.ANY );
 		addressHouse.setInitialInputMode("UCB_CYRILLIC");
-		addressFlat = new TextField( "Адрес: номер квартиры" , "" , 20 , TextField.ANY );
+		addressFlat = new TextField( "�?дре�?: номер квартиры" , "" , 20 , TextField.ANY );
 		addressFlat.setInitialInputMode("UCB_CYRILLIC");
 		
-		firstNameField = new TextField("Имя" , "" , 20 , TextField.ANY );
+		firstNameField = new TextField("Им�?" , "" , 20 , TextField.ANY );
 		firstNameField.setInitialInputMode("UCB_CYRILLIC");
-		lastNameField = new TextField("Фамилия" , "" , 20 , TextField.ANY );
+		lastNameField = new TextField("Фамили�?" , "" , 20 , TextField.ANY );
 		lastNameField.setInitialInputMode("UCB_CYRILLIC");
-		dobField = new DateField( "Дата рождения (YYYY-MM-DD)" ,  DateField.DATE);
+		dobField = new DateField( "Дата рождени�? (YYYY-MM-DD)" ,  DateField.DATE);
 		
 		gender = new ChoiceGroup( "Пол" , ChoiceGroup.POPUP );
 		gender.append("Муж" , null);
 		gender.append("Жен" , null);
 		
-		nominateFamilyVolunteer = new ChoiceGroup ("Имеется ли волонтер?",ChoiceGroup.POPUP);
+		nominateFamilyVolunteer = new ChoiceGroup ("Имеет�?�? ли волонтер?",ChoiceGroup.POPUP);
 		nominateFamilyVolunteer.append ("Да", null);
-		nominateFamilyVolunteer.append ("Нет", null);
+		nominateFamilyVolunteer.append ("�?ет", null);
 		
-		relationshipFamilyVolunteer = new ChoiceGroup( "Кем волонтер является для пациента?" , ChoiceGroup.POPUP );
+		relationshipFamilyVolunteer = new ChoiceGroup( "Кем волонтер �?вл�?ет�?�? дл�? пациента?" , ChoiceGroup.POPUP );
 		relationshipFamilyVolunteer.append( "Сын/дочь" , null );
 		relationshipFamilyVolunteer.append( "Мать/отец" , null );
-		relationshipFamilyVolunteer.append( "Брат/сестра" , null );
-		relationshipFamilyVolunteer.append( "Супруг/супруга" , null );
+		relationshipFamilyVolunteer.append( "Брат/�?е�?тра" , null );
+		relationshipFamilyVolunteer.append( "Супруг/�?упруга" , null );
 		relationshipFamilyVolunteer.append( "Бабушка/дедушка" , null );
 		relationshipFamilyVolunteer.append( "Внук/внучка" , null );
-		relationshipFamilyVolunteer.append( "Тетя/дядя" , null );
-		relationshipFamilyVolunteer.append( "Двоюродная сестра/брат" , null );
+		relationshipFamilyVolunteer.append( "Тет�?/д�?д�?" , null );
+		relationshipFamilyVolunteer.append( "Двоюродна�? �?е�?тра/брат" , null );
 		relationshipFamilyVolunteer.append( "Другие" , null );
 		
-		relationshipOther = new TextField( "Укажите если другое." , "" , 25 , TextField.ANY);
+		relationshipOther = new TextField( "Укажите е�?ли другое." , "" , 25 , TextField.ANY);
 		
 		maritalStatus = new ChoiceGroup( "Семейное положение" , ChoiceGroup.POPUP );
-		maritalStatus.append( "Не женат/не замужем" ,null );
+		maritalStatus.append( "�?е женат/не замужем" ,null );
 		maritalStatus.append( "Женат/замужем" ,null );
 		maritalStatus.append( "Разведен/а" ,null );
 		maritalStatus.append( "Живу раздельно" ,null );
 		maritalStatus.append( "Вдовец/Вдова" ,null );
-		maritalStatus.append( "Нет ответа" ,null );
+		maritalStatus.append( "�?ет ответа" ,null );
 		
 		education = new ChoiceGroup( "Образование" , ChoiceGroup.POPUP );
 		education.append( "Дошкольное" ,null );
-		education.append( "Начальная школа" ,null );
-		education.append( "Средняя школа" ,null );
-		education.append( "Среднее специальное" ,null );
-		education.append( "Высшее" ,null );
-		education.append( "Нет" ,null );
+		education.append( "�?ачальна�? школа" ,null );
+		education.append( "Средн�?�? школа" ,null );
+		education.append( "Среднее �?пециальное" ,null );
+		education.append( "Вы�?шее" ,null );
+		education.append( "�?ет" ,null );
 		
-		incomeFamilyMember = new ChoiceGroup( "Доход на 1 члена семьи в месяц" , ChoiceGroup.POPUP );
-		incomeFamilyMember.append( "До 100 сомони" ,null );
-		incomeFamilyMember.append( "До 200 сомони" ,null );
-		incomeFamilyMember.append( "До 300 сомони" ,null );
-		incomeFamilyMember.append( "Более 400 сомони" ,null );
+		incomeFamilyMember = new ChoiceGroup( "Доход на 1 члена �?емьи в ме�?�?ц" , ChoiceGroup.POPUP );
+		incomeFamilyMember.append( "До 100 �?омони" ,null );
+		incomeFamilyMember.append( "До 200 �?омони" ,null );
+		incomeFamilyMember.append( "До 300 �?омони" ,null );
+		incomeFamilyMember.append( "Более 400 �?омони" ,null );
 		incomeFamilyMember.append( "нет ответа" ,null );
 		
 		endOfForm = new StringItem( "Конец формы" , "" );
@@ -243,7 +253,7 @@ public class PatientRegistration extends BaseTBReachForm implements CommandListe
 	private boolean validate()
 	{
 		boolean result = true;
-		String error = "Исправьте все ошибки: \n";
+		String error = "И�?правьте в�?е ошибки: \n";
 		if(participantID.getString().equals( "" ) || participantIDConfirm.getString().equals( "" ))
 		{
 			error = error + "Укажите номер пациента. \n";
@@ -252,23 +262,23 @@ public class PatientRegistration extends BaseTBReachForm implements CommandListe
 		}else
 		
 		if (!participantIDConfirm.getString ().equals (participantID.getString ())){
-			error = error + "Номера не совпадают. \n";
+			error = error + "�?омера не �?овпадают. \n";
 			//tbrMidlet.showAlert ("IDs do not match", null);
 			result = false;
 		}	
 		
 		/* if(addressHouse.getString().equals( "" ) || addressDistrict.getString().equals( "" ) || addressFlat.getString().equals( "" ) || addressStreet.getString().equals( "" )){
-			error = error + "Укажите полный адрес. \n";
+			error = error + "Укажите полный адре�?. \n";
 			//tbrMidlet.showAlert ("IDs do not match", null);
 			result = false;
 		}*/
 		
 		if (startTreatment.getDate() == null){
-			error = error + "Укажите дату начала лечения. \n";
+			error = error + "Укажите дату начала лечени�?. \n";
 			//tbrMidlet.showAlert ("Please fill start treatment Date", null);
 			result = false;
 		}else if (DateTimeUtil.isDateInFuture( startTreatment.getDate() )){
-			error = error + "Ошибка даты начала лечения \n";
+			error = error + "Ошибка даты начала лечени�? \n";
 			//tbrMidlet.showAlert ("Please fill valid date!", null);
 			result = false;
 		}
@@ -282,7 +292,7 @@ public class PatientRegistration extends BaseTBReachForm implements CommandListe
 		
 		if(firstNameField.getString().equals("") || lastNameField.getString().equals(""))
 		{
-			error = error + "Укажите имя \n";
+			error = error + "Укажите им�? \n";
 			//tbrMidlet.showAlert ("Please fill in complete name", null);
 			result = false;			
 		}
@@ -293,11 +303,11 @@ public class PatientRegistration extends BaseTBReachForm implements CommandListe
 		
 		if(dobField.getDate() == null)
 		{
-			error = error + "Укажите дату рождения \n";
+			error = error + "Укажите дату рождени�? \n";
 			//tbrMidlet.showAlert ("Please fill in date of Birth", null);
 			result = false;			
 		}else if (DateTimeUtil.isDateInFuture( dobField.getDate() )){
-			error = error + "Ошибка даты рождения \n";
+			error = error + "Ошибка даты рождени�? \n";
 			//tbrMidlet.showAlert ("Please fill valid date!", null);
 			result = false;
 		}
@@ -335,7 +345,7 @@ public class PatientRegistration extends BaseTBReachForm implements CommandListe
 						removeCommand( cmdOK );
 						removeCommand( cmdBack );
 						init();
-						tbrMidlet.showAlert("Данные сохранены!" , null );
+						tbrMidlet.showAlert("Данные �?охранены!" , null );
 
 
 				}

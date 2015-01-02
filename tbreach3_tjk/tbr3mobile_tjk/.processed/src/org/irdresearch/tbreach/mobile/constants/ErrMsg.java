@@ -1,3 +1,13 @@
+/* Copyright(C) 2015 Interactive Health Solutions, Pvt. Ltd.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 3 of the License (GPLv3), or any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program; if not, write to the Interactive Health Solutions, info@ihsinformatics.com
+You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
+
+Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors. */
 package org.irdresearch.tbreach.mobile.constants;
 
 import org.irdresearch.tbreach.mobile.util.IdValidateUtil;
@@ -5,28 +15,28 @@ import org.irdresearch.tbreach.mobile.util.StringUtil;
 
 public class ErrMsg {
 	
-	private static final String SCREENING_FORM_NOT_FOUND_1 = "Пациента с номеро ";
-	private static final String SCREENING_FORM_NOT_FOUND_2 = " нет. Если пациент прошел скрининг, то проверьте номер и повторите попытку.";
+	private static final String SCREENING_FORM_NOT_FOUND_1 = "Пациента �? номеро ";
+	private static final String SCREENING_FORM_NOT_FOUND_2 = " нет. Е�?ли пациент прошел �?крининг, то проверьте номер и повторите попытку.";
 	
-	private static final String PATIENT_DETAILS_ALREADY_FILLED_1 = "Регистрация пациента ";
+	private static final String PATIENT_DETAILS_ALREADY_FILLED_1 = "Реги�?траци�? пациента ";
 	private static final String PATIENT_DETAILS_ALREADY_FILLED_2 = " уже проведена.";
 	
-	private static final String PATIENT_DETAILS_NOT_FOUND_1 = "Нет регистрации пациенте с номером ";
-	private static final String PATIENT_DETAILS_NOT_FOUND_2 = ". Зарегистрируйте пациента и повторите попытку.";
+	private static final String PATIENT_DETAILS_NOT_FOUND_1 = "�?ет реги�?трации пациенте �? номером ";
+	private static final String PATIENT_DETAILS_NOT_FOUND_2 = ". Зареги�?трируйте пациента и повторите попытку.";
 	
-	private static final String BASELINE_DETAILS_ALEADY_FILLED_1 = "Исходные данные для пациента ";
+	private static final String BASELINE_DETAILS_ALEADY_FILLED_1 = "И�?ходные данные дл�? пациента ";
 	private static final String BASELINE_DETAILS_ALEADY_FILLED_2 = " уже введены.";
 	
-	private static final String BASELINE_DETAILS_NOT_FOUND_1 = "Нет данных пациента с номером ";
-	private static final String BASELINE_DETAILS_NOT_FOUND_2 = ". Заполните исходные данные.";
+	private static final String BASELINE_DETAILS_NOT_FOUND_1 = "�?ет данных пациента �? номером ";
+	private static final String BASELINE_DETAILS_NOT_FOUND_2 = ". Заполните и�?ходные данные.";
 	
 	private static final String TREATMENT_MONTH_ALREADY_FOUND_1 = "Форма мониторинга за ";
-	private static final String TREATMENT_MONTH_ALREADY_FOUND_2 = " месяц лечения уже заполнена!";
+	private static final String TREATMENT_MONTH_ALREADY_FOUND_2 = " ме�?�?ц лечени�? уже заполнена!";
 	
-	private static final String ERROR_IN_SAVING_FORM = "Ошиббка записи формы";
-	private static final String DATE_ERROR_ENCOUNTER = "Таърих нодуруст. Такрор кунед";
-	private static final String SAVE_ENCOUNTER_ERROR = "Ошибка записи! Повторите попытку!";
-	private static final String SAVE_ENCOUNTER_RESULT_ERROR = "Хато шудааст. Такрор кунед";
+	private static final String ERROR_IN_SAVING_FORM = "Ошиббка запи�?и формы";
+	private static final String DATE_ERROR_ENCOUNTER = "Таърих нодуру�?т. Такрор кунед";
+	private static final String SAVE_ENCOUNTER_ERROR = "Ошибка запи�?и! Повторите попытку!";
+	private static final String SAVE_ENCOUNTER_RESULT_ERROR = "Хато шудаа�?т. Такрор кунед";
 	
 	public static final String FW_ID_MISSING = "You must enter the Field Worker ID";
 	public static final String FW_ID_INVALID = "Field Worker ID must be more than or equal to "+IdValidateUtil.MIN_ID_LENGTH+" digits";
@@ -58,9 +68,9 @@ public class ErrMsg {
 	public static final String SUSPECT_IS_UNEDITABLE = "You can not change suspect confirmation status calculated by system";
 	public static final String OTHER_REASON_DRUG_NOT_DELIVERED_MISSING = "You must specify the other reason for not delivering drugs";
 	public static final String MONITOR_ID_MISSING = "You must enter the Monitor ID";
-	public static final String AGE_MISSING = "Синну солро ворид кунед";
-	public static final String FIRST_NAME_MISSING = "Номи шахсро ворид кунед";
-	public static final String LAST_NAME_MISSING = "Насаби шахсро ворид кунед";
+	public static final String AGE_MISSING = "Синну �?олро ворид кунед";
+	public static final String FIRST_NAME_MISSING = "�?оми шах�?ро ворид кунед";
+	public static final String LAST_NAME_MISSING = "�?а�?аби шах�?ро ворид кунед";
 	public static final String LOCATION_MISSING = "You must enter the location detail";
 	public static final String NUM_ATTEMPTED_MISSING = "You must enter the number of people attempted";
 	public static final String NUM_SCREENED_MISSING = "You must enter the number of people screened";
