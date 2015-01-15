@@ -1,7 +1,7 @@
 === TB REACH 3 - Sehatmand Zindagi ===
 Contributors: IRD
 Software Type: Free, Open-source
-Requires: Microsoft Windows XP or higher, Oracle Java Runtime Environment (JRE) v6.0 or higher, Sun Java Wireless Toolkit v2.5.2x or higher, Eclipse Ganymede or higher
+Requires: Microsoft Windows 7 or higher, Oracle Java Runtime Environment (JRE) v6.0 or higher, Eclipse Helios or higher
 License: GPLv3
 
 == Description ==

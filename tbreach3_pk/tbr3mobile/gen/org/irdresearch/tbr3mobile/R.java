@@ -160,6 +160,7 @@ public final class R {
         public static final int spinner_disabled_beige=0x7f020028;
         public static final int spinner_focused_beige=0x7f020029;
         public static final int spinner_pressed_beige=0x7f02002a;
+        public static final int web_hi_res_512=0x7f02002b;
     }
     public static final class graph_id {
         public static final int graphLinearLayout=0x7f0d0000;
@@ -226,6 +227,7 @@ public final class R {
     public static final class raw {
         public static final int exportkeystore=0x7f060000;
         public static final int ihskeystore=0x7f060001;
+        public static final int playstore=0x7f060002;
     }
     public static final class reports_id {
         public static final int dailyReportButton=0x7f110001;
