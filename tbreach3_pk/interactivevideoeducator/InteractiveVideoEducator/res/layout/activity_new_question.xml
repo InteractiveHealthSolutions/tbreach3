@@ -1,0 +1,159 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context=".NewQuestionDialog" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4" >
+
+            <TextView
+                style="@style/ViewBasicsForWeight"
+                android:layout_weight="1"
+                android:text="Question ID:" />
+
+            <EditText
+                android:id="@+new_question/etQuestionId"
+                style="@style/ViewBasicsForWeight"
+                android:layout_weight="3"
+                android:hint="Enter ID"
+                android:maxLength="9"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4" >
+
+            <TextView
+                style="@style/ViewBasicsForWeight"
+                android:layout_weight="1"
+                android:text="Question Type:" />
+
+            <Spinner
+                android:id="@+new_question/spQuestionType"
+                style="@style/ViewBasicsForWeight"
+                android:layout_weight="3"
+                android:entries="@array/question_types" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4" >
+
+            <TextView
+                style="@style/ViewBasicsForWeight"
+                android:layout_weight="1"
+                android:text="Question:" />
+
+            <EditText
+                android:id="@+new_question/etQuestion"
+                style="@style/ViewBasicsForWeight"
+                android:layout_weight="3"
+                android:hint="Enter Question"
+                android:maxLength="120"
+                android:maxLines="9" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4" >
+
+            <TextView
+                style="@style/ViewBasicsForWeight"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="Occurance:" />
+
+            <Spinner
+                android:id="@+new_question/spOccurance"
+                style="@style/ViewBasicsForWeight"
+                android:layout_weight="3"
+                android:entries="@array/occurance" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4" >
+
+            <TextView
+                style="@style/ViewBasicsForWeight"
+                android:layout_weight="1"
+                android:text="Order:" />
+
+            <EditText
+                android:id="@+new_question/etOrder"
+                style="@style/ViewBasicsForWeight"
+                android:layout_weight="3"
+                android:hint="Enter Number"
+                android:inputType="number"
+                android:maxLength="2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+new_question/llAddOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+new_question/tvAddOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:paddingTop="10dp"
+                android:text="+ Add Option"
+                android:textColor="@color/blue_33B5E5"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="2" >
+
+            <Button
+                android:id="@+new_question/btnCancel"
+                style="@style/ViewBasicsForWeight"
+                android:layout_weight="1"
+                android:text="Cancel" />
+
+            <Button
+                android:id="@+new_question/btnOK"
+                style="@style/ViewBasicsForWeight"
+                android:layout_weight="1"
+                android:text="Ok" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

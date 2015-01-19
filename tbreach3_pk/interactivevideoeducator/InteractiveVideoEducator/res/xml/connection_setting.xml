@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="Setting" >
+        <EditTextPreference
+            android:key="tbr3appversion"
+            android:summary="Set app version of latest TBR3 app"
+            android:title="TBR3 App version" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.ird.tbr3.videoeducator"
+    android:versionCode="14"
+    android:versionName="1.2.2" >
+
+    <uses-feature android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.LoginDialog"
+            android:label="@string/title_activity_login_dialog"
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.VideoViewer"
+            android:label="@string/title_activity_video_viewer"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.view.QuestionsDisplayer"
+            android:label="@string/title_activity_questions_displayer"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.ImageViewer"
+            android:label="@string/title_activity_image_viewer"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.QuestionDisplayer"
+            android:label="@string/title_activity_question_displayer"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.UserStart"
+            android:label="@string/title_activity_user_start"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.LanguageSelecter"
+            android:label="@string/title_activity_language_selecter"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.QRReader"
+            android:label="@string/title_activity_qrreader"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.ThanksMessageActivity"
+            android:label="@string/title_activity_thanks_message"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.InputTypeSelection"
+            android:label="@string/title_activity_pid"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.ManualInput"
+            android:label="@string/title_activity_manual_input"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.VideoIntroduction"
+            android:label="@string/title_activity_video_introduction"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.PatientStart"
+            android:label="@string/title_activity_patient_start"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.MotherTongue"
+            android:label="@string/title_activity_mother_tnngue"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.DataHandler"
+            android:label="@string/title_activity_data_sender"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.MainActivityd"
+            android:label="@string/title_activity_main_activityd" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.report.ReportsActivity"
+            android:label="@string/title_activity_reports"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.common.DateSelector"
+            android:label="Select Date"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.screens.PatientRegistration"
+            android:label="@string/title_activity_patient_registration"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+        <activity
+            android:name="org.ird.tbr3.videoeducator.common.MonthSelector"
+            android:label="@string/title_activity_month_selector"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+        <activity android:name="org.ird.tbr3.videoeducator.MainPreferences" >
+        </activity>
+    </application>
+
+</manifest>

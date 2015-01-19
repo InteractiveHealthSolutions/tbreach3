@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".LanguageSelecter" >
+
+    <TextView
+        android:id="@+id/tvSelectLang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Select Language"
+        android:gravity="center"
+        android:textSize="32dp"
+        android:padding="10dp"
+        android:background="@drawable/question_bg"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/tvBaseSelectLang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvSelectLang"
+        android:background="@drawable/question_bg_below" />
+
+    <!-- <Button -->
+    <!-- android:id="@+id/btnGo" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_alignParentBottom="true" -->
+    <!-- android:layout_marginBottom="20dp" -->
+    <!-- android:text="Go" /> -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvBaseSelectLang"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="4" >
+
+        <Button
+            android:id="@+id/btnEnglish"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:text="English"
+            android:textSize="28sp" />
+
+        <Button
+            android:id="@+id/btnUrdu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:text="اردو" />
+
+        <Button
+            android:id="@+id/btnBengli"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:text=" বাংলা" />
+        
+        <Button
+            android:id="@+id/btnBahasa"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:text="Bahasa Indonesia"
+            android:textSize="28sp" />
+    </LinearLayout>
+    
+    
+
+</RelativeLayout>

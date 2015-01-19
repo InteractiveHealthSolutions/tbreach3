@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".InputTypeSelection" >
+
+<!--     <TextView -->
+<!--         android:id="@+id/tvSelectLang" -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_alignParentTop="true" -->
+<!--         android:background="@drawable/question_bg" -->
+<!--         android:gravity="center" -->
+<!--         android:padding="10dp" -->
+<!--         android:text="Select Patient ID Input Type" -->
+<!--         android:textColor="@android:color/white" -->
+<!--         android:textSize="28sp" /> -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvBaseSelectLang"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:weightSum="3" >
+
+        <Button
+            android:id="@+id/btnManualEntry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:text="Enter Manually"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/btnReadFromQR"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:textSize="26sp"
+            android:text="Read From QR Code"
+            android:layout_marginBottom="10dp" />
+        
+        <Button
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:textSize="26sp"
+            android:text="Unregistered patient"
+            android:layout_marginBottom="10dp" />
+
+        
+    </LinearLayout>
+
+</LinearLayout>

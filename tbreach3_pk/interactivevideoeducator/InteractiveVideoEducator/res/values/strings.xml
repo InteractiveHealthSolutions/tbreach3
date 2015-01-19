@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_version">1.0</string>
+    <string name="app_name">TBR3 Video Educator</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_video_adder_main">Add Video</string>
+    <string name="title_activity_new_question">+ New Question</string>
+
+    <color name="blue_33B5E5">#33B5E5</color>
+    <color name="blue_ics_light_67d6ff">#67d6ff</color>
+
+    <string-array name="question_types">
+        <item>Multi Select</item>
+        <item>Multi Select Images</item>
+        <item>Single Select</item>
+        <item>Single Select Images</item>
+        <item>Text</item>
+    </string-array>
+    <string-array name="occurance">
+        <item>Before &amp; After</item>
+        <item>Before</item>
+        <item>After</item>
+    </string-array>
+    <string-array name="option_type">
+        <item>Text</item>
+        <item>Image</item>
+    </string-array>
+    <string-array name="languages">
+        <item>English</item>
+        <item>Urdu</item>
+        <item>Bangla</item>
+    </string-array>
+    <string-array name="screening_centers">
+        <item>Screening Centre 1</item>
+        <item>Screening Centre 2</item>
+        <item>Screening Centre 3</item>
+    </string-array>
+
+    <string name="title_activity_video_viewer">Interactive Video Player</string>
+    <string name="title_activity_questions_displayer">QuestionsDisplayer</string>
+    <string name="title_activity_image_viewer">Interactive Image Viewer</string>
+    <string name="title_activity_question_displayer">Questions</string>
+    <string name="title_activity_user_start">Start</string>
+    <string name="title_activity_language_selecter">Select Language</string>
+    <string name="title_activity_qrscanner">QRScanner</string>
+    <string name="title_activity_qrreader">QRReader</string>
+    <string name="title_activity_thanks_message">Thanks</string>
+    <string name="title_activity_login_dialog">Interacticve Video Educator</string>
+
+    <color name="black">#000000</color>
+    <color name="gray_a9a9a9">#a9a9a9</color>
+
+    <string name="title_activity_pid">Select Patient ID Input Type</string>
+    <string name="title_activity_manual_input">Manual Input</string>
+    <string name="title_activity_video_introduction">Video Introduction</string>
+    <string name="title_activity_patient_start">Patient Start</string>
+    <string name="title_activity_mother_tnngue">Mother Tongue</string>
+    <string name="trust_store_password">jingle94</string>
+    <string name="server_address">"https://202.141.249.106:8932/openmrs"</string>
+    <!-- <string name="alternate_server_address">"http://202.141.249.106:8932/tbr3web/mobileservice"</string> -->
+    <string name="alternate_server_address">"http://10.0.2.2:8888/mobileservice"</string>
+    <string name="http_port">80</string>
+    <string name="https_port">443</string>
+    <string name="support_contact">+923453174270</string>
+    <string name="default_user">Default</string>
+    <string name="default_password">Default123</string>
+    <string name="title_activity_data_sender">Sending Data</string>
+    <string name="title_activity_main_activityd">MainActivityd</string>
+    <string name="title_activity_reports">Reports</string>
+    <string name="title_activity_patient_registration">PatientRegistration</string>
+    <string name="title_activity_month_selector">Select Month</string>
+    <string name="title_activity_main_preferences">MainPreferences</string>
+
+</resources>
