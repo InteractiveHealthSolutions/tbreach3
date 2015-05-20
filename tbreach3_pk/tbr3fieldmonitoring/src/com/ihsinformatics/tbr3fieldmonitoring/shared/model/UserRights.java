@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Jun 13, 2012 3:47:17 PM by Hibernate Tools 3.4.0.CR1
@@ -12,19 +11,21 @@ public class UserRights implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= -4436239869017469059L;
-	private UserRightsId	id;
-	private boolean			searchAccess;
-	private boolean			insertAccess;
-	private boolean			updateAccess;
-	private boolean			deleteAccess;
-	private boolean			printAccess;
+	private static final long serialVersionUID = -4436239869017469059L;
+	private UserRightsId id;
+	private boolean searchAccess;
+	private boolean insertAccess;
+	private boolean updateAccess;
+	private boolean deleteAccess;
+	private boolean printAccess;
 
-	public UserRights ()
+	public UserRights()
 	{
 	}
 
-	public UserRights (UserRightsId id, boolean searchAccess, boolean insertAccess, boolean updateAccess, boolean deleteAccess, boolean printAccess)
+	public UserRights(UserRightsId id, boolean searchAccess,
+			boolean insertAccess, boolean updateAccess, boolean deleteAccess,
+			boolean printAccess)
 	{
 		this.id = id;
 		this.searchAccess = searchAccess;
@@ -34,70 +35,71 @@ public class UserRights implements java.io.Serializable
 		this.printAccess = printAccess;
 	}
 
-	public UserRightsId getId ()
+	public UserRightsId getId()
 	{
 		return this.id;
 	}
 
-	public void setId (UserRightsId id)
+	public void setId(UserRightsId id)
 	{
 		this.id = id;
 	}
 
-	public boolean isSearchAccess ()
+	public boolean isSearchAccess()
 	{
 		return this.searchAccess;
 	}
 
-	public void setSearchAccess (boolean searchAccess)
+	public void setSearchAccess(boolean searchAccess)
 	{
 		this.searchAccess = searchAccess;
 	}
 
-	public boolean isInsertAccess ()
+	public boolean isInsertAccess()
 	{
 		return this.insertAccess;
 	}
 
-	public void setInsertAccess (boolean insertAccess)
+	public void setInsertAccess(boolean insertAccess)
 	{
 		this.insertAccess = insertAccess;
 	}
 
-	public boolean isUpdateAccess ()
+	public boolean isUpdateAccess()
 	{
 		return this.updateAccess;
 	}
 
-	public void setUpdateAccess (boolean updateAccess)
+	public void setUpdateAccess(boolean updateAccess)
 	{
 		this.updateAccess = updateAccess;
 	}
 
-	public boolean isDeleteAccess ()
+	public boolean isDeleteAccess()
 	{
 		return this.deleteAccess;
 	}
 
-	public void setDeleteAccess (boolean deleteAccess)
+	public void setDeleteAccess(boolean deleteAccess)
 	{
 		this.deleteAccess = deleteAccess;
 	}
 
-	public boolean isPrintAccess ()
+	public boolean isPrintAccess()
 	{
 		return this.printAccess;
 	}
 
-	public void setPrintAccess (boolean printAccess)
+	public void setPrintAccess(boolean printAccess)
 	{
 		this.printAccess = printAccess;
 	}
 
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return id + ", " + searchAccess + ", " + insertAccess + ", " + updateAccess + ", " + deleteAccess + ", " + printAccess;
+		return id + ", " + searchAccess + ", " + insertAccess + ", "
+				+ updateAccess + ", " + deleteAccess + ", " + printAccess;
 	}
 
 }

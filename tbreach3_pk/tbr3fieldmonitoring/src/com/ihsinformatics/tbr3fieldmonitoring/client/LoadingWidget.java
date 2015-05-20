@@ -16,14 +16,14 @@ public class LoadingWidget extends PopupPanel
 	/**
 	 * Initialize loading widget
 	 */
-	public LoadingWidget ()
+	public LoadingWidget()
 	{
-		setSize ("100%", "100%");
-		setGlassEnabled (true);
-		setStyleName ("mainVerticalPanel");
-		Image image = new Image ("images/loading.gif");
-		image.setAltText ("Loading...");
-		setWidget (image);
-		image.setSize ("50px", "50px");
+		setSize("100%", "100%");
+		setGlassEnabled(true);
+		setStyleName("mainVerticalPanel");
+		Image image = new Image("images/loading.gif");
+		image.setAltText("Loading...");
+		setWidget(image);
+		image.setSize("50px", "50px");
 	}
 }

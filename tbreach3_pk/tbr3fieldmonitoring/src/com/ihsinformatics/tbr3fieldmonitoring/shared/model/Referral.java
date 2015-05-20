@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Nov 20, 2012 3:57:28 PM by Hibernate Tools 3.4.0.Beta1
@@ -14,23 +13,24 @@ public class Referral implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 8402215983814049042L;
-	private String	patientId;
-	private String	referredBy;
-	private String	referredTo;
-	private String	reason;
-	private Date	dateReferred;
+	private static final long serialVersionUID = 8402215983814049042L;
+	private String patientId;
+	private String referredBy;
+	private String referredTo;
+	private String reason;
+	private Date dateReferred;
 
-	public Referral ()
+	public Referral()
 	{
 	}
 
-	public Referral (String patientId)
+	public Referral(String patientId)
 	{
 		this.patientId = patientId;
 	}
 
-	public Referral (String patientId, String referredBy, String referredTo, String reason, Date dateReferred)
+	public Referral(String patientId, String referredBy, String referredTo,
+			String reason, Date dateReferred)
 	{
 		this.patientId = patientId;
 		this.referredBy = referredBy;
@@ -39,62 +39,65 @@ public class Referral implements java.io.Serializable
 		this.dateReferred = dateReferred;
 	}
 
-	public String getPatientId ()
+	public String getPatientId()
 	{
 		return this.patientId;
 	}
 
-	public void setPatientId (String patientId)
+	public void setPatientId(String patientId)
 	{
 		this.patientId = patientId;
 	}
 
-	public String getReferredBy ()
+	public String getReferredBy()
 	{
 		return this.referredBy;
 	}
 
-	public void setReferredBy (String referredBy)
+	public void setReferredBy(String referredBy)
 	{
 		this.referredBy = referredBy;
 	}
 
-	public String getReferredTo ()
+	public String getReferredTo()
 	{
 		return this.referredTo;
 	}
 
-	public void setReferredTo (String referredTo)
+	public void setReferredTo(String referredTo)
 	{
 		this.referredTo = referredTo;
 	}
 
-	public String getReason ()
+	public String getReason()
 	{
 		return this.reason;
 	}
 
-	public void setReason (String reason)
+	public void setReason(String reason)
 	{
 		this.reason = reason;
 	}
 
-	public Date getDateReferred ()
+	public Date getDateReferred()
 	{
 		return this.dateReferred;
 	}
 
-	public void setDateReferred (Date dateReferred)
+	public void setDateReferred(Date dateReferred)
 	{
 		this.dateReferred = dateReferred;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return patientId + ", " + referredBy + ", " + referredTo + ", " + reason + ", " + dateReferred;
+		return patientId + ", " + referredBy + ", " + referredTo + ", "
+				+ reason + ", " + dateReferred;
 	}
 }

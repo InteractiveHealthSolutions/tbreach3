@@ -8,7 +8,7 @@
   <composite-id
    class="com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterId"
    mapped="false" name="id" unsaved-value="undefined">
-   <key-property name="EId" type="int">
+   <key-property name="eId" type="int">
     <column name="e_id"/>
    </key-property>
    <key-property name="pid1" type="string">

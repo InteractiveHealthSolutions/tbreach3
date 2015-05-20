@@ -12,30 +12,11 @@
 package com.ihsinformatics.tbr3fieldmonitoring.server;
 
 import java.io.File;
-import java.util.Collection;
 import java.util.Date;
 import java.util.Properties;
 import java.util.Set;
 
-import antlr.collections.List;
-import ca.uhn.hl7v2.model.v24.segment.ORG;
-
-import com.ihsinformatics.tbr3fieldmonitoring.server.util.HibernateUtil;
-import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Defaults;
-import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Definition;
-import com.ihsinformatics.tbr3fieldmonitoring.shared.model.User;
-import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Encounter;
-import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterResults;
-import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Patient;
-import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterElement;
-import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterId;
-import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterPrerequisite;
-import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterType;
-
 import org.openmrs.LocationAttribute;
-import org.openmrs.LocationAttributeType;
-import org.openmrs.Privilege;
-import org.openmrs.Role;
 import org.openmrs.api.APIException;
 import org.openmrs.api.context.Context;
 import org.openmrs.api.context.ContextAuthenticationException;
@@ -44,15 +25,20 @@ import org.openmrs.util.DatabaseUpdateException;
 import org.openmrs.util.InputRequiredException;
 import org.openmrs.util.OpenmrsUtil;
 
-import com.google.gwt.user.client.Cookies;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.ihsinformatics.tbr3fieldmonitoring.client.ServerService;
+import com.ihsinformatics.tbr3fieldmonitoring.server.util.HibernateUtil;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.CustomMessage;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.ErrorType;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.TBR3;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Defaults;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Definition;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Encounter;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterElement;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterId;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterResults;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterType;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Location;
-import com.sun.java.swing.plaf.windows.resources.windows;
 
 /**
  * @author Tahira
@@ -62,39 +48,33 @@ public class ServerServiceImpl extends RemoteServiceServlet implements
 		ServerService
 {
 	private static final long serialVersionUID = 4123609914579659870L;
-	private static String applicationPath = "";
-	private static String propertiesFilePath = "";
+
+	// Form Openmrs properties file
+	// static final String propFilePath =
+	// "C:\\Users\\Tahira\\AppData\\Roaming\\OpenMRS\\openmrs-runtime.properties";
+	static final String propFilePath = "/usr/share/.OpenMRS/openmrs-runtime.properties";
+	private static File propsFile;
+	private static Properties props;
+	private static String url, username, password;
 
 	public ServerServiceImpl()
 	{
-		String currentDirectory = System.getProperty("user.dir");
-		System.out.println("Current directory:" + currentDirectory);
-		if (currentDirectory.startsWith("/"))
-			applicationPath = "/var/lib/tomcat6/webapps/irzimbabwe/"; // change
-																		// this
-																		// later
-		else
-			applicationPath = "C:\\workspace2\\tbr3fieldmonitoring\\";
-		propertiesFilePath = applicationPath + "tbr3fieldmonitoring.properties";
 		initOpenMrs();
 	}
 
-	// public static void main(String[] args)
-	// {
-	// ServerServiceImpl service = new ServerServiceImpl();
-	// }
-
 	public Boolean initOpenMrs()
 	{
-		File propsFile = new File(OpenmrsUtil.getApplicationDataDirectory(),
-				"openmrs-runtime.properties");
-		Properties props = new Properties();
+		propsFile = new File(propFilePath);
+		props = new Properties();
+
 		OpenmrsUtil.loadProperties(props, propsFile);
+		url = (String) props.get("connection.url");
+		username = (String) props.get("connection.username");
+		password = (String) props.get("connection.password");
 		try
 		{
-			Context.startup(
-					"jdbc:mysql://localhost:3306/openmrs?autoReconnect=true",
-					"root", "liamtekcor", props);
+			Context.startup(url, username, password, props);
+
 			Context.openSession();
 		}
 		catch (ModuleMustStartException e)
@@ -109,12 +89,11 @@ public class ServerServiceImpl extends RemoteServiceServlet implements
 		{
 			e.printStackTrace();
 		}
-//		try
-//		{
-//			Context.openSession();
-//			// Context.authenticate("tahira", "TahiraNiazi007");
-//		}
-		
+		// try
+		// {
+		// Context.openSession();
+		// // Context.authenticate("tahira", "TahiraNiazi007");
+		// }
 
 		return false;
 	}
@@ -137,15 +116,17 @@ public class ServerServiceImpl extends RemoteServiceServlet implements
 	}
 
 	@Override
-	public String getLocation(String userName, String password, String locationId)
+	public String getLocation(String userName, String password,
+			String locationId)
 	{
-		String result= "";
+		String result = "";
 		Context.openSession();
 		Context.authenticate(userName, password);
 		try
 		{
-			java.util.List<org.openmrs.Location> locations = Context.getLocationService().getLocations(locationId);
-			
+			java.util.List<org.openmrs.Location> locations = Context
+					.getLocationService().getLocations(locationId);
+
 			if (locations.size() != 0)
 			{
 				result = locations.get(0).getName();
@@ -153,9 +134,12 @@ public class ServerServiceImpl extends RemoteServiceServlet implements
 			}
 			else
 			{
-				System.out.println("location NOT found...........................");
+				System.out
+						.println("location NOT found...........................");
 				System.out.println(locations.size());
-				result = "FAILED \n Location ID:" + CustomMessage.getErrorMessage(ErrorType.ITEM_NOT_FOUND); 
+				result = "FAILED \n Location ID:"
+						+ CustomMessage
+								.getErrorMessage(ErrorType.ITEM_NOT_FOUND);
 				return result;
 			}
 		}
@@ -168,31 +152,32 @@ public class ServerServiceImpl extends RemoteServiceServlet implements
 	}
 
 	@Override
-	public Boolean saveLocation(Location location, String userName, String password, String[] locationAttributes)
+	public Boolean saveLocation(Location location, String userName,
+			String password, String[] locationAttributes)
 	{
 		Boolean result = true;
 		try
 		{
 			Context.openSession();
-			//System.out.println("password is " + TBR3.getPassword());
+			// System.out.println("password is " + TBR3.getPassword());
 			Context.authenticate(userName, password);
-			
-			org.openmrs.User omrsCreator = Context.getUserService().getUserByUsername(userName);
-			
+
+			org.openmrs.User omrsCreator = Context.getUserService()
+					.getUserByUsername(userName);
+
 			org.openmrs.Location omrsLocation = new org.openmrs.Location();
 			omrsLocation.setAddress1(location.getAddress1());
 			omrsLocation.setName(location.getLocationName());
-			
+
 			System.out.println(location.getLocationName());
-			
+
 			org.openmrs.LocationAttributeType locationAttributeType;
-			
+
 			for (int i = 0; i < locationAttributes.length; i++)
 			{
 				locationAttributeType = Context.getLocationService()
-						.getLocationAttributeType(i+1);
-				
-				
+						.getLocationAttributeType(i + 1);
+
 				org.openmrs.LocationAttribute attribute = new LocationAttribute();
 				attribute.setAttributeType(locationAttributeType);
 				attribute.setValue(locationAttributes[i]);
@@ -200,10 +185,10 @@ public class ServerServiceImpl extends RemoteServiceServlet implements
 				attribute.setDateCreated(new Date());
 				omrsLocation.addAttribute(attribute);
 			}
-			
-			org.openmrs.Location savedLocation = Context.getLocationService().saveLocation(omrsLocation);
-			
-			
+
+			org.openmrs.Location savedLocation = Context.getLocationService()
+					.saveLocation(omrsLocation);
+
 			if (savedLocation == null)
 				result = false;
 		}
@@ -215,7 +200,6 @@ public class ServerServiceImpl extends RemoteServiceServlet implements
 		return result;
 	}
 
-	
 	/**
 	 * Sets current user name, this is due to a strange GWT bug/feature that
 	 * shared variables, set from Client-side appear to be empty on Server-side
@@ -237,18 +221,15 @@ public class ServerServiceImpl extends RemoteServiceServlet implements
 			ServerServiceImpl service = new ServerServiceImpl();
 			Context.openSession();
 			Context.authenticate("tahira", "TahiraNiazi007");
-			
-			//org.openmrs.LocationAttributeType omrsLocationAttributeType = Context.getLocationService().getLocationAttributeType(1);  
-			//System.out.println(omrsLocationAttributeType.getName());
-			
 			try
 			{
-				java.util.List<org.openmrs.Location> locationList = Context.getLocationService().getLocations("101000");
+				java.util.List<org.openmrs.Location> locationList = Context
+						.getLocationService().getLocations("101000");
 				System.out.println(locationList.size());
 				System.out.println(locationList.get(0).getName());
-				org.openmrs.Location omrsLocation = Context.getLocationService().getLocation("ABC Clinic");	
-				
-				
+				org.openmrs.Location omrsLocation = Context
+						.getLocationService().getLocation("ABC Clinic");
+
 				if (omrsLocation != null)
 				{
 					System.out.println("location found");
@@ -260,93 +241,40 @@ public class ServerServiceImpl extends RemoteServiceServlet implements
 			}
 			catch (APIException e)
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-//			org.openmrs.Location omrsLocation = Context.getLocationService()
-//					.getLocation("Health Clinic");
-//			
-//			org.openmrs.User omrsUser = Context.getUserService().getUserByUsername("tahira");
-//			
-//			org.openmrs.LocationAttributeType lat = Context.getLocationService().getLocationAttributeType(2);
-//			
-//			System.out.println(lat.getName());
-//			
-//			org.openmrs.LocationAttribute attribute = new LocationAttribute();
-//			attribute.setAttributeType(lat);
-//			attribute.setValue("03331234567");
-//			attribute.setCreator(omrsUser);
-//			attribute.setDateCreated(new Date());
-//			omrsLocation.addAttribute(attribute);
-//			
-//			org.openmrs.Location savedLocation = Context.getLocationService().saveLocation(omrsLocation);
-//			if(savedLocation != null)
-//				System.out.println("SUCCESS");
-			
-//			org.openmrs.User omrsUser = Context.getUserService().getUserByUsername(userName);
-//			Set<org.openmrs.Role>  rolesOfUser = omrsUser.getAllRoles();
-//			roles = rolesOfUser.toArray(new String[rolesOfUser.size()]);
-//			System.out.println(roles.length);
-			
-//			User u = new User();
-//			org.openmrs.Role omrsRole = new Role();
-//			org.openmrs.User omrsUser = Context.getUserService().getUserByUsername("tahira");
-//			Set<org.openmrs.Role>  rolesOfUser = omrsUser.getAllRoles();
-//			
-//			Collection<Privilege> priviligesOfUser = omrsUser.getPrivileges();
-//			System.out.println(rolesOfUser);
-//			
-//			roles = new String[rolesOfUser.size()];
-//			int i = 0;
-//			for(org.openmrs.Role role : rolesOfUser)
-//			{
-//				roles[i++] = role.getName();
-//				System.out.println(role.getName());
-//			}
-//			
-//			for(Object o : priviligesOfUser)
-//			{
-//				System.out.println(o.toString());
-//			}
-			
-			//System.out.println(roles.length + "size of roles array");
-//			ServerServiceImpl impl = new ServerServiceImpl();
-//			Defaults[] defaults = impl.getDefaults();
-//			System.out.println("defaults table length is " + defaults.length);
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	public String[] getUserRoles(String userName, String password)
 	{
 		String[] roles = null;
-		
+
 		try
 		{
 			Context.openSession();
 			Context.authenticate(userName, password);
-			org.openmrs.User omrsUser = Context.getUserService().getUserByUsername(userName);
-			Set<org.openmrs.Role>  rolesOfUser = omrsUser.getAllRoles();
-//			roles = rolesOfUser.toArray(new String[rolesOfUser.size()]);
-			
+			org.openmrs.User omrsUser = Context.getUserService()
+					.getUserByUsername(userName);
+			Set<org.openmrs.Role> rolesOfUser = omrsUser.getAllRoles();
+			// roles = rolesOfUser.toArray(new String[rolesOfUser.size()]);
+
 			roles = new String[rolesOfUser.size()];
-			int i=0;
-			for(org.openmrs.Role role : rolesOfUser)
+			int i = 0;
+			for (org.openmrs.Role role : rolesOfUser)
 			{
 				roles[i++] = role.getName();
 			}
 		}
 		catch (APIException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return roles;
 	}
 
@@ -379,150 +307,192 @@ public class ServerServiceImpl extends RemoteServiceServlet implements
 		}
 		return definitions;
 	}
-	
-	public String saveFormData(Encounter encounter, EncounterResults[] encounterResults)
-    {
-	String result = "";
-	try
+
+	public String saveFormData(Encounter encounter,
+			EncounterResults[] encounterResults)
 	{
-	    result = saveEncounterWithResults(encounter, encounterResults);
-		//if (!updatePatient(patient))
-		 //   return CustomMessage.getErrorMessage(ErrorType.UPDATE_ERROR);
-	} catch(Exception e)
-	{
-	    e.printStackTrace();
-	    try
-	    {
-	    	deleteEncounter(encounter);
-	    	return CustomMessage.getErrorMessage(ErrorType.INSERT_ERROR);
-	    } catch(Exception e1)
-	    {
-	    }
+		String result = "";
+		try
+		{
+			result = saveEncounterWithResults(encounter, encounterResults);
+			// if (!updatePatient(patient))
+			// return CustomMessage.getErrorMessage(ErrorType.UPDATE_ERROR);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			try
+			{
+				deleteEncounter(encounter);
+				return CustomMessage.getErrorMessage(ErrorType.INSERT_ERROR);
+			}
+			catch (Exception e1)
+			{
+			}
+		}
+		return result;
 	}
-	return result;
-    }
-	
+
 	public Boolean deleteEncounter(Encounter encounter)
-    {
+	{
 		boolean result;
 		// Delete Encounter Results
-		HibernateUtil.util.findObjects("from EncounterResults where id.eId='" + encounter.getId().getEId() + "' and id.pid1='" + encounter.getId().getPid1() + "' and id.pid2='"
-		+ encounter.getId().getPid2() + "'");
+		HibernateUtil.util.findObjects("from EncounterResults where id.eId='"
+				+ encounter.getId().geteId() + "' and id.pid1='"
+				+ encounter.getId().getPid1() + "' and id.pid2='"
+				+ encounter.getId().getPid2() + "'");
 		// Delete Encounter
 		result = HibernateUtil.util.delete(encounter);
 		return result;
-    }
-	
+	}
+
 	/**
-     * Saves Encounter with Results. If the Pre-requisites are not satisfied or
-     * encounter values are not valid then nothing will be saved.
-     */
-    public String saveEncounterWithResults(Encounter encounter, EncounterResults[] encounterResults)
-    {
+	 * Saves Encounter with Results. If the Pre-requisites are not satisfied or
+	 * encounter values are not valid then nothing will be saved.
+	 */
+	public String saveEncounterWithResults(Encounter encounter,
+			EncounterResults[] encounterResults)
+	{
 		String result = "";
 		// Check for Pre-Requisites
-		EncounterType encounterType = findEncounterType(encounter.getId().getEncounterType());
-		//EncounterPrerequisite[] prereqs = findEncounterPrerequisites(encounterType);
-	//	for (EncounterPrerequisite pr : prereqs)
-	//	{
-	//	    EncounterResults prereqResult = (EncounterResults) HibernateUtil.util.findObject("from EncounterResults where id.pid1='" + encounter.getId().getPid1() + "' and id.encounterType='"
-	//	    + pr.getPrerequisiteEncounter() + "' and id.element='" + pr.getConditionElement() + "'");
-	//	    if (prereqResult == null)
-	//	    {
-	//		result = "Pre-requisite form " + pr.getPrerequisiteEncounter() + " was not found.";
-	//		return result;
-	//	    }
-	//	    else if (!prereqResult.getValue().matches(pr.getPossibleValueRegex()))
-	//	    {
-	//		result = "Pre-requisite was not satisfied. To submit this form, there must be a(n) " + pr.getPrerequisiteEncounter() + " form filled with value of question "
-	//		+ pr.getConditionElement() + " like " + pr.getPossibleValueRegex() + "\n";
-	//		return result;
-	//	    }
-	//	}
+		// EncounterType encounterType =
+		// findEncounterType(encounter.getId().getEncounterType());
+		// EncounterPrerequisite[] prereqs =
+		// findEncounterPrerequisites(encounterType);
+		// for (EncounterPrerequisite pr : prereqs)
+		// {
+		// EncounterResults prereqResult = (EncounterResults)
+		// HibernateUtil.util.findObject("from EncounterResults where id.pid1='"
+		// + encounter.getId().getPid1() + "' and id.encounterType='"
+		// + pr.getPrerequisiteEncounter() + "' and id.element='" +
+		// pr.getConditionElement() + "'");
+		// if (prereqResult == null)
+		// {
+		// result = "Pre-requisite form " + pr.getPrerequisiteEncounter() +
+		// " was not found.";
+		// return result;
+		// }
+		// else if
+		// (!prereqResult.getValue().matches(pr.getPossibleValueRegex()))
+		// {
+		// result =
+		// "Pre-requisite was not satisfied. To submit this form, there must be a(n) "
+		// + pr.getPrerequisiteEncounter() +
+		// " form filled with value of question "
+		// + pr.getConditionElement() + " like " + pr.getPossibleValueRegex() +
+		// "\n";
+		// return result;
+		// }
+		// }
 		// Get the max encounter ID and add 1
 		EncounterId currentID = encounter.getId();
-		Object[] max = HibernateUtil.util.selectObjects("select max(e_id) from encounter where pid1='" + currentID.getPid1() + "' and pid2='" + currentID.getPid2() + "' and encounter_type='"
-		+ currentID.getEncounterType() + "'");
+		Object[] max = HibernateUtil.util
+				.selectObjects("select max(e_id) from encounter where pid1='"
+						+ currentID.getPid1() + "' and pid2='"
+						+ currentID.getPid2() + "' and encounter_type='"
+						+ currentID.getEncounterType() + "'");
 		Integer maxInt = (Integer) max[0];
 		if (maxInt == null)
-		    currentID.setEId(1);
+			currentID.seteId(1);
 		else
-		    currentID.setEId((maxInt.intValue() + 1));
+			currentID.seteId((maxInt.intValue() + 1));
 		encounter.setId(currentID);
 		// Validate values of results if bounded by a validation
+
+		// remove from here
 		for (EncounterResults er : encounterResults)
 		{
-		    er.getId().setEId(encounter.getId().getEId());
-		    EncounterElement elem = findEncounterElement(er.getId().getEncounterType(), er.getId().getElement());
-		    String regex = elem.getValidator();
-		    if (regex == null)
-			continue;
-		    if (!regex.equals("") && !er.getValue().matches(regex))
-		    {
-			result = "Invalid value provided for question: " + elem.getId().getElement() + " (" + elem.getDescription() + ")\n";
-			return result;
-		    }
+			System.out.println(er.getValue());
+		}
+		// till here
+
+		for (EncounterResults er : encounterResults)
+		{
+			er.getId().seteId(encounter.getId().geteId());
+			EncounterElement elem = findEncounterElement(er.getId()
+					.getEncounterType(), er.getId().getElement());
+			String regex = elem.getValidator();
+			if (regex == null)
+				continue;
+			if (!regex.equals("") && !er.getValue().matches(regex))
+			{
+				result = "Invalid value provided for question: "
+						+ elem.getId().getElement() + " ("
+						+ elem.getDescription() + ")\n";
+				return result;
+			}
 		}
 		// Save Encounter
 		if (saveEncounter(encounter))
 		{
-		    // Save Encounter Results
-		    for (EncounterResults er : encounterResults)
-			saveEncounterResults(er);
-		    result = "SUCCESS";
-		    System.out.println("encounter saved ............................");
+			// Save Encounter Results
+			for (EncounterResults er : encounterResults)
+				saveEncounterResults(er);
+			result = "SUCCESS";
+			System.out.println("encounter saved ............................");
 		}
 		else
-		    result = "Could not save Form.";
+			result = "Could not save Form.";
 		return result;
-    }
+	}
 
-    public EncounterType findEncounterType(String encounterType)
-    {
-    	EncounterType eType = (EncounterType) HibernateUtil.util.findObject("from EncounterType where encounterType='" + encounterType + "'");
-    	return eType;
-    }
-    
-    public EncounterElement findEncounterElement(String encounterType, String element)
-    {
-		EncounterElement eElement = (EncounterElement) HibernateUtil.util.findObject("from EncounterElement where id.encounterType='" + encounterType + "' and id.element='" + element + "'");
+	public EncounterType findEncounterType(String encounterType)
+	{
+		EncounterType eType = (EncounterType) HibernateUtil.util
+				.findObject("from EncounterType where encounterType='"
+						+ encounterType + "'");
+		return eType;
+	}
+
+	public EncounterElement findEncounterElement(String encounterType,
+			String element)
+	{
+		EncounterElement eElement = (EncounterElement) HibernateUtil.util
+				.findObject("from EncounterElement where id.encounterType='"
+						+ encounterType + "' and id.element='" + element + "'");
 		return eElement;
-    }
+	}
 
-    private Boolean saveEncounter(Encounter encounter)
-    {
+	private Boolean saveEncounter(Encounter encounter)
+	{
 		// Get the max encounter ID and add 1
 		EncounterId currentID = encounter.getId();
-		Object[] max = HibernateUtil.util.selectObjects("select max(e_id) from encounter where pid1='" + currentID.getPid1() + "' and pid2='" + currentID.getPid2() + "' and encounter_type='"
-		+ currentID.getEncounterType() + "'");
-	
+		Object[] max = HibernateUtil.util
+				.selectObjects("select max(e_id) from encounter where pid1='"
+						+ currentID.getPid1() + "' and pid2='"
+						+ currentID.getPid2() + "' and encounter_type='"
+						+ currentID.getEncounterType() + "'");
+
 		Integer maxInt = (Integer) max[0];
 		if (maxInt == null)
-		    currentID.setEId(1);
+			currentID.seteId(1);
 		else
-		    currentID.setEId((maxInt.intValue() + 1));
+			currentID.seteId((maxInt.intValue() + 1));
 		encounter.setId(currentID);
 		return HibernateUtil.util.save(encounter);
-    }
-    
-    private Boolean saveEncounterResults(EncounterResults encounterResults)
-    {
-	// Validate value if bounded by a validation
-	/*
-	 * when encounter type is CLIENT EDIT
-	 * it gets 2 things ATTRIBUTE AND VALUE
-	 * ATTRIBUTE contains "person;nic"
-	 * and VALUE contains "123456/*" the edited value
-	 * PROBLEM: We cannot fix the regex in db for the ATTRIBUTE or the VALUE
-	 * because it will vary for different fields
-	 * SO,in order to validate the CLIENT EDIT I access the
-	 * Encounter_elements() in the savePatientEdit
-	 */
-		EncounterElement elem = findEncounterElement(encounterResults.getId().getEncounterType(), encounterResults.getId().getElement());
+	}
+
+	private Boolean saveEncounterResults(EncounterResults encounterResults)
+	{
+		// Validate value if bounded by a validation
+		/*
+		 * when encounter type is CLIENT EDIT it gets 2 things ATTRIBUTE AND
+		 * VALUE ATTRIBUTE contains "person;nic" and VALUE contains "123456/*"
+		 * the edited value PROBLEM: We cannot fix the regex in db for the
+		 * ATTRIBUTE or the VALUE because it will vary for different fields
+		 * SO,in order to validate the CLIENT EDIT I access the
+		 * Encounter_elements() in the savePatientEdit
+		 */
+		EncounterElement elem = findEncounterElement(encounterResults.getId()
+				.getEncounterType(), encounterResults.getId().getElement());
 		String regex = elem.getValidator();
-		if (!regex.equals("") && !encounterResults.getValue().matches(regex))
-		    return null;
+		if (regex != null)
+		{
+			if (!regex.equals("")
+					&& !encounterResults.getValue().matches(regex))
+				return null;
+		}
 		return HibernateUtil.util.save(encounterResults);
-    }
-    
+	}
+
 }

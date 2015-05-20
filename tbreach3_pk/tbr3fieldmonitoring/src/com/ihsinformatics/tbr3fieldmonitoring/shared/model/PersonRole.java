@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Jun 12, 2012 4:08:49 PM by Hibernate Tools 3.4.0.CR1
@@ -12,32 +11,32 @@ public class PersonRole implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= -1044966718950828828L;
-	private PersonRoleId		id;
+	private static final long serialVersionUID = -1044966718950828828L;
+	private PersonRoleId id;
 
-	public PersonRole ()
+	public PersonRole()
 	{
 	}
 
-	public PersonRole (PersonRoleId id)
+	public PersonRole(PersonRoleId id)
 	{
 		this.id = id;
 	}
 
-	public PersonRoleId getId ()
+	public PersonRoleId getId()
 	{
 		return this.id;
 	}
 
-	public void setId (PersonRoleId id)
+	public void setId(PersonRoleId id)
 	{
 		this.id = id;
 	}
 
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return String.valueOf (id);
+		return String.valueOf(id);
 	}
 
 }

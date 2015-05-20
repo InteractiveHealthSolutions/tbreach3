@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Nov 19, 2012 3:38:13 PM by Hibernate Tools 3.4.0.Beta1
@@ -14,36 +13,40 @@ public class SputumTest implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1696775970495583505L;
-	private SputumTestId		id;
-	private String				sampleCode;
-	private String				collectedBy;
-	private Date				dateCollected;
-	private Integer				month;
-	private String				registeredBy;
-	private Date				dateRegistered;
-	private String				smearTestedBy;
-	private Date				dateSmearTested;
-	private String				sputumQuality;
-	private String				smearResult;
-	private String				smearRemarks;
-	private String				gxpTestedBy;
-	private Date				dateGxpTested;
-	private String				gxpResult;
-	private String				rifResistance;
-	private String				gxpRemarks;
+	private static final long serialVersionUID = 1696775970495583505L;
+	private SputumTestId id;
+	private String sampleCode;
+	private String collectedBy;
+	private Date dateCollected;
+	private Integer month;
+	private String registeredBy;
+	private Date dateRegistered;
+	private String smearTestedBy;
+	private Date dateSmearTested;
+	private String sputumQuality;
+	private String smearResult;
+	private String smearRemarks;
+	private String gxpTestedBy;
+	private Date dateGxpTested;
+	private String gxpResult;
+	private String rifResistance;
+	private String gxpRemarks;
 
-	public SputumTest ()
+	public SputumTest()
 	{
 	}
 
-	public SputumTest (SputumTestId id)
+	public SputumTest(SputumTestId id)
 	{
 		this.id = id;
 	}
 
-	public SputumTest (SputumTestId id, String sampleCode, String collectedBy, Date dateCollected, Integer month, String registeredBy, Date dateRegistered, String sputumQuality, String smearTestedBy,
-			Date dateSmearTested, String smearResult, String smearRemarks, String gxpTestedBy, Date dateGxpTested, String gxpResult, String rifResistance, String gxpRemarks)
+	public SputumTest(SputumTestId id, String sampleCode, String collectedBy,
+			Date dateCollected, Integer month, String registeredBy,
+			Date dateRegistered, String sputumQuality, String smearTestedBy,
+			Date dateSmearTested, String smearResult, String smearRemarks,
+			String gxpTestedBy, Date dateGxpTested, String gxpResult,
+			String rifResistance, String gxpRemarks)
 	{
 		this.id = id;
 		this.sampleCode = sampleCode;
@@ -64,172 +67,172 @@ public class SputumTest implements java.io.Serializable
 		this.gxpRemarks = gxpRemarks;
 	}
 
-	public SputumTestId getId ()
+	public SputumTestId getId()
 	{
 		return this.id;
 	}
 
-	public void setId (SputumTestId id)
+	public void setId(SputumTestId id)
 	{
 		this.id = id;
 	}
 
-	public String getSampleCode ()
+	public String getSampleCode()
 	{
 		return this.sampleCode;
 	}
 
-	public void setSampleCode (String sampleCode)
+	public void setSampleCode(String sampleCode)
 	{
 		this.sampleCode = sampleCode;
 	}
 
-	public String getCollectedBy ()
+	public String getCollectedBy()
 	{
 		return this.collectedBy;
 	}
 
-	public void setCollectedBy (String collectedBy)
+	public void setCollectedBy(String collectedBy)
 	{
 		this.collectedBy = collectedBy;
 	}
 
-	public Date getDateCollected ()
+	public Date getDateCollected()
 	{
 		return this.dateCollected;
 	}
 
-	public void setDateCollected (Date dateCollected)
+	public void setDateCollected(Date dateCollected)
 	{
 		this.dateCollected = dateCollected;
 	}
 
-	public Integer getMonth ()
+	public Integer getMonth()
 	{
 		return this.month;
 	}
 
-	public void setMonth (Integer month)
+	public void setMonth(Integer month)
 	{
 		this.month = month;
 	}
 
-	public String getRegisteredBy ()
+	public String getRegisteredBy()
 	{
 		return this.registeredBy;
 	}
 
-	public void setRegisteredBy (String registeredBy)
+	public void setRegisteredBy(String registeredBy)
 	{
 		this.registeredBy = registeredBy;
 	}
 
-	public Date getDateRegistered ()
+	public Date getDateRegistered()
 	{
 		return this.dateRegistered;
 	}
 
-	public void setDateRegistered (Date dateRegistered)
+	public void setDateRegistered(Date dateRegistered)
 	{
 		this.dateRegistered = dateRegistered;
 	}
 
-	public String getSputumQuality ()
+	public String getSputumQuality()
 	{
 		return this.sputumQuality;
 	}
 
-	public void setSputumQuality (String sputumQuality)
+	public void setSputumQuality(String sputumQuality)
 	{
 		this.sputumQuality = sputumQuality;
 	}
 
-	public String getSmearTestedBy ()
+	public String getSmearTestedBy()
 	{
 		return this.smearTestedBy;
 	}
 
-	public void setSmearTestedBy (String smearTestedBy)
+	public void setSmearTestedBy(String smearTestedBy)
 	{
 		this.smearTestedBy = smearTestedBy;
 	}
 
-	public Date getDateSmearTested ()
+	public Date getDateSmearTested()
 	{
 		return this.dateSmearTested;
 	}
 
-	public void setDateSmearTested (Date dateSmearTested)
+	public void setDateSmearTested(Date dateSmearTested)
 	{
 		this.dateSmearTested = dateSmearTested;
 	}
 
-	public String getSmearResult ()
+	public String getSmearResult()
 	{
 		return this.smearResult;
 	}
 
-	public void setSmearResult (String smearResult)
+	public void setSmearResult(String smearResult)
 	{
 		this.smearResult = smearResult;
 	}
 
-	public String getSmearRemarks ()
+	public String getSmearRemarks()
 	{
 		return this.smearRemarks;
 	}
 
-	public void setSmearRemarks (String smearRemarks)
+	public void setSmearRemarks(String smearRemarks)
 	{
 		this.smearRemarks = smearRemarks;
 	}
 
-	public String getGxpTestedBy ()
+	public String getGxpTestedBy()
 	{
 		return this.gxpTestedBy;
 	}
 
-	public void setGxpTestedBy (String gxpTestedBy)
+	public void setGxpTestedBy(String gxpTestedBy)
 	{
 		this.gxpTestedBy = gxpTestedBy;
 	}
 
-	public Date getDateGxpTested ()
+	public Date getDateGxpTested()
 	{
 		return this.dateGxpTested;
 	}
 
-	public void setDateGxpTested (Date dateGxpTested)
+	public void setDateGxpTested(Date dateGxpTested)
 	{
 		this.dateGxpTested = dateGxpTested;
 	}
 
-	public String getGxpResult ()
+	public String getGxpResult()
 	{
 		return this.gxpResult;
 	}
 
-	public void setGxpResult (String gxpResult)
+	public void setGxpResult(String gxpResult)
 	{
 		this.gxpResult = gxpResult;
 	}
 
-	public String getRifResistance ()
+	public String getRifResistance()
 	{
 		return this.rifResistance;
 	}
 
-	public void setRifResistance (String rifResistance)
+	public void setRifResistance(String rifResistance)
 	{
 		this.rifResistance = rifResistance;
 	}
 
-	public String getGxpRemarks ()
+	public String getGxpRemarks()
 	{
 		return this.gxpRemarks;
 	}
 
-	public void setGxpRemarks (String gxpRemarks)
+	public void setGxpRemarks(String gxpRemarks)
 	{
 		this.gxpRemarks = gxpRemarks;
 	}
@@ -240,9 +243,14 @@ public class SputumTest implements java.io.Serializable
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return id + ", " + sampleCode + ", " + collectedBy + ", " + dateCollected + ", " + month + ", " + registeredBy + ", " + dateRegistered + ", " + smearTestedBy + ", " + dateSmearTested + ", "
-				+ sputumQuality + ", " + smearResult + ", " + smearRemarks + ", " + gxpTestedBy + ", " + dateGxpTested + ", " + gxpResult + ", " + rifResistance + ", " + gxpRemarks;
+		return id + ", " + sampleCode + ", " + collectedBy + ", "
+				+ dateCollected + ", " + month + ", " + registeredBy + ", "
+				+ dateRegistered + ", " + smearTestedBy + ", "
+				+ dateSmearTested + ", " + sputumQuality + ", " + smearResult
+				+ ", " + smearRemarks + ", " + gxpTestedBy + ", "
+				+ dateGxpTested + ", " + gxpResult + ", " + rifResistance
+				+ ", " + gxpRemarks;
 	}
 }

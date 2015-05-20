@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Nov 19, 2012 3:38:13 PM by Hibernate Tools 3.4.0.Beta1
@@ -12,41 +11,41 @@ public class SputumTestId implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= -5382066684339956571L;
-	private String	patientId;
-	private int		sampleNo;
+	private static final long serialVersionUID = -5382066684339956571L;
+	private String patientId;
+	private int sampleNo;
 
-	public SputumTestId ()
+	public SputumTestId()
 	{
 	}
 
-	public SputumTestId (String patientId, int sampleNo)
+	public SputumTestId(String patientId, int sampleNo)
 	{
 		this.patientId = patientId;
 		this.sampleNo = sampleNo;
 	}
 
-	public String getPatientId ()
+	public String getPatientId()
 	{
 		return this.patientId;
 	}
 
-	public void setPatientId (String patientId)
+	public void setPatientId(String patientId)
 	{
 		this.patientId = patientId;
 	}
 
-	public int getSampleNo ()
+	public int getSampleNo()
 	{
 		return this.sampleNo;
 	}
 
-	public void setSampleNo (int sampleNo)
+	public void setSampleNo(int sampleNo)
 	{
 		this.sampleNo = sampleNo;
 	}
 
-	public boolean equals (Object other)
+	public boolean equals(Object other)
 	{
 		if ((this == other))
 			return true;
@@ -56,24 +55,29 @@ public class SputumTestId implements java.io.Serializable
 			return false;
 		SputumTestId castOther = (SputumTestId) other;
 
-		return ((this.getPatientId () == castOther.getPatientId ()) || (this.getPatientId () != null && castOther.getPatientId () != null && this.getPatientId ().equals (castOther.getPatientId ())))
-				&& (this.getSampleNo () == castOther.getSampleNo ());
+		return ((this.getPatientId() == castOther.getPatientId()) || (this
+				.getPatientId() != null && castOther.getPatientId() != null && this
+				.getPatientId().equals(castOther.getPatientId())))
+				&& (this.getSampleNo() == castOther.getSampleNo());
 	}
 
-	public int hashCode ()
+	public int hashCode()
 	{
 		int result = 17;
 
-		result = 37 * result + (getPatientId () == null ? 0 : this.getPatientId ().hashCode ());
-		result = 37 * result + this.getSampleNo ();
+		result = 37 * result
+				+ (getPatientId() == null ? 0 : this.getPatientId().hashCode());
+		result = 37 * result + this.getSampleNo();
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString ()
+	public String toString()
 	{
 		return patientId + ", " + sampleNo;
 	}

@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Jun 12, 2012 4:08:49 PM by Hibernate Tools 3.4.0.CR1
@@ -12,116 +11,117 @@ public class EncounterId implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= -6042306676698962634L;
-	private int					EId;
-	private String				pid1;
-	private String				pid2;
-	private String				encounterType;
+	private static final long serialVersionUID = -6042306676698962634L;
+	private int eId;
+	private String pid1;
+	private String pid2;
+	private String encounterType;
 
-	public EncounterId ()
+	public EncounterId()
 	{
 	}
 
-	public EncounterId (int EId, String pid1, String pid2, String encounterType)
+	public EncounterId(int eId, String pid1, String pid2, String encounterType)
 	{
-		this.EId = EId;
+		this.eId = eId;
 		this.pid1 = pid1;
 		this.pid2 = pid2;
 		this.encounterType = encounterType;
 	}
 
-	public int getEId ()
+	public int geteId()
 	{
-		return this.EId;
+		return this.eId;
 	}
 
-	public void setEId (int EId)
+	public void seteId(int eId)
 	{
-		this.EId = EId;
+		this.eId = eId;
 	}
 
-	public String getPid1 ()
+	public String getPid1()
 	{
 		return this.pid1;
 	}
 
-	public void setPid1 (String pid1)
+	public void setPid1(String pid1)
 	{
 		this.pid1 = pid1;
 	}
 
-	public String getPid2 ()
+	public String getPid2()
 	{
 		return this.pid2;
 	}
 
-	public void setPid2 (String pid2)
+	public void setPid2(String pid2)
 	{
 		this.pid2 = pid2;
 	}
 
-	public String getEncounterType ()
+	public String getEncounterType()
 	{
 		return this.encounterType;
 	}
 
-	public void setEncounterType (String encounterType)
+	public void setEncounterType(String encounterType)
 	{
 		this.encounterType = encounterType;
 	}
 
 	@Override
-	public int hashCode ()
+	public int hashCode()
 	{
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + EId;
-		result = prime * result + ((encounterType == null) ? 0 : encounterType.hashCode ());
-		result = prime * result + ((pid1 == null) ? 0 : pid1.hashCode ());
-		result = prime * result + ((pid2 == null) ? 0 : pid2.hashCode ());
+		result = prime * result + eId;
+		result = prime * result
+				+ ((encounterType == null) ? 0 : encounterType.hashCode());
+		result = prime * result + ((pid1 == null) ? 0 : pid1.hashCode());
+		result = prime * result + ((pid2 == null) ? 0 : pid2.hashCode());
 		return result;
 	}
 
 	@Override
-	public boolean equals (Object obj)
+	public boolean equals(Object obj)
 	{
 		if (this == obj)
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass () != obj.getClass ())
+		if (getClass() != obj.getClass())
 			return false;
 		EncounterId other = (EncounterId) obj;
-		if (EId != other.EId)
+		if (eId != other.eId)
 			return false;
 		if (encounterType == null)
 		{
 			if (other.encounterType != null)
 				return false;
 		}
-		else if (!encounterType.equals (other.encounterType))
+		else if (!encounterType.equals(other.encounterType))
 			return false;
 		if (pid1 == null)
 		{
 			if (other.pid1 != null)
 				return false;
 		}
-		else if (!pid1.equals (other.pid1))
+		else if (!pid1.equals(other.pid1))
 			return false;
 		if (pid2 == null)
 		{
 			if (other.pid2 != null)
 				return false;
 		}
-		else if (!pid2.equals (other.pid2))
+		else if (!pid2.equals(other.pid2))
 			return false;
 		return true;
 	}
 
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return EId + ", " + pid1 + ", " + pid2 + ", " + encounterType;
+		return eId + ", " + pid1 + ", " + pid2 + ", " + encounterType;
 	}
 
 }

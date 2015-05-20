@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Nov 21, 2012 5:30:53 PM by Hibernate Tools 3.4.0.Beta1
@@ -12,30 +11,32 @@ public class SmsRule implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 7093239894552063672L;
-	private String	ruleId;
-	private String	ruleName;
-	private String	type;
-	private String	rule;
-	private Boolean	isEnabled;
-	private String	referenceTable;
-	private String	referenceColumn;
-	private Integer	startDay;
-	private Integer	iterations;
-	private Integer	smsInterval;
-	private String	description;
+	private static final long serialVersionUID = 7093239894552063672L;
+	private String ruleId;
+	private String ruleName;
+	private String type;
+	private String rule;
+	private Boolean isEnabled;
+	private String referenceTable;
+	private String referenceColumn;
+	private Integer startDay;
+	private Integer iterations;
+	private Integer smsInterval;
+	private String description;
 
-	public SmsRule ()
+	public SmsRule()
 	{
 	}
 
-	public SmsRule (String ruleId)
+	public SmsRule(String ruleId)
 	{
 		this.ruleId = ruleId;
 	}
 
-	public SmsRule (String ruleId, String ruleName, String type, String rule, Boolean isEnabled, String referenceTable, String referenceColumn, Integer startDay, Integer iterations,
-			Integer smsInterval, Integer endDay, String description, Integer serviceRunupMinutes)
+	public SmsRule(String ruleId, String ruleName, String type, String rule,
+			Boolean isEnabled, String referenceTable, String referenceColumn,
+			Integer startDay, Integer iterations, Integer smsInterval,
+			Integer endDay, String description, Integer serviceRunupMinutes)
 	{
 		this.ruleId = ruleId;
 		this.ruleName = ruleName;
@@ -50,123 +51,127 @@ public class SmsRule implements java.io.Serializable
 		this.description = description;
 	}
 
-	public String getRuleId ()
+	public String getRuleId()
 	{
 		return this.ruleId;
 	}
 
-	public void setRuleId (String ruleId)
+	public void setRuleId(String ruleId)
 	{
 		this.ruleId = ruleId;
 	}
 
-	public String getRuleName ()
+	public String getRuleName()
 	{
 		return this.ruleName;
 	}
 
-	public void setRuleName (String ruleName)
+	public void setRuleName(String ruleName)
 	{
 		this.ruleName = ruleName;
 	}
 
-	public String getType ()
+	public String getType()
 	{
 		return this.type;
 	}
 
-	public void setType (String type)
+	public void setType(String type)
 	{
 		this.type = type;
 	}
 
-	public String getRule ()
+	public String getRule()
 	{
 		return this.rule;
 	}
 
-	public void setRule (String rule)
+	public void setRule(String rule)
 	{
 		this.rule = rule;
 	}
 
-	public Boolean getIsEnabled ()
+	public Boolean getIsEnabled()
 	{
 		return this.isEnabled;
 	}
 
-	public void setIsEnabled (Boolean isEnabled)
+	public void setIsEnabled(Boolean isEnabled)
 	{
 		this.isEnabled = isEnabled;
 	}
 
-	public String getReferenceTable ()
+	public String getReferenceTable()
 	{
 		return this.referenceTable;
 	}
 
-	public void setReferenceTable (String referenceTable)
+	public void setReferenceTable(String referenceTable)
 	{
 		this.referenceTable = referenceTable;
 	}
 
-	public String getReferenceColumn ()
+	public String getReferenceColumn()
 	{
 		return this.referenceColumn;
 	}
 
-	public void setReferenceColumn (String referenceColumn)
+	public void setReferenceColumn(String referenceColumn)
 	{
 		this.referenceColumn = referenceColumn;
 	}
 
-	public Integer getStartDay ()
+	public Integer getStartDay()
 	{
 		return this.startDay;
 	}
 
-	public void setStartDay (Integer startDay)
+	public void setStartDay(Integer startDay)
 	{
 		this.startDay = startDay;
 	}
 
-	public Integer getIterations ()
+	public Integer getIterations()
 	{
 		return this.iterations;
 	}
 
-	public void setIterations (Integer iterations)
+	public void setIterations(Integer iterations)
 	{
 		this.iterations = iterations;
 	}
 
-	public Integer getSmsInterval ()
+	public Integer getSmsInterval()
 	{
 		return this.smsInterval;
 	}
 
-	public void setSmsInterval (Integer smsInterval)
+	public void setSmsInterval(Integer smsInterval)
 	{
 		this.smsInterval = smsInterval;
 	}
 
-	public String getDescription ()
+	public String getDescription()
 	{
 		return this.description;
 	}
 
-	public void setDescription (String description)
+	public void setDescription(String description)
 	{
 		this.description = description;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return ruleId + ", " + ruleName + ", " + type + ", " + rule + ", " + isEnabled + ", " + referenceTable + ", " + referenceColumn + ", " + startDay + ", " + iterations + ", " + smsInterval
-				+ ", " + description ;
+		return ruleId + ", " + ruleName + ", " + type + ", " + rule + ", "
+				+ isEnabled + ", " + referenceTable + ", " + referenceColumn
+				+ ", " + startDay + ", " + iterations + ", " + smsInterval
+				+ ", " + description;
 	}
 }

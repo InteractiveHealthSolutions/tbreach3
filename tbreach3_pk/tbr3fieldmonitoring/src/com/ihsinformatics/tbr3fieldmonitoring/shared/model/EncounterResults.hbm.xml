@@ -5,7 +5,7 @@
 <hibernate-mapping>
     <class name="com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterResults" table="encounter_results" catalog="tbr3_monitoring">
         <composite-id name="id" class="com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterResultsId">
-            <key-property name="EId" type="int">
+            <key-property name="eId" type="int">
                 <column name="e_id" />
             </key-property>
             <key-property name="pid1" type="string">

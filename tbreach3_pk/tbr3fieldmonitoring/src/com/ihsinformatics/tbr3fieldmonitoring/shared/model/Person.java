@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Jun 12, 2012 4:08:49 PM by Hibernate Tools 3.4.0.CR1
@@ -14,76 +13,89 @@ public class Person implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= -7621813427787904080L;
-	private String				pid;
-	private String				title;
-	private String				firstName;
-	private String				middleName;
-	private String				lastName;
-	private String				surname;
-	private String				fatherName;
-	private String				motherName;
-	private String				guardianName;
-	private String				gender;
-	private Date				dob;
-	private Integer				approximateAge;
-	private String				maritalStatus;
-	private String				religion;
-	private String				caste;
-	private String				nationalId;
-	private String				idOwner;
-	private Boolean				alive;
-	private byte[]				picture;
-	private String				address1;
-	private String				address2;
-	private String				address3;
-	private String				address4;
-	private String				city;
-	private String				state;
-	private String				country;
-	private String				region;
-	private float				latitude;
-	private float				longitude;
-	private String				phone;
-	private String				mobile;
-	private String				email;
-	private String				fax;
-	private String				alternateAddress1;
-	private String				alternateAddress2;
-	private String				alternateAddress3;
-	private String				alternateAddress4;
-	private String				alternateCity;
-	private String				alternateState;
-	private String				alternateCountry;
-	private String				alternateRegion;
-	private String				alternatePhone;
-	private String				alternateMobile;
-	private String				alternateEmail;
-	private String				alternateFax;
-	private float				alternateLatitude;
-	private float				alternateLongitude;
-	private String				tertiaryAddress;
-	private String				tertiaryPhone;
-	private String				tertiaryMobile;
-	private String				tertiaryEmail;
-	private String				preferredLanguage;
+	private static final long serialVersionUID = -7621813427787904080L;
+	private String pid;
+	private String title;
+	private String firstName;
+	private String middleName;
+	private String lastName;
+	private String surname;
+	private String fatherName;
+	private String motherName;
+	private String guardianName;
+	private String gender;
+	private Date dob;
+	private Integer approximateAge;
+	private String maritalStatus;
+	private String religion;
+	private String caste;
+	private String nationalId;
+	private String idOwner;
+	private Boolean alive;
+	private byte[] picture;
+	private String address1;
+	private String address2;
+	private String address3;
+	private String address4;
+	private String city;
+	private String state;
+	private String country;
+	private String region;
+	private float latitude;
+	private float longitude;
+	private String phone;
+	private String mobile;
+	private String email;
+	private String fax;
+	private String alternateAddress1;
+	private String alternateAddress2;
+	private String alternateAddress3;
+	private String alternateAddress4;
+	private String alternateCity;
+	private String alternateState;
+	private String alternateCountry;
+	private String alternateRegion;
+	private String alternatePhone;
+	private String alternateMobile;
+	private String alternateEmail;
+	private String alternateFax;
+	private float alternateLatitude;
+	private float alternateLongitude;
+	private String tertiaryAddress;
+	private String tertiaryPhone;
+	private String tertiaryMobile;
+	private String tertiaryEmail;
+	private String preferredLanguage;
 
-	public Person ()
+	public Person()
 	{
 	}
 
-	public Person (String pid, String firstName)
+	public Person(String pid, String firstName)
 	{
 		this.pid = pid;
 		this.firstName = firstName;
 	}
 
-	public Person (String pid, String title, String firstName, String middleName, String lastName, String surname, String fatherName, String motherName, String guardianName, String gender, Date dob,
-			Integer approximateAge, String maritalStatus, String religion, String caste, String nationalId, String idOwner, Boolean alive, byte[] picture, String address1, String address2,
-			String address3, String address4, String city, String state, String country, String region, float latitude, float longitude, String phone, String mobile, String email, String fax,
-			String alternateAddress1, String alternateAddress2, String alternateAddress3, String alternateAddress4, String alternateCity, String alternateState, String alternateCountry,
-			String alternateRegion, String alternatePhone, String alternateMobile, String alternateEmail, String alternateFax, float alternateLatitude, float alternateLongitude,
-			String tertiaryAddress, String tertiaryPhone, String tertiaryMobile, String tertiaryEmail,String preferredLanguage)
+	public Person(String pid, String title, String firstName,
+			String middleName, String lastName, String surname,
+			String fatherName, String motherName, String guardianName,
+			String gender, Date dob, Integer approximateAge,
+			String maritalStatus, String religion, String caste,
+			String nationalId, String idOwner, Boolean alive, byte[] picture,
+			String address1, String address2, String address3, String address4,
+			String city, String state, String country, String region,
+			float latitude, float longitude, String phone, String mobile,
+			String email, String fax, String alternateAddress1,
+			String alternateAddress2, String alternateAddress3,
+			String alternateAddress4, String alternateCity,
+			String alternateState, String alternateCountry,
+			String alternateRegion, String alternatePhone,
+			String alternateMobile, String alternateEmail, String alternateFax,
+			float alternateLatitude, float alternateLongitude,
+			String tertiaryAddress, String tertiaryPhone,
+			String tertiaryMobile, String tertiaryEmail,
+			String preferredLanguage)
 	{
 		this.pid = pid;
 		this.title = title;
@@ -136,539 +148,555 @@ public class Person implements java.io.Serializable
 		this.tertiaryMobile = tertiaryMobile;
 		this.tertiaryPhone = tertiaryPhone;
 		this.tertiaryEmail = tertiaryEmail;
-		this.preferredLanguage=preferredLanguage;
+		this.preferredLanguage = preferredLanguage;
 	}
 
-	public String getPid ()
+	public String getPid()
 	{
 		return this.pid;
 	}
 
-	public void setPid (String pid)
+	public void setPid(String pid)
 	{
 		this.pid = pid;
 	}
 
-	public String getTitle ()
+	public String getTitle()
 	{
 		return this.title;
 	}
 
-	public void setTitle (String title)
+	public void setTitle(String title)
 	{
 		this.title = title;
 	}
 
-	public String getFirstName ()
+	public String getFirstName()
 	{
 		return this.firstName;
 	}
 
-	public void setFirstName (String firstName)
+	public void setFirstName(String firstName)
 	{
 		this.firstName = firstName;
 	}
 
-	public String getMiddleName ()
+	public String getMiddleName()
 	{
 		return this.middleName;
 	}
 
-	public void setMiddleName (String middleName)
+	public void setMiddleName(String middleName)
 	{
 		this.middleName = middleName;
 	}
 
-	public String getLastName ()
+	public String getLastName()
 	{
 		return this.lastName;
 	}
 
-	public void setLastName (String lastName)
+	public void setLastName(String lastName)
 	{
 		this.lastName = lastName;
 	}
 
-	public String getSurname ()
+	public String getSurname()
 	{
 		return this.surname;
 	}
 
-	public void setSurname (String surname)
+	public void setSurname(String surname)
 	{
 		this.surname = surname;
 	}
 
-	public String getFatherName ()
+	public String getFatherName()
 	{
 		return this.fatherName;
 	}
 
-	public void setFatherName (String fatherName)
+	public void setFatherName(String fatherName)
 	{
 		this.fatherName = fatherName;
 	}
 
-	public String getMotherName ()
+	public String getMotherName()
 	{
 		return this.motherName;
 	}
 
-	public void setMotherName (String motherName)
+	public void setMotherName(String motherName)
 	{
 		this.motherName = motherName;
 	}
 
-	public String getGuardianName ()
+	public String getGuardianName()
 	{
 		return this.guardianName;
 	}
 
-	public void setGuardianName (String guardianName)
+	public void setGuardianName(String guardianName)
 	{
 		this.guardianName = guardianName;
 	}
 
-	public String getGender ()
+	public String getGender()
 	{
 		return this.gender;
 	}
 
-	public void setGender (String gender)
+	public void setGender(String gender)
 	{
 		this.gender = gender;
 	}
 
-	public Date getDob ()
+	public Date getDob()
 	{
 		return this.dob;
 	}
 
-	public void setDob (Date dob)
+	public void setDob(Date dob)
 	{
 		this.dob = dob;
 	}
 
-	public Integer getApproximateAge ()
+	public Integer getApproximateAge()
 	{
 		return this.approximateAge;
 	}
 
-	public void setApproximateAge (Integer approximateAge)
+	public void setApproximateAge(Integer approximateAge)
 	{
 		this.approximateAge = approximateAge;
 	}
 
-	public String getMaritalStatus ()
+	public String getMaritalStatus()
 	{
 		return this.maritalStatus;
 	}
 
-	public void setMaritalStatus (String maritalStatus)
+	public void setMaritalStatus(String maritalStatus)
 	{
 		this.maritalStatus = maritalStatus;
 	}
 
-	public String getReligion ()
+	public String getReligion()
 	{
 		return this.religion;
 	}
 
-	public void setReligion (String religion)
+	public void setReligion(String religion)
 	{
 		this.religion = religion;
 	}
 
-	public String getCaste ()
+	public String getCaste()
 	{
 		return this.caste;
 	}
 
-	public void setCaste (String caste)
+	public void setCaste(String caste)
 	{
 		this.caste = caste;
 	}
 
-	public String getNationalId ()
+	public String getNationalId()
 	{
 		return this.nationalId;
 	}
 
-	public void setNationalId (String nationalId)
+	public void setNationalId(String nationalId)
 	{
 		this.nationalId = nationalId;
 	}
 
-	public String getIdOwner ()
+	public String getIdOwner()
 	{
 		return this.idOwner;
 	}
 
-	public void setIdOwner (String idOwner)
+	public void setIdOwner(String idOwner)
 	{
 		this.idOwner = idOwner;
 	}
 
-	public Boolean getAlive ()
+	public Boolean getAlive()
 	{
 		return this.alive;
 	}
 
-	public void setAlive (Boolean alive)
+	public void setAlive(Boolean alive)
 	{
 		this.alive = alive;
 	}
 
-	public byte[] getPicture ()
+	public byte[] getPicture()
 	{
 		return this.picture;
 	}
 
-	public void setPicture (byte[] picture)
+	public void setPicture(byte[] picture)
 	{
 		this.picture = picture;
 	}
 
-	public String getAddress1 ()
+	public String getAddress1()
 	{
 		return this.address1;
 	}
 
-	public void setAddress1 (String address1)
+	public void setAddress1(String address1)
 	{
 		this.address1 = address1;
 	}
 
-	public String getAddress2 ()
+	public String getAddress2()
 	{
 		return this.address2;
 	}
 
-	public void setAddress2 (String address2)
+	public void setAddress2(String address2)
 	{
 		this.address2 = address2;
 	}
 
-	public String getAddress3 ()
+	public String getAddress3()
 	{
 		return this.address3;
 	}
 
-	public void setAddress3 (String address3)
+	public void setAddress3(String address3)
 	{
 		this.address3 = address3;
 	}
 
-	public String getAddress4 ()
+	public String getAddress4()
 	{
 		return this.address4;
 	}
 
-	public void setAddress4 (String address4)
+	public void setAddress4(String address4)
 	{
 		this.address4 = address4;
 	}
 
-	public String getCity ()
+	public String getCity()
 	{
 		return this.city;
 	}
 
-	public void setCity (String city)
+	public void setCity(String city)
 	{
 		this.city = city;
 	}
 
-	public String getState ()
+	public String getState()
 	{
 		return this.state;
 	}
 
-	public void setState (String state)
+	public void setState(String state)
 	{
 		this.state = state;
 	}
 
-	public String getCountry ()
+	public String getCountry()
 	{
 		return this.country;
 	}
 
-	public void setCountry (String country)
+	public void setCountry(String country)
 	{
 		this.country = country;
 	}
 
-	public String getRegion ()
+	public String getRegion()
 	{
 		return this.region;
 	}
 
-	public void setRegion (String region)
+	public void setRegion(String region)
 	{
 		this.region = region;
 	}
 
-	public float getLatitude ()
+	public float getLatitude()
 	{
 		return this.latitude;
 	}
 
-	public void setLatitude (float latitude)
+	public void setLatitude(float latitude)
 	{
 		this.latitude = latitude;
 	}
 
-	public float getLongitude ()
+	public float getLongitude()
 	{
 		return this.longitude;
 	}
 
-	public void setLongitude (float longitude)
+	public void setLongitude(float longitude)
 	{
 		this.longitude = longitude;
 	}
 
-	public String getPhone ()
+	public String getPhone()
 	{
 		return this.phone;
 	}
 
-	public void setPhone (String phone)
+	public void setPhone(String phone)
 	{
 		this.phone = phone;
 	}
 
-	public String getMobile ()
+	public String getMobile()
 	{
 		return this.mobile;
 	}
 
-	public void setMobile (String mobile)
+	public void setMobile(String mobile)
 	{
 		this.mobile = mobile;
 	}
 
-	public String getEmail ()
+	public String getEmail()
 	{
 		return this.email;
 	}
 
-	public void setEmail (String email)
+	public void setEmail(String email)
 	{
 		this.email = email;
 	}
 
-	public String getFax ()
+	public String getFax()
 	{
 		return this.fax;
 	}
 
-	public void setFax (String fax)
+	public void setFax(String fax)
 	{
 		this.fax = fax;
 	}
 
-	public String getAlternateAddress1 ()
+	public String getAlternateAddress1()
 	{
 		return this.alternateAddress1;
 	}
 
-	public void setAlternateAddress1 (String alternateAddress1)
+	public void setAlternateAddress1(String alternateAddress1)
 	{
 		this.alternateAddress1 = alternateAddress1;
 	}
 
-	public String getAlternateAddress2 ()
+	public String getAlternateAddress2()
 	{
 		return this.alternateAddress2;
 	}
 
-	public void setAlternateAddress2 (String alternateAddress2)
+	public void setAlternateAddress2(String alternateAddress2)
 	{
 		this.alternateAddress2 = alternateAddress2;
 	}
 
-	public String getAlternateAddress3 ()
+	public String getAlternateAddress3()
 	{
 		return this.alternateAddress3;
 	}
 
-	public void setAlternateAddress3 (String alternateAddress3)
+	public void setAlternateAddress3(String alternateAddress3)
 	{
 		this.alternateAddress3 = alternateAddress3;
 	}
 
-	public String getAlternateAddress4 ()
+	public String getAlternateAddress4()
 	{
 		return this.alternateAddress4;
 	}
 
-	public void setAlternateAddress4 (String alternateAddress4)
+	public void setAlternateAddress4(String alternateAddress4)
 	{
 		this.alternateAddress4 = alternateAddress4;
 	}
 
-	public String getAlternateCity ()
+	public String getAlternateCity()
 	{
 		return this.alternateCity;
 	}
 
-	public void setAlternateCity (String alternateCity)
+	public void setAlternateCity(String alternateCity)
 	{
 		this.alternateCity = alternateCity;
 	}
 
-	public String getAlternateState ()
+	public String getAlternateState()
 	{
 		return this.alternateState;
 	}
 
-	public void setAlternateState (String alternateState)
+	public void setAlternateState(String alternateState)
 	{
 		this.alternateState = alternateState;
 	}
 
-	public String getAlternateCountry ()
+	public String getAlternateCountry()
 	{
 		return this.alternateCountry;
 	}
 
-	public void setAlternateCountry (String alternateCountry)
+	public void setAlternateCountry(String alternateCountry)
 	{
 		this.alternateCountry = alternateCountry;
 	}
 
-	public String getAlternateRegion ()
+	public String getAlternateRegion()
 	{
 		return this.alternateRegion;
 	}
 
-	public void setAlternateRegion (String alternateRegion)
+	public void setAlternateRegion(String alternateRegion)
 	{
 		this.alternateRegion = alternateRegion;
 	}
 
-	public String getAlternatePhone ()
+	public String getAlternatePhone()
 	{
 		return this.alternatePhone;
 	}
 
-	public void setAlternatePhone (String alternatePhone)
+	public void setAlternatePhone(String alternatePhone)
 	{
 		this.alternatePhone = alternatePhone;
 	}
 
-	public String getAlternateMobile ()
+	public String getAlternateMobile()
 	{
 		return this.alternateMobile;
 	}
 
-	public void setAlternateMobile (String alternateMobile)
+	public void setAlternateMobile(String alternateMobile)
 	{
 		this.alternateMobile = alternateMobile;
 	}
 
-	public String getAlternateEmail ()
+	public String getAlternateEmail()
 	{
 		return this.alternateEmail;
 	}
 
-	public void setAlternateEmail (String alternateEmail)
+	public void setAlternateEmail(String alternateEmail)
 	{
 		this.alternateEmail = alternateEmail;
 	}
 
-	public String getAlternateFax ()
+	public String getAlternateFax()
 	{
 		return this.alternateFax;
 	}
 
-	public void setAlternateFax (String alternateFax)
+	public void setAlternateFax(String alternateFax)
 	{
 		this.alternateFax = alternateFax;
 	}
 
-	public float getAlternateLatitude ()
+	public float getAlternateLatitude()
 	{
 		return this.alternateLatitude;
 	}
 
-	public void setAlternateLatitude (float alternateLatitude)
+	public void setAlternateLatitude(float alternateLatitude)
 	{
 		this.alternateLatitude = alternateLatitude;
 	}
 
-	public float getAlternateLongitude ()
+	public float getAlternateLongitude()
 	{
 		return this.alternateLongitude;
 	}
 
-	public void setAlternateLongitude (float alternateLongitude)
+	public void setAlternateLongitude(float alternateLongitude)
 	{
 		this.alternateLongitude = alternateLongitude;
 	}
 
-	public String getTertiaryAddress ()
+	public String getTertiaryAddress()
 	{
 		return tertiaryAddress;
 	}
 
-	public void setTertiaryAddress (String tertiaryAddress)
+	public void setTertiaryAddress(String tertiaryAddress)
 	{
 		this.tertiaryAddress = tertiaryAddress;
 	}
 
-	public String getTertiaryPhone ()
+	public String getTertiaryPhone()
 	{
 		return tertiaryPhone;
 	}
 
-	public void setTertiaryPhone (String tertiaryPhone)
+	public void setTertiaryPhone(String tertiaryPhone)
 	{
 		this.tertiaryPhone = tertiaryPhone;
 	}
 
-	public String getTertiaryMobile ()
+	public String getTertiaryMobile()
 	{
 		return tertiaryMobile;
 	}
 
-	public void setTertiaryMobile (String tertiaryMobile)
+	public void setTertiaryMobile(String tertiaryMobile)
 	{
 		this.tertiaryMobile = tertiaryMobile;
 	}
 
-	public String getTertiaryEmail ()
+	public String getTertiaryEmail()
 	{
 		return tertiaryEmail;
 	}
 
-	public void setTertiaryEmail (String tertiaryEmail)
+	public void setTertiaryEmail(String tertiaryEmail)
 	{
 		this.tertiaryEmail = tertiaryEmail;
 	}
-	public String getPreferredLanguage ()
+
+	public String getPreferredLanguage()
 	{
 		return this.preferredLanguage;
 	}
 
-	public void setPreferredLanguage (String pLang)
+	public void setPreferredLanguage(String pLang)
 	{
 		this.preferredLanguage = pLang;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return pid + ", " + title + ", " + firstName + ", " + middleName + ", " + lastName + ", " + surname + ", " + fatherName + ", " + motherName + ", " + guardianName + ", " + gender + ", " + dob
-				+ ", " + approximateAge + ", " + maritalStatus + ", " + religion + ", " + caste + ", " + nationalId + ", " + idOwner + ", " + alive + ", " + address1 + ", " + address2 + ", "
-				+ address3 + ", " + address4 + ", " + city + ", " + state + ", " + country + ", " + region + ", " + latitude + ", " + longitude + ", " + phone + ", " + mobile + ", " + email + ", "
-				+ fax + ", " + alternateAddress1 + ", " + alternateAddress2 + ", " + alternateAddress3 + ", " + alternateAddress4 + ", " + alternateCity + ", " + alternateState + ", "
-				+ alternateCountry + ", " + alternateRegion + ", " + alternatePhone + ", " + alternateMobile + ", " + alternateEmail + ", " + alternateFax + ", " + alternateLatitude + ", "
-				+ alternateLongitude + ", " + tertiaryAddress + ", " + tertiaryPhone + ", " + tertiaryMobile + ", " + tertiaryEmail+ ","+preferredLanguage;
+		return pid + ", " + title + ", " + firstName + ", " + middleName + ", "
+				+ lastName + ", " + surname + ", " + fatherName + ", "
+				+ motherName + ", " + guardianName + ", " + gender + ", " + dob
+				+ ", " + approximateAge + ", " + maritalStatus + ", "
+				+ religion + ", " + caste + ", " + nationalId + ", " + idOwner
+				+ ", " + alive + ", " + address1 + ", " + address2 + ", "
+				+ address3 + ", " + address4 + ", " + city + ", " + state
+				+ ", " + country + ", " + region + ", " + latitude + ", "
+				+ longitude + ", " + phone + ", " + mobile + ", " + email
+				+ ", " + fax + ", " + alternateAddress1 + ", "
+				+ alternateAddress2 + ", " + alternateAddress3 + ", "
+				+ alternateAddress4 + ", " + alternateCity + ", "
+				+ alternateState + ", " + alternateCountry + ", "
+				+ alternateRegion + ", " + alternatePhone + ", "
+				+ alternateMobile + ", " + alternateEmail + ", " + alternateFax
+				+ ", " + alternateLatitude + ", " + alternateLongitude + ", "
+				+ tertiaryAddress + ", " + tertiaryPhone + ", "
+				+ tertiaryMobile + ", " + tertiaryEmail + ","
+				+ preferredLanguage;
 	}
 }

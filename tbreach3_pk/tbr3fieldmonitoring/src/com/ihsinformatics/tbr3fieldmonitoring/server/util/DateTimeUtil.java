@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.server.util;
 
 import java.text.ParseException;
@@ -8,38 +7,39 @@ import java.util.Date;
 public class DateTimeUtil
 {
 
-	public static final String	FE_FORMAT		= "dd/MM/yyyy HH:mm:ss";
-	public static final String	BE_FORMAT		= "yyyy-MM-dd HH:mm:ss";
-	public static final String	FE_FORMAT_TRUNC	= "dd/MM/yyyy";
-	public static final String	DOB_FORMAT		= "dd/MM/yyyy";
+	public static final String FE_FORMAT = "dd/MM/yyyy HH:mm:ss";
+	public static final String BE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+	public static final String FE_FORMAT_TRUNC = "dd/MM/yyyy";
+	public static final String DOB_FORMAT = "dd/MM/yyyy";
 
-	public static Date getDateFromString (String string, String format) throws ParseException
+	public static Date getDateFromString(String string, String format)
+			throws ParseException
 	{
-		SimpleDateFormat sdf = new SimpleDateFormat (format);
-		return sdf.parse (string);
+		SimpleDateFormat sdf = new SimpleDateFormat(format);
+		return sdf.parse(string);
 	}
 
-	public static String convertToSQL (String string, String format)
+	public static String convertToSQL(String string, String format)
 	{
-		SimpleDateFormat sdf = new SimpleDateFormat (format);
+		SimpleDateFormat sdf = new SimpleDateFormat(format);
 		Date date1;
 		try
 		{
-			date1 = sdf.parse (string);
+			date1 = sdf.parse(string);
 		}
 		catch (ParseException e)
 		{
-			e.printStackTrace ();
+			e.printStackTrace();
 			return null;
 		}
 
-		sdf.applyPattern (BE_FORMAT);
-		return sdf.format (date1);
+		sdf.applyPattern(BE_FORMAT);
+		return sdf.format(date1);
 	}
 
-	public static String getSQLDate (Date date)
+	public static String getSQLDate(Date date)
 	{
-		SimpleDateFormat sdf = new SimpleDateFormat (BE_FORMAT);
-		return sdf.format (date);
+		SimpleDateFormat sdf = new SimpleDateFormat(BE_FORMAT);
+		return sdf.format(date);
 	}
 }

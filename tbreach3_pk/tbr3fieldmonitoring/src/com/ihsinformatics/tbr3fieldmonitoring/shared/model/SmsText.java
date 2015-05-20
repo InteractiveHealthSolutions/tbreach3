@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Jan 15, 2013 5:34:55 PM by Hibernate Tools 3.4.0.Beta1
@@ -12,18 +11,19 @@ public class SmsText implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= -182967597455844870L;
-	private Integer	textId;
-	private String	ruleId;
-	private String	text;
-	private String	languageId;
-	private String	description;
+	private static final long serialVersionUID = -182967597455844870L;
+	private Integer textId;
+	private String ruleId;
+	private String text;
+	private String languageId;
+	private String description;
 
-	public SmsText ()
+	public SmsText()
 	{
 	}
 
-	public SmsText (String ruleId, String text, String languageId, String description)
+	public SmsText(String ruleId, String text, String languageId,
+			String description)
 	{
 		this.ruleId = ruleId;
 		this.text = text;
@@ -31,63 +31,66 @@ public class SmsText implements java.io.Serializable
 		this.description = description;
 	}
 
-	public Integer getTextId ()
+	public Integer getTextId()
 	{
 		return this.textId;
 	}
 
-	public void setTextId (Integer textId)
+	public void setTextId(Integer textId)
 	{
 		this.textId = textId;
 	}
 
-	public String getRuleId ()
+	public String getRuleId()
 	{
 		return this.ruleId;
 	}
 
-	public void setRuleId (String ruleId)
+	public void setRuleId(String ruleId)
 	{
 		this.ruleId = ruleId;
 	}
 
-	public String getText ()
+	public String getText()
 	{
 		return this.text;
 	}
 
-	public void setText (String text)
+	public void setText(String text)
 	{
 		this.text = text;
 	}
 
-	public String getLanguageId ()
+	public String getLanguageId()
 	{
 		return this.languageId;
 	}
 
-	public void setLanguageId (String languageId)
+	public void setLanguageId(String languageId)
 	{
 		this.languageId = languageId;
 	}
 
-	public String getDescription ()
+	public String getDescription()
 	{
 		return this.description;
 	}
 
-	public void setDescription (String description)
+	public void setDescription(String description)
 	{
 		this.description = description;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return textId + ", " + ruleId + ", " + text + ", " + languageId + ", " + description;
+		return textId + ", " + ruleId + ", " + text + ", " + languageId + ", "
+				+ description;
 	}
 
 }

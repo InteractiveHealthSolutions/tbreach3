@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Jun 12, 2012 4:08:49 PM by Hibernate Tools 3.4.0.CR1
@@ -12,41 +11,41 @@ public class EncounterPrerequisiteId implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 4648583768739321827L;
-	private String				encounterType;
-	private int					prerequisiteNo;
+	private static final long serialVersionUID = 4648583768739321827L;
+	private String encounterType;
+	private int prerequisiteNo;
 
-	public EncounterPrerequisiteId ()
+	public EncounterPrerequisiteId()
 	{
 	}
 
-	public EncounterPrerequisiteId (String encounterType, int prerequisiteNo)
+	public EncounterPrerequisiteId(String encounterType, int prerequisiteNo)
 	{
 		this.encounterType = encounterType;
 		this.prerequisiteNo = prerequisiteNo;
 	}
 
-	public String getEncounterType ()
+	public String getEncounterType()
 	{
 		return this.encounterType;
 	}
 
-	public void setEncounterType (String encounterType)
+	public void setEncounterType(String encounterType)
 	{
 		this.encounterType = encounterType;
 	}
 
-	public int getPrerequisiteNo ()
+	public int getPrerequisiteNo()
 	{
 		return this.prerequisiteNo;
 	}
 
-	public void setPrerequisiteNo (int prerequisiteNo)
+	public void setPrerequisiteNo(int prerequisiteNo)
 	{
 		this.prerequisiteNo = prerequisiteNo;
 	}
 
-	public boolean equals (Object other)
+	public boolean equals(Object other)
 	{
 		if ((this == other))
 			return true;
@@ -56,22 +55,27 @@ public class EncounterPrerequisiteId implements java.io.Serializable
 			return false;
 		EncounterPrerequisiteId castOther = (EncounterPrerequisiteId) other;
 
-		return ((this.getEncounterType () == castOther.getEncounterType ()) || (this.getEncounterType () != null && castOther.getEncounterType () != null && this.getEncounterType ().equals (
-				castOther.getEncounterType ())))
-				&& (this.getPrerequisiteNo () == castOther.getPrerequisiteNo ());
+		return ((this.getEncounterType() == castOther.getEncounterType()) || (this
+				.getEncounterType() != null
+				&& castOther.getEncounterType() != null && this
+				.getEncounterType().equals(castOther.getEncounterType())))
+				&& (this.getPrerequisiteNo() == castOther.getPrerequisiteNo());
 	}
 
-	public int hashCode ()
+	public int hashCode()
 	{
 		int result = 17;
 
-		result = 37 * result + (getEncounterType () == null ? 0 : this.getEncounterType ().hashCode ());
-		result = 37 * result + this.getPrerequisiteNo ();
+		result = 37
+				* result
+				+ (getEncounterType() == null ? 0 : this.getEncounterType()
+						.hashCode());
+		result = 37 * result + this.getPrerequisiteNo();
 		return result;
 	}
 
 	@Override
-	public String toString ()
+	public String toString()
 	{
 		return encounterType + ", " + prerequisiteNo;
 	}

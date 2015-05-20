@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Jun 12, 2012 4:08:49 PM by Hibernate Tools 3.4.0.CR1
@@ -12,23 +11,26 @@ public class EncounterPrerequisite implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long		serialVersionUID	= 8128931134495345873L;
-	private EncounterPrerequisiteId	id;
-	private String					prerequisiteEncounter;
-	private String					conditionElement;
-	private String					possibleValueRegex;
+	private static final long serialVersionUID = 8128931134495345873L;
+	private EncounterPrerequisiteId id;
+	private String prerequisiteEncounter;
+	private String conditionElement;
+	private String possibleValueRegex;
 
-	public EncounterPrerequisite ()
+	public EncounterPrerequisite()
 	{
 	}
 
-	public EncounterPrerequisite (EncounterPrerequisiteId id, String prerequisiteEncounter)
+	public EncounterPrerequisite(EncounterPrerequisiteId id,
+			String prerequisiteEncounter)
 	{
 		this.id = id;
 		this.prerequisiteEncounter = prerequisiteEncounter;
 	}
 
-	public EncounterPrerequisite (EncounterPrerequisiteId id, String prerequisiteEncounter, String conditionElement, String possibleValueRegex)
+	public EncounterPrerequisite(EncounterPrerequisiteId id,
+			String prerequisiteEncounter, String conditionElement,
+			String possibleValueRegex)
 	{
 		this.id = id;
 		this.prerequisiteEncounter = prerequisiteEncounter;
@@ -36,50 +38,51 @@ public class EncounterPrerequisite implements java.io.Serializable
 		this.possibleValueRegex = possibleValueRegex;
 	}
 
-	public EncounterPrerequisiteId getId ()
+	public EncounterPrerequisiteId getId()
 	{
 		return this.id;
 	}
 
-	public void setId (EncounterPrerequisiteId id)
+	public void setId(EncounterPrerequisiteId id)
 	{
 		this.id = id;
 	}
 
-	public String getPrerequisiteEncounter ()
+	public String getPrerequisiteEncounter()
 	{
 		return this.prerequisiteEncounter;
 	}
 
-	public void setPrerequisiteEncounter (String prerequisiteEncounter)
+	public void setPrerequisiteEncounter(String prerequisiteEncounter)
 	{
 		this.prerequisiteEncounter = prerequisiteEncounter;
 	}
 
-	public String getConditionElement ()
+	public String getConditionElement()
 	{
 		return this.conditionElement;
 	}
 
-	public void setConditionElement (String conditionElement)
+	public void setConditionElement(String conditionElement)
 	{
 		this.conditionElement = conditionElement;
 	}
 
-	public String getPossibleValueRegex ()
+	public String getPossibleValueRegex()
 	{
 		return this.possibleValueRegex;
 	}
 
-	public void setPossibleValueRegex (String possibleValueRegex)
+	public void setPossibleValueRegex(String possibleValueRegex)
 	{
 		this.possibleValueRegex = possibleValueRegex;
 	}
 
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return id + ", " + prerequisiteEncounter + ", " + conditionElement + ", " + possibleValueRegex;
+		return id + ", " + prerequisiteEncounter + ", " + conditionElement
+				+ ", " + possibleValueRegex;
 	}
 
 }

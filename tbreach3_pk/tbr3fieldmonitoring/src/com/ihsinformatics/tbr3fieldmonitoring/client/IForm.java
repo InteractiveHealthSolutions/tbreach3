@@ -8,23 +8,22 @@
  * You can also access the license on the internet at the address: http://www.gnu.org/licenses/gpl-3.0.html
  * Interactive Health Solutions, hereby disclaims all copyright interest in this program written by the contributors.
  * Contributors: Tahira Niazi
-*/
+ */
 package com.ihsinformatics.tbr3fieldmonitoring.client;
-
 
 /**
  * @author Tahira
- *
+ * 
  */
 public interface IForm
 {
 	void clearUp();
-	
+
 	boolean validate();
-	
+
 	void saveData();
-	
+
 	void fillData();
-	
+
 	void setCurrent();
 }

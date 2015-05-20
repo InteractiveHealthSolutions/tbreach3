@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Jun 12, 2012 4:08:49 PM by Hibernate Tools 3.4.0.CR1
@@ -14,25 +13,26 @@ public class Encounter implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 5837400457336789365L;
-	private EncounterId			id;
-	private String				locationId;
-	private Date				dateStart;
-	private Date				dateEnd;
-	private Date				dateEntered;
-	private String				description;
+	private static final long serialVersionUID = 5837400457336789365L;
+	private EncounterId id;
+	private String locationId;
+	private Date dateStart;
+	private Date dateEnd;
+	private Date dateEntered;
+	private String description;
 
-	public Encounter ()
+	public Encounter()
 	{
 	}
 
-	public Encounter (EncounterId id, String locationId)
+	public Encounter(EncounterId id, String locationId)
 	{
 		this.id = id;
 		this.locationId = locationId;
 	}
 
-	public Encounter (EncounterId id, String locationId, Date dateStart, Date dateEnd, Date dateEntered, String description)
+	public Encounter(EncounterId id, String locationId, Date dateStart,
+			Date dateEnd, Date dateEntered, String description)
 	{
 		this.id = id;
 		this.locationId = locationId;
@@ -42,69 +42,70 @@ public class Encounter implements java.io.Serializable
 		this.description = description;
 	}
 
-	public EncounterId getId ()
+	public EncounterId getId()
 	{
 		return this.id;
 	}
 
-	public void setId (EncounterId id)
+	public void setId(EncounterId id)
 	{
 		this.id = id;
 	}
 
-	public String getLocationId ()
+	public String getLocationId()
 	{
 		return this.locationId;
 	}
 
-	public void setLocationId (String locationId)
+	public void setLocationId(String locationId)
 	{
 		this.locationId = locationId;
 	}
 
-	public Date getDateStart ()
+	public Date getDateStart()
 	{
 		return this.dateStart;
 	}
 
-	public void setDateStart (Date dateStart)
+	public void setDateStart(Date dateStart)
 	{
 		this.dateStart = dateStart;
 	}
 
-	public Date getDateEnd ()
+	public Date getDateEnd()
 	{
 		return this.dateEnd;
 	}
 
-	public void setDateEnd (Date dateEnd)
+	public void setDateEnd(Date dateEnd)
 	{
 		this.dateEnd = dateEnd;
 	}
 
-	public Date getDateEntered ()
+	public Date getDateEntered()
 	{
 		return this.dateEntered;
 	}
 
-	public void setDateEntered (Date dateEntered)
+	public void setDateEntered(Date dateEntered)
 	{
 		this.dateEntered = dateEntered;
 	}
 
-	public String getDescription ()
+	public String getDescription()
 	{
 		return this.description;
 	}
 
-	public void setDescription (String description)
+	public void setDescription(String description)
 	{
 		this.description = description;
 	}
 
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return id + ", " + locationId + ", " + dateStart + ", " + dateEnd + ", " + dateEntered + ", " + description;
+		return id + ", " + locationId + ", " + dateStart + ", " + dateEnd
+				+ ", " + dateEntered + ", " + description;
 	}
 }

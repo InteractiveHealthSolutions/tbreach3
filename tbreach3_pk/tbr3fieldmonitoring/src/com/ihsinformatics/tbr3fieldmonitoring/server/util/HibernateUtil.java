@@ -28,25 +28,27 @@ import org.hibernate.cfg.Configuration;
  */
 public class HibernateUtil implements Serializable
 {
-	private static final long		serialVersionUID	= -2333198879612643152L;
-	public static HibernateUtil		util				= new HibernateUtil ();
-	private static SessionFactory	factory;
+	private static final long serialVersionUID = -2333198879612643152L;
+	public static HibernateUtil util = new HibernateUtil();
+	private static SessionFactory factory;
+
 	// private Class<?>[] classes;
 
-//	public static void main(String[] args)
-//	{
-//		HibernateUtil utility = new HibernateUtil();
-//		utility.findObject("select * from Definition");
-//	}
-	
+	// public static void main(String[] args)
+	// {
+	// HibernateUtil utility = new HibernateUtil();
+	// utility.findObject("select * from Definition");
+	// }
+
 	/**
 	 * Default Constructor to initialize Session
 	 */
-	public HibernateUtil ()
+	public HibernateUtil()
 	{
 		/* Use when trying Annotation */
 		// factory = getInitializedConfiguration().buildSessionFactory();
-		factory = new Configuration ().configure ("tbreach3.cfg.xml").buildSessionFactory ();
+		factory = new Configuration().configure("tbreach3.cfg.xml")
+				.buildSessionFactory();
 	}
 
 	/**
@@ -55,9 +57,9 @@ public class HibernateUtil implements Serializable
 	 * @param queryString
 	 * @return
 	 */
-	public Query create (String query)
+	public Query create(String query)
 	{
-		return getSession ().createQuery (query);
+		return getSession().createQuery(query);
 	}
 
 	/**
@@ -65,9 +67,9 @@ public class HibernateUtil implements Serializable
 	 * 
 	 * @return
 	 */
-	public long count (String query)
+	public long count(String query)
 	{
-		return count (create (query));
+		return count(create(query));
 	}
 
 	/**
@@ -75,9 +77,9 @@ public class HibernateUtil implements Serializable
 	 * 
 	 * @return
 	 */
-	public long count (Query query)
+	public long count(Query query)
 	{
-		return Long.parseLong (query.uniqueResult ().toString ());
+		return Long.parseLong(query.uniqueResult().toString());
 	}
 
 	/**
@@ -86,15 +88,15 @@ public class HibernateUtil implements Serializable
 	 * @param query
 	 * @return
 	 */
-	public Object findObject (String query)
+	public Object findObject(String query)
 	{
 		try
 		{
-			return findObjects (query)[0];
+			return findObjects(query)[0];
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace ();
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -105,18 +107,18 @@ public class HibernateUtil implements Serializable
 	 * @param query
 	 * @return
 	 */
-	public Object[] findObjects (String query)
+	public Object[] findObjects(String query)
 	{
 		try
 		{
-			Session session = getSession ();
-			Query q = session.createQuery (query);
-			List<?> list = q.list ();
-			return list.toArray ();
+			Session session = getSession();
+			Query q = session.createQuery(query);
+			List<?> list = q.list();
+			return list.toArray();
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace ();
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -127,9 +129,9 @@ public class HibernateUtil implements Serializable
 	 * @param SQLQuery
 	 * @return
 	 */
-	public Object selectObject (String sqlQuery)
+	public Object selectObject(String sqlQuery)
 	{
-		return selectObjects (sqlQuery)[0];
+		return selectObjects(sqlQuery)[0];
 	}
 
 	/**
@@ -138,13 +140,13 @@ public class HibernateUtil implements Serializable
 	 * @param SQLQuery
 	 * @return
 	 */
-	public Object[] selectObjects (String sqlQuery)
+	public Object[] selectObjects(String sqlQuery)
 	{
-		Session session = getSession ();
+		Session session = getSession();
 		// session.beginTransaction();
-		SQLQuery q = session.createSQLQuery (sqlQuery);
-		List<?> list = q.list ();
-		return list.toArray ();
+		SQLQuery q = session.createSQLQuery(sqlQuery);
+		List<?> list = q.list();
+		return list.toArray();
 	}
 
 	/**
@@ -153,25 +155,25 @@ public class HibernateUtil implements Serializable
 	 * @param SQLQuery
 	 * @return
 	 */
-	public Object[][] selectData (String SqlQuery)
+	public Object[][] selectData(String SqlQuery)
 	{
-		Session session = getSession ();
-		SQLQuery q = session.createSQLQuery (SqlQuery);
-		List<?> list = q.list ();
-		Object[][] tableData = new Object[list.size ()][];
+		Session session = getSession();
+		SQLQuery q = session.createSQLQuery(SqlQuery);
+		List<?> list = q.list();
+		Object[][] tableData = new Object[list.size()][];
 		try
 		{
 			int cnt = 0;
-			for (ListIterator<?> iter = list.listIterator (); iter.hasNext ();)
+			for (ListIterator<?> iter = list.listIterator(); iter.hasNext();)
 			{
-				Object[] array = (Object[]) iter.next ();
+				Object[] array = (Object[]) iter.next();
 				tableData[cnt++] = array;
 			}
 			return tableData;
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace ();
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -184,26 +186,26 @@ public class HibernateUtil implements Serializable
 	 *         save for some constraint null if transaction causes breakage in
 	 *         integrity (duplication, etc.)
 	 */
-//	public Boolean update (Object obj)
-//	{
-//		try
-//		{
-//			Session session = getSession ();
-//			session.update (obj);
-//			session.flush ();
-//			session.close ();
-//			recordLog (LogType.UPDATE, obj);
-//			return true;
-//		}
-//		catch (Exception e)
-//		{
-//			e.printStackTrace ();
-//			if (e.getCause ().getClass () == BatchUpdateException.class)
-//				return null;
-//			else
-//				return false;
-//		}
-//	}
+	// public Boolean update (Object obj)
+	// {
+	// try
+	// {
+	// Session session = getSession ();
+	// session.update (obj);
+	// session.flush ();
+	// session.close ();
+	// recordLog (LogType.UPDATE, obj);
+	// return true;
+	// }
+	// catch (Exception e)
+	// {
+	// e.printStackTrace ();
+	// if (e.getCause ().getClass () == BatchUpdateException.class)
+	// return null;
+	// else
+	// return false;
+	// }
+	// }
 
 	/**
 	 * Saves multiple objects into database
@@ -212,20 +214,20 @@ public class HibernateUtil implements Serializable
 	 * @return true if all record was successfully saved false if any of the
 	 *         records did not save
 	 */
-	public boolean bulkSave (Object[] objects)
+	public boolean bulkSave(Object[] objects)
 	{
 		try
 		{
-			Session session = getSession ();
+			Session session = getSession();
 			for (Object o : objects)
-				session.save (o);
-			session.flush ();
-			session.close ();
+				session.save(o);
+			session.flush();
+			session.close();
 			return true;
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace ();
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -238,21 +240,21 @@ public class HibernateUtil implements Serializable
 	 *         save for some constraint null if transaction causes breakage in
 	 *         integrity (duplication, etc.)
 	 */
-	public Boolean save (Object obj)
+	public Boolean save(Object obj)
 	{
 		try
 		{
-			Session session = getSession ();
-			session.save (obj);
-			session.flush ();
-			session.close ();
-//			recordLog (LogType.INSERT, obj);
+			Session session = getSession();
+			session.save(obj);
+			session.flush();
+			session.close();
+			// recordLog (LogType.INSERT, obj);
 			return true;
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace ();
-				return false;
+			e.printStackTrace();
+			return false;
 		}
 	}
 
@@ -264,21 +266,21 @@ public class HibernateUtil implements Serializable
 	 *         delete for some constraint null if transaction causes breakage in
 	 *         integrity (duplication, etc.)
 	 */
-	public Boolean delete (Object obj)
+	public Boolean delete(Object obj)
 	{
 		try
 		{
-			Session session = getSession ();
-			session.delete (obj);
-			session.flush ();
-			session.close ();
-			//recordLog (LogType.DELETE, obj);
+			Session session = getSession();
+			session.delete(obj);
+			session.flush();
+			session.close();
+			// recordLog (LogType.DELETE, obj);
 			return true;
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace ();
-				return false;
+			e.printStackTrace();
+			return false;
 		}
 	}
 
@@ -290,39 +292,40 @@ public class HibernateUtil implements Serializable
 	 * @param obj
 	 *            actual object to be logged
 	 */
-//	public void recordLog (LogType logType, Object obj)
-//	{
-//		Object logObj = null;
-//		Class<?> objClass = obj.getClass ();
-//		String className = obj.getClass ().getSimpleName ();
-//		switch (logType)
-//		{
-//			case DELETE :
-//			case INSERT :
-//			case UPDATE :
-//				logObj = new LogData (IRZ.getCurrentUserName (), logType.toString (), new Date (), className, (objClass).cast (obj).toString ());
-//				break;
-//			case LOGIN :
-//				logObj = new LogLogin (IRZ.getCurrentUserName (), new Date (), null, "");
-//				break;
-//			case LOGOUT:
-//				logObj = new LogLogin (IRZ.getCurrentUserName (), null, new Date (), "");
-//				break;
-//			default :
-//				break;
-//		}
-//		try
-//		{
-//			Session session = getSession ();
-//			session.save (logObj);
-//			session.flush ();
-//			session.close ();
-//		}
-//		catch (Exception e)
-//		{
-//			e.printStackTrace ();
-//		}
-//	}
+	// public void recordLog (LogType logType, Object obj)
+	// {
+	// Object logObj = null;
+	// Class<?> objClass = obj.getClass ();
+	// String className = obj.getClass ().getSimpleName ();
+	// switch (logType)
+	// {
+	// case DELETE :
+	// case INSERT :
+	// case UPDATE :
+	// logObj = new LogData (IRZ.getCurrentUserName (), logType.toString (), new
+	// Date (), className, (objClass).cast (obj).toString ());
+	// break;
+	// case LOGIN :
+	// logObj = new LogLogin (IRZ.getCurrentUserName (), new Date (), null, "");
+	// break;
+	// case LOGOUT:
+	// logObj = new LogLogin (IRZ.getCurrentUserName (), null, new Date (), "");
+	// break;
+	// default :
+	// break;
+	// }
+	// try
+	// {
+	// Session session = getSession ();
+	// session.save (logObj);
+	// session.flush ();
+	// session.close ();
+	// }
+	// catch (Exception e)
+	// {
+	// e.printStackTrace ();
+	// }
+	// }
 
 	/**
 	 * Executes a DML command
@@ -331,13 +334,13 @@ public class HibernateUtil implements Serializable
 	 *            SQL statement as command
 	 * @return number of records affected
 	 */
-	public int runCommand (String command)
+	public int runCommand(String command)
 	{
-		Session session = getSession ();
-		Transaction transaction = session.beginTransaction ();
-		SQLQuery q = session.createSQLQuery (command);
-		int results = q.executeUpdate ();
-		transaction.commit ();
+		Session session = getSession();
+		Transaction transaction = session.beginTransaction();
+		SQLQuery q = session.createSQLQuery(command);
+		int results = q.executeUpdate();
+		transaction.commit();
 		return results;
 	}
 
@@ -349,21 +352,22 @@ public class HibernateUtil implements Serializable
 	 * @return number of records affected
 	 */
 	@SuppressWarnings("deprecation")
-	public boolean runProcedure (String procedure)
+	public boolean runProcedure(String procedure)
 	{
-		Session session = getSession ();
-		session.beginTransaction ();
+		Session session = getSession();
+		session.beginTransaction();
 		try
 		{
-			CallableStatement callableStatement = session.connection ().prepareCall (procedure);
-			System.out.println ("Executing stored procedure: " + procedure);
-			callableStatement.execute ();
-			session.getTransaction ().commit ();
+			CallableStatement callableStatement = session.connection()
+					.prepareCall(procedure);
+			System.out.println("Executing stored procedure: " + procedure);
+			callableStatement.execute();
+			session.getTransaction().commit();
 			return true;
 		}
 		catch (SQLException e)
 		{
-			e.printStackTrace ();
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -371,9 +375,9 @@ public class HibernateUtil implements Serializable
 	/**
 	 * @return the session
 	 */
-	public Session getSession ()
+	public Session getSession()
 	{
-		return factory.openSession ();
+		return factory.openSession();
 	}
 
 	/**
@@ -383,9 +387,9 @@ public class HibernateUtil implements Serializable
 	 *            object to be identified
 	 * @return Class object of class 'Class'
 	 */
-	public Class<?> identifyClass (Object obj)
+	public Class<?> identifyClass(Object obj)
 	{
-		return obj.getClass ();
+		return obj.getClass();
 	}
 
 	/**
@@ -394,9 +398,9 @@ public class HibernateUtil implements Serializable
 	 * @param persistanceClass
 	 * @return
 	 */
-	public String getTableName (Class<?> persistanceClass)
+	public String getTableName(Class<?> persistanceClass)
 	{
-		return factory.getClassMetadata (persistanceClass).getEntityName ();
+		return factory.getClassMetadata(persistanceClass).getEntityName();
 	}
 
 	/**
@@ -409,24 +413,26 @@ public class HibernateUtil implements Serializable
 	 * @throws ClassNotFoundException
 	 * @throws IOException
 	 */
-	public static Class<?>[] getClasses (String packageName) throws ClassNotFoundException, IOException
+	public static Class<?>[] getClasses(String packageName)
+			throws ClassNotFoundException, IOException
 	{
-		ClassLoader classLoader = Thread.currentThread ().getContextClassLoader ();
+		ClassLoader classLoader = Thread.currentThread()
+				.getContextClassLoader();
 		assert classLoader != null;
-		String path = packageName.replace ('.', '/');
-		Enumeration<URL> resources = classLoader.getResources (path);
-		List<File> dirs = new ArrayList<File> ();
-		while (resources.hasMoreElements ())
+		String path = packageName.replace('.', '/');
+		Enumeration<URL> resources = classLoader.getResources(path);
+		List<File> dirs = new ArrayList<File>();
+		while (resources.hasMoreElements())
 		{
-			URL resource = resources.nextElement ();
-			dirs.add (new File (resource.getFile ()));
+			URL resource = resources.nextElement();
+			dirs.add(new File(resource.getFile()));
 		}
-		ArrayList<Class<?>> classes = new ArrayList<Class<?>> ();
+		ArrayList<Class<?>> classes = new ArrayList<Class<?>>();
 		for (File directory : dirs)
 		{
-			classes.addAll (findClasses (directory, packageName));
+			classes.addAll(findClasses(directory, packageName));
 		}
-		return classes.toArray (new Class[classes.size ()]);
+		return classes.toArray(new Class[classes.size()]);
 	}
 
 	/**
@@ -440,24 +446,29 @@ public class HibernateUtil implements Serializable
 	 * @return The classes
 	 * @throws ClassNotFoundException
 	 */
-	private static List<Class<?>> findClasses (File directory, String packageName) throws ClassNotFoundException
+	private static List<Class<?>> findClasses(File directory, String packageName)
+			throws ClassNotFoundException
 	{
-		List<Class<?>> classes = new ArrayList<Class<?>> ();
-		if (!directory.exists ())
+		List<Class<?>> classes = new ArrayList<Class<?>>();
+		if (!directory.exists())
 		{
 			return classes;
 		}
-		File[] files = directory.listFiles ();
+		File[] files = directory.listFiles();
 		for (File file : files)
 		{
-			if (file.isDirectory ())
+			if (file.isDirectory())
 			{
-				assert !file.getName ().contains (".");
-				classes.addAll (findClasses (file, packageName + "." + file.getName ()));
+				assert !file.getName().contains(".");
+				classes.addAll(findClasses(file,
+						packageName + "." + file.getName()));
 			}
-			else if (file.getName ().endsWith (".class"))
+			else if (file.getName().endsWith(".class"))
 			{
-				classes.add (Class.forName (packageName + '.' + file.getName ().substring (0, file.getName ().length () - 6)));
+				classes.add(Class.forName(packageName
+						+ '.'
+						+ file.getName().substring(0,
+								file.getName().length() - 6)));
 			}
 		}
 		return classes;

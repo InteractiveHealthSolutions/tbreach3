@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Jun 12, 2012 4:08:49 PM by Hibernate Tools 3.4.0.CR1
@@ -13,23 +12,24 @@ public class UserMapping implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= -6362566872865558932L;
-	private UserMappingId		id;
-	private String				currentStatus;
-	private Date				timeFrom;
-	private Date				timeTo;
-	private String				weekDays;
+	private static final long serialVersionUID = -6362566872865558932L;
+	private UserMappingId id;
+	private String currentStatus;
+	private Date timeFrom;
+	private Date timeTo;
+	private String weekDays;
 
-	public UserMapping ()
+	public UserMapping()
 	{
 	}
 
-	public UserMapping (UserMappingId id)
+	public UserMapping(UserMappingId id)
 	{
 		this.id = id;
 	}
 
-	public UserMapping (UserMappingId id, String currentStatus, Date timeFrom, Date timeTo, String weekDays)
+	public UserMapping(UserMappingId id, String currentStatus, Date timeFrom,
+			Date timeTo, String weekDays)
 	{
 		this.id = id;
 		this.currentStatus = currentStatus;
@@ -38,59 +38,60 @@ public class UserMapping implements java.io.Serializable
 		this.weekDays = weekDays;
 	}
 
-	public UserMappingId getId ()
+	public UserMappingId getId()
 	{
 		return this.id;
 	}
 
-	public void setId (UserMappingId id)
+	public void setId(UserMappingId id)
 	{
 		this.id = id;
 	}
 
-	public String getCurrentStatus ()
+	public String getCurrentStatus()
 	{
 		return this.currentStatus;
 	}
 
-	public void setCurrentStatus (String currentStatus)
+	public void setCurrentStatus(String currentStatus)
 	{
 		this.currentStatus = currentStatus;
 	}
 
-	public Date getTimeFrom ()
+	public Date getTimeFrom()
 	{
 		return this.timeFrom;
 	}
 
-	public void setTimeFrom (Date timeFrom)
+	public void setTimeFrom(Date timeFrom)
 	{
 		this.timeFrom = timeFrom;
 	}
 
-	public Date getTimeTo ()
+	public Date getTimeTo()
 	{
 		return this.timeTo;
 	}
 
-	public void setTimeTo (Date timeTo)
+	public void setTimeTo(Date timeTo)
 	{
 		this.timeTo = timeTo;
 	}
 
-	public String getWeekDays ()
+	public String getWeekDays()
 	{
 		return this.weekDays;
 	}
 
-	public void setWeekDays (String weekDays)
+	public void setWeekDays(String weekDays)
 	{
 		this.weekDays = weekDays;
 	}
 
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return id + ", " + currentStatus + ", " + timeFrom + ", " + timeTo + ", " + weekDays;
+		return id + ", " + currentStatus + ", " + timeFrom + ", " + timeTo
+				+ ", " + weekDays;
 	}
 }

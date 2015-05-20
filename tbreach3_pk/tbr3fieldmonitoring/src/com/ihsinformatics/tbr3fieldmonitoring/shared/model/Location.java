@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Nov 14, 2012 11:36:54 AM by Hibernate Tools 3.4.0.Beta1
@@ -12,42 +11,47 @@ public class Location implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= -991576038022232033L;
-	private String				locationId;
-	private String				locationName;
-	private String				locationType;
-	private String				address1;
-	private String				address2;
-	private String				address3;
-	private String				address4;
-	private String				city;
-	private String				state;
-	private String				country;
-	private String				region;
-	private Float				latitude;
-	private Float				longitude;
-	private String				phone;
-	private String				mobile;
-	private String				email;
-	private String				fax;
-	private String				otherPhone;
-	private String				otherMobile;
-	private String				otherEmail;
-	private String				otherFax;
+	private static final long serialVersionUID = -991576038022232033L;
+	private String locationId;
+	private String locationName;
+	private String locationType;
+	private String address1;
+	private String address2;
+	private String address3;
+	private String address4;
+	private String city;
+	private String state;
+	private String country;
+	private String region;
+	private Float latitude;
+	private Float longitude;
+	private String phone;
+	private String mobile;
+	private String email;
+	private String fax;
+	private String otherPhone;
+	private String otherMobile;
+	private String otherEmail;
+	private String otherFax;
 
-	public Location ()
+	public Location()
 	{
 	}
 
-	public Location (String locationId, String locationName, String locationType)
+	public Location(String locationId, String locationName, String locationType)
 	{
 		this.locationId = locationId;
 		this.locationName = locationName;
 		this.locationType = locationType;
 	}
 
-	public Location (String locationId, String locationName, String locationType, String address1, String address2, String address3, String address4, String city, String state, String country,
-			String region, Float latitude, Float longitude, String phone, String mobile, String email, String fax, String otherPhone, String otherMobile, String otherEmail, String otherFax)
+	public Location(String locationId, String locationName,
+			String locationType, String address1, String address2,
+			String address3, String address4, String city, String state,
+			String country, String region, Float latitude, Float longitude,
+			String phone, String mobile, String email, String fax,
+			String otherPhone, String otherMobile, String otherEmail,
+			String otherFax)
 	{
 		this.locationId = locationId;
 		this.locationName = locationName;
@@ -72,212 +76,212 @@ public class Location implements java.io.Serializable
 		this.otherFax = otherFax;
 	}
 
-	public String getLocationId ()
+	public String getLocationId()
 	{
 		return this.locationId;
 	}
 
-	public void setLocationId (String locationId)
+	public void setLocationId(String locationId)
 	{
 		this.locationId = locationId;
 	}
 
-	public String getLocationName ()
+	public String getLocationName()
 	{
 		return this.locationName;
 	}
 
-	public void setLocationName (String locationName)
+	public void setLocationName(String locationName)
 	{
 		this.locationName = locationName;
 	}
 
-	public String getLocationType ()
+	public String getLocationType()
 	{
 		return this.locationType;
 	}
 
-	public void setLocationType (String locationType)
+	public void setLocationType(String locationType)
 	{
 		this.locationType = locationType;
 	}
 
-	public String getAddress1 ()
+	public String getAddress1()
 	{
 		return this.address1;
 	}
 
-	public void setAddress1 (String address1)
+	public void setAddress1(String address1)
 	{
 		this.address1 = address1;
 	}
 
-	public String getAddress2 ()
+	public String getAddress2()
 	{
 		return this.address2;
 	}
 
-	public void setAddress2 (String address2)
+	public void setAddress2(String address2)
 	{
 		this.address2 = address2;
 	}
 
-	public String getAddress3 ()
+	public String getAddress3()
 	{
 		return this.address3;
 	}
 
-	public void setAddress3 (String address3)
+	public void setAddress3(String address3)
 	{
 		this.address3 = address3;
 	}
 
-	public String getAddress4 ()
+	public String getAddress4()
 	{
 		return this.address4;
 	}
 
-	public void setAddress4 (String address4)
+	public void setAddress4(String address4)
 	{
 		this.address4 = address4;
 	}
 
-	public String getCity ()
+	public String getCity()
 	{
 		return this.city;
 	}
 
-	public void setCity (String city)
+	public void setCity(String city)
 	{
 		this.city = city;
 	}
 
-	public String getState ()
+	public String getState()
 	{
 		return this.state;
 	}
 
-	public void setState (String state)
+	public void setState(String state)
 	{
 		this.state = state;
 	}
 
-	public String getCountry ()
+	public String getCountry()
 	{
 		return this.country;
 	}
 
-	public void setCountry (String country)
+	public void setCountry(String country)
 	{
 		this.country = country;
 	}
 
-	public String getRegion ()
+	public String getRegion()
 	{
 		return this.region;
 	}
 
-	public void setRegion (String region)
+	public void setRegion(String region)
 	{
 		this.region = region;
 	}
 
-	public Float getLatitude ()
+	public Float getLatitude()
 	{
 		return this.latitude;
 	}
 
-	public void setLatitude (Float latitude)
+	public void setLatitude(Float latitude)
 	{
 		this.latitude = latitude;
 	}
 
-	public Float getLongitude ()
+	public Float getLongitude()
 	{
 		return this.longitude;
 	}
 
-	public void setLongitude (Float longitude)
+	public void setLongitude(Float longitude)
 	{
 		this.longitude = longitude;
 	}
 
-	public String getPhone ()
+	public String getPhone()
 	{
 		return this.phone;
 	}
 
-	public void setPhone (String phone)
+	public void setPhone(String phone)
 	{
 		this.phone = phone;
 	}
 
-	public String getMobile ()
+	public String getMobile()
 	{
 		return this.mobile;
 	}
 
-	public void setMobile (String mobile)
+	public void setMobile(String mobile)
 	{
 		this.mobile = mobile;
 	}
 
-	public String getEmail ()
+	public String getEmail()
 	{
 		return this.email;
 	}
 
-	public void setEmail (String email)
+	public void setEmail(String email)
 	{
 		this.email = email;
 	}
 
-	public String getFax ()
+	public String getFax()
 	{
 		return this.fax;
 	}
 
-	public void setFax (String fax)
+	public void setFax(String fax)
 	{
 		this.fax = fax;
 	}
 
-	public String getOtherPhone ()
+	public String getOtherPhone()
 	{
 		return this.otherPhone;
 	}
 
-	public void setOtherPhone (String otherPhone)
+	public void setOtherPhone(String otherPhone)
 	{
 		this.otherPhone = otherPhone;
 	}
 
-	public String getOtherMobile ()
+	public String getOtherMobile()
 	{
 		return this.otherMobile;
 	}
 
-	public void setOtherMobile (String otherMobile)
+	public void setOtherMobile(String otherMobile)
 	{
 		this.otherMobile = otherMobile;
 	}
 
-	public String getOtherEmail ()
+	public String getOtherEmail()
 	{
 		return this.otherEmail;
 	}
 
-	public void setOtherEmail (String otherEmail)
+	public void setOtherEmail(String otherEmail)
 	{
 		this.otherEmail = otherEmail;
 	}
 
-	public String getOtherFax ()
+	public String getOtherFax()
 	{
 		return this.otherFax;
 	}
 
-	public void setOtherFax (String otherFax)
+	public void setOtherFax(String otherFax)
 	{
 		this.otherFax = otherFax;
 	}
@@ -288,10 +292,14 @@ public class Location implements java.io.Serializable
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return locationId + ", " + locationName + ", " + locationType + ", " + address1 + ", " + address2 + ", " + address3 + ", " + address4 + ", " + city + ", " + state + ", " + country + ", "
-				+ region + ", " + latitude + ", " + longitude + ", " + phone + ", " + mobile + ", " + email + ", " + fax + ", " + otherPhone + ", " + otherMobile + ", " + otherEmail + ", " + otherFax;
+		return locationId + ", " + locationName + ", " + locationType + ", "
+				+ address1 + ", " + address2 + ", " + address3 + ", "
+				+ address4 + ", " + city + ", " + state + ", " + country + ", "
+				+ region + ", " + latitude + ", " + longitude + ", " + phone
+				+ ", " + mobile + ", " + email + ", " + fax + ", " + otherPhone
+				+ ", " + otherMobile + ", " + otherEmail + ", " + otherFax;
 	}
 
 }

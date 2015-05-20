@@ -2,28 +2,15 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" output="test-classes" path="test"/>
+	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/gwt-2.6.1"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="gwtext.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/plugins/gwt-2.6.1/gwt-2.6.1/gwt-user.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/C:/eclipse/plugins/gwt-2.6.1/gwt-2.6.1/doc/javadoc/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/eclipse/plugins/gwt-2.6.1/gwt-2.6.1/gwt-codeserver.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/C:/eclipse/plugins/gwt-2.6.1/gwt-2.6.1/doc/javadoc/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/eclipse/plugins/gwt-2.6.1/gwt-2.6.1/gwt-dev.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/C:/eclipse/plugins/gwt-2.6.1/gwt-2.6.1/doc/javadoc/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/eclipse/plugins/gwt-2.6.1/gwt-2.6.1/validation-api-1.0.0.GA-sources.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/plugins/gwt-2.6.1/gwt-2.6.1/validation-api-1.0.0.GA.jar" sourcepath="C:/eclipse/plugins/gwt-2.6.1/gwt-2.6.1/validation-api-1.0.0.GA-sources.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-servlet.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-codeserver.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-eureka-0.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-timepicker-0.21.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwtext.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/validation-api-1.0.0.GA-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/validation-api-1.0.0.GA.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/activation-1.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/antlr-2.7.7.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/antlr-runtime-3.4.jar"/>

@@ -55,8 +55,8 @@ public class MainMenuComposite extends Composite implements ClickHandler
 	private Label usernameLabel = new Label("user");
 	private Label leftBraceLabel = new Label("(");
 	private Label rightBraceLabel = new Label(")");
-	private Anchor logoutAnchor = new Anchor("Logout,", false);
-	private Anchor mainMenuAnchor = new Anchor("Back to Menu", false);
+	private Hyperlink logoutHyperlink = new Hyperlink("Logout,", "");
+	private Hyperlink mainMenuHyperlink = new Hyperlink("Back to Menu", "");
 	private Label formHeadingLabel = new Label("MAIN MENU");
 	private Anchor firstFieldVisitAnchor = new Anchor("First Field Visit Form",
 			false);
@@ -67,8 +67,8 @@ public class MainMenuComposite extends Composite implements ClickHandler
 			false);
 	private Anchor testFormAnchor = new Anchor("Diabetes/Spirometry Form",
 			false);
-	
 
+	@SuppressWarnings("deprecation")
 	public MainMenuComposite()
 	{
 		super();
@@ -79,19 +79,22 @@ public class MainMenuComposite extends Composite implements ClickHandler
 		userNamePanel.add(loginAsLabel);
 		userNamePanel.add(usernameLabel);
 		userNamePanel.add(leftBraceLabel);
-		userNamePanel.add(logoutAnchor);
-		userNamePanel.add(mainMenuAnchor);
+		userNamePanel.add(logoutHyperlink);
+		userNamePanel.add(mainMenuHyperlink);
 
-		logoutAnchor.addStyleName("hyperlink");
-		mainMenuAnchor.addStyleName("hyperlink");
+		logoutHyperlink.addStyleName("hyperlink");
+		mainMenuHyperlink.addStyleName("hyperlink");
 
 		userNamePanel.add(rightBraceLabel);
 		loginAsLabel.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 		usernameLabel.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-		logoutAnchor.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-		mainMenuAnchor.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+		logoutHyperlink.getElement().getStyle()
+				.setDisplay(Display.INLINE_BLOCK);
+		mainMenuHyperlink.getElement().getStyle()
+				.setDisplay(Display.INLINE_BLOCK);
 		leftBraceLabel.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-		rightBraceLabel.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+		rightBraceLabel.getElement().getStyle()
+				.setDisplay(Display.INLINE_BLOCK);
 
 		userNamePanel.addStyleName("flowPanel");
 
@@ -133,15 +136,17 @@ public class MainMenuComposite extends Composite implements ClickHandler
 		mainFlexTable.setBorderWidth(1);
 		mainFlexTable.getCellFormatter().setHorizontalAlignment(2, 0,
 				HasHorizontalAlignment.ALIGN_CENTER);
-		
+
+		usernameLabel.setText(Cookies.getCookie("UserName"));
+
 		firstFieldVisitAnchor.addClickHandler(this);
 		supervisorVisitAnchor.addClickHandler(this);
 		dailyVisitAnchor.addClickHandler(this);
 		campInformationAnchor.addClickHandler(this);
 		testFormAnchor.addClickHandler(this);
-		
-		logoutAnchor.addClickHandler(this);
-		mainMenuAnchor.addClickHandler(this);
+
+		logoutHyperlink.addClickHandler(this);
+		mainMenuHyperlink.addClickHandler(this);
 	}
 
 	/*
@@ -158,53 +163,53 @@ public class MainMenuComposite extends Composite implements ClickHandler
 		if (widget == firstFieldVisitAnchor)
 		{
 			firstVisitComposite = new FirstVisitComposite();
-			Cookies.setCookie ("CurrentMenu", "First Visit");
+			Cookies.setCookie("CurrentMenu", "First Visit");
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(firstVisitComposite);
 		}
-		else if(widget == supervisorVisitAnchor)
+		else if (widget == supervisorVisitAnchor)
 		{
 			supervisorVisitComposite = new SupervisorVisitComposite();
-			Cookies.setCookie ("CurrentMenu", "Supervisor Visit");
+			Cookies.setCookie("CurrentMenu", "Supervisor Visit");
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(supervisorVisitComposite);
 		}
-		else if(widget == dailyVisitAnchor)
+		else if (widget == dailyVisitAnchor)
 		{
 			dailyVisitComposite = new DailyVisitComposite();
-			Cookies.setCookie ("CurrentMenu", "Daily Visit");
+			Cookies.setCookie("CurrentMenu", "Daily Visit");
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(dailyVisitComposite);
 		}
-		else if(widget == campInformationAnchor)
+		else if (widget == campInformationAnchor)
 		{
 			campInformationComposite = new CampInformationComposite();
-			Cookies.setCookie ("CurrentMenu", "Camp Information");
+			Cookies.setCookie("CurrentMenu", "Camp Information");
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(campInformationComposite);
 		}
-		else if(widget == testFormAnchor)
+		else if (widget == testFormAnchor)
 		{
 			testEntryComposite = new TestEntryComposite();
-			Cookies.setCookie ("CurrentMenu", "Test Entry");
+			Cookies.setCookie("CurrentMenu", "Test Entry");
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(testEntryComposite);
 		}
-		else if(widget == mainMenuAnchor)
+		else if (widget == mainMenuHyperlink)
 		{
 			mainMenuComposite = new MainMenuComposite();
-			Cookies.setCookie ("CurrentMenu", "Main Menu");
+			Cookies.setCookie("CurrentMenu", "Main Menu");
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(mainMenuComposite);
 		}
-		else if(widget == logoutAnchor)
+		else if (widget == logoutHyperlink)
 		{
 			Tbr3fieldmonitoring.logout();
 		}
 	}
-	
-	public static void clear ()
+
+	public static void clear()
 	{
-		Cookies.setCookie ("CurrentMenu", "");
+		Cookies.setCookie("CurrentMenu", "");
 	}
 }

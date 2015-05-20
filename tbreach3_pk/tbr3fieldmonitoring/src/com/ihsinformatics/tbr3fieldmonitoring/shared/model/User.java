@@ -1,4 +1,3 @@
-
 package com.ihsinformatics.tbr3fieldmonitoring.shared.model;
 
 // Generated Nov 14, 2012 2:47:13 PM by Hibernate Tools 3.4.0.Beta1
@@ -12,22 +11,24 @@ public class User implements java.io.Serializable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= -4598862828504997256L;
-	private String	pid;
-	private String	userName;
-	private char	currentStatus;
-	private String	password;
-	private String	secretQuestion;
-	private String	secretAnswer;
-	private Boolean	loggedIn;
-	private String	role;
-	private String	location;
+	private static final long serialVersionUID = -4598862828504997256L;
+	private String pid;
+	private String userName;
+	private char currentStatus;
+	private String password;
+	private String secretQuestion;
+	private String secretAnswer;
+	private Boolean loggedIn;
+	private String role;
+	private String location;
 
-	public User ()
+	public User()
 	{
 	}
 
-	public User (String pid, String userName, char currentStatus, String password, String secretQuestion, String secretAnswer, String role)
+	public User(String pid, String userName, char currentStatus,
+			String password, String secretQuestion, String secretAnswer,
+			String role)
 	{
 		this.pid = pid;
 		this.userName = userName;
@@ -38,7 +39,9 @@ public class User implements java.io.Serializable
 		this.role = role;
 	}
 
-	public User (String pid, String userName, char currentStatus, String password, String secretQuestion, String secretAnswer, Boolean loggedIn, String role, String location)
+	public User(String pid, String userName, char currentStatus,
+			String password, String secretQuestion, String secretAnswer,
+			Boolean loggedIn, String role, String location)
 	{
 		this.pid = pid;
 		this.userName = userName;
@@ -51,102 +54,106 @@ public class User implements java.io.Serializable
 		this.location = location;
 	}
 
-	public String getPid ()
+	public String getPid()
 	{
 		return this.pid;
 	}
 
-	public void setPid (String pid)
+	public void setPid(String pid)
 	{
 		this.pid = pid;
 	}
 
-	public String getUserName ()
+	public String getUserName()
 	{
 		return this.userName;
 	}
 
-	public void setUserName (String userName)
+	public void setUserName(String userName)
 	{
 		this.userName = userName;
 	}
 
-	public char getCurrentStatus ()
+	public char getCurrentStatus()
 	{
 		return this.currentStatus;
 	}
 
-	public void setCurrentStatus (char currentStatus)
+	public void setCurrentStatus(char currentStatus)
 	{
 		this.currentStatus = currentStatus;
 	}
 
-	public String getPassword ()
+	public String getPassword()
 	{
 		return this.password;
 	}
 
-	public void setPassword (String password)
+	public void setPassword(String password)
 	{
 		this.password = password;
 	}
 
-	public String getSecretQuestion ()
+	public String getSecretQuestion()
 	{
 		return this.secretQuestion;
 	}
 
-	public void setSecretQuestion (String secretQuestion)
+	public void setSecretQuestion(String secretQuestion)
 	{
 		this.secretQuestion = secretQuestion;
 	}
 
-	public String getSecretAnswer ()
+	public String getSecretAnswer()
 	{
 		return this.secretAnswer;
 	}
 
-	public void setSecretAnswer (String secretAnswer)
+	public void setSecretAnswer(String secretAnswer)
 	{
 		this.secretAnswer = secretAnswer;
 	}
 
-	public Boolean getLoggedIn ()
+	public Boolean getLoggedIn()
 	{
 		return this.loggedIn;
 	}
 
-	public void setLoggedIn (Boolean loggedIn)
+	public void setLoggedIn(Boolean loggedIn)
 	{
 		this.loggedIn = loggedIn;
 	}
 
-	public String getRole ()
+	public String getRole()
 	{
 		return this.role;
 	}
 
-	public void setRole (String role)
+	public void setRole(String role)
 	{
 		this.role = role;
 	}
 
-	public String getLocation ()
+	public String getLocation()
 	{
 		return this.location;
 	}
 
-	public void setLocation (String location)
+	public void setLocation(String location)
 	{
 		this.location = location;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString ()
+	public String toString()
 	{
-		return pid + ", " + userName + ", " + currentStatus + ", " + secretQuestion + ", " + loggedIn + ", " + role + ", " + location;
+		return pid + ", " + userName + ", " + currentStatus + ", "
+				+ secretQuestion + ", " + loggedIn + ", " + role + ", "
+				+ location;
 	}
 }
