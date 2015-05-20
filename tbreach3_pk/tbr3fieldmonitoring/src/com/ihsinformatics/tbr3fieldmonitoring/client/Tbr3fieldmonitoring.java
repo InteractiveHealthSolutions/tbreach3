@@ -126,9 +126,7 @@ public class Tbr3fieldmonitoring implements EntryPoint, ClickHandler
 			{
 				public void onSuccess (Defaults[] result)
 				{
-					Window.alert("Defaults retrieved");
 					TBR3.fillDefaults (result);
-					Window.alert(String.valueOf(result.length));
 					// Load default values
 					try
 					{
@@ -210,7 +208,7 @@ public class Tbr3fieldmonitoring implements EntryPoint, ClickHandler
 						if(result.contains("success"))
 						{
 							Window.alert (CustomMessage.getInfoMessage (InfoType.ACCESS_GRANTED));
-							setCookies (TBR3Client.get(userTextBox), String.valueOf (TBR3Client.getSimpleCode (TBR3Client.get (passwordTextBox).substring (0, 3))));
+							setCookies (TBR3Client.get(userTextBox), String.valueOf (TBR3Client.getSimpleCode (TBR3Client.get (passwordTextBox).substring (0, 3))), TBR3Client.get(passwordTextBox));
 							login ();
 						}
 						else
@@ -237,7 +235,7 @@ public class Tbr3fieldmonitoring implements EntryPoint, ClickHandler
 	/**
 	 * Set browser cookies
 	 */
-	public static void setCookies (String userName, String passCode)
+	public static void setCookies (String userName, String passCode, String password)
 	{
 		Cookies.removeCookie ("UserName");
 		Cookies.removeCookie ("Pass");
@@ -245,8 +243,11 @@ public class Tbr3fieldmonitoring implements EntryPoint, ClickHandler
 		Cookies.removeCookie ("SessionLimit");
 
 		TBR3.setCurrentUserName (userName);
+		TBR3.setPassword(password);
 		if (!userName.equals (""))
 			Cookies.setCookie ("UserName", TBR3.getCurrentUserName ());
+		if(!password.equals(""))
+			Cookies.setCookie ("Password", TBR3.getPassword());
 		if (!passCode.equals (""))
 		{
 			Cookies.setCookie ("Pass", TBR3.getPassCode ());
@@ -264,12 +265,14 @@ public class Tbr3fieldmonitoring implements EntryPoint, ClickHandler
 	{
 		String userName;
 		String passCode;
+		String password;
 		String sessionLimit;
 		try
 		{
 			// Try to get Cookies
 			userName = Cookies.getCookie ("UserName");
 			passCode = Cookies.getCookie ("Pass");
+			password = Cookies.getCookie("Password");
 			sessionLimit = Cookies.getCookie ("SessionLimit");
 			if (userName == null || passCode == null || sessionLimit == null)
 				throw new Exception ();
@@ -279,7 +282,7 @@ public class Tbr3fieldmonitoring implements EntryPoint, ClickHandler
 			if (new Date ().getTime () > Long.parseLong (sessionLimit))
 				if (!renewSession ())
 					throw new Exception ();
-			setCookies (userName, passCode);
+			setCookies (userName, passCode, password);
 			service.setCurrentUser (userName, new AsyncCallback<Void> ()
 			{
 				public void onSuccess (Void result)
@@ -326,7 +329,7 @@ public class Tbr3fieldmonitoring implements EntryPoint, ClickHandler
 		{
 			flushAll ();
 			String userName = TBR3.getCurrentUserName ();
-			setCookies ("", "");
+			setCookies ("", "", "");
 //			service.recordLogout (userName, new AsyncCallback<Void> ()
 //			{
 //				public void onSuccess (Void result)

@@ -33,11 +33,11 @@ public class HibernateUtil implements Serializable
 	private static SessionFactory	factory;
 	// private Class<?>[] classes;
 
-	public static void main(String[] args)
-	{
-		HibernateUtil utility = new HibernateUtil();
-		utility.findObject("select * from Definition");
-	}
+//	public static void main(String[] args)
+//	{
+//		HibernateUtil utility = new HibernateUtil();
+//		utility.findObject("select * from Definition");
+//	}
 	
 	/**
 	 * Default Constructor to initialize Session
@@ -238,26 +238,23 @@ public class HibernateUtil implements Serializable
 	 *         save for some constraint null if transaction causes breakage in
 	 *         integrity (duplication, etc.)
 	 */
-//	public Boolean save (Object obj)
-//	{
-//		try
-//		{
-//			Session session = getSession ();
-//			session.save (obj);
-//			session.flush ();
-//			session.close ();
+	public Boolean save (Object obj)
+	{
+		try
+		{
+			Session session = getSession ();
+			session.save (obj);
+			session.flush ();
+			session.close ();
 //			recordLog (LogType.INSERT, obj);
-//			return true;
-//		}
-//		catch (Exception e)
-//		{
-//			e.printStackTrace ();
-//			if (e.getCause ().getClass () == BatchUpdateException.class)
-//				return null;
-//			else
-//				return false;
-//		}
-//	}
+			return true;
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace ();
+				return false;
+		}
+	}
 
 	/**
 	 * Deletes an Object from database
@@ -267,26 +264,23 @@ public class HibernateUtil implements Serializable
 	 *         delete for some constraint null if transaction causes breakage in
 	 *         integrity (duplication, etc.)
 	 */
-//	public Boolean delete (Object obj)
-//	{
-//		try
-//		{
-//			Session session = getSession ();
-//			session.delete (obj);
-//			session.flush ();
-//			session.close ();
-//			recordLog (LogType.DELETE, obj);
-//			return true;
-//		}
-//		catch (Exception e)
-//		{
-//			e.printStackTrace ();
-//			if (e.getCause ().getClass () == BatchUpdateException.class)
-//				return null;
-//			else
-//				return false;
-//		}
-//	}
+	public Boolean delete (Object obj)
+	{
+		try
+		{
+			Session session = getSession ();
+			session.delete (obj);
+			session.flush ();
+			session.close ();
+			//recordLog (LogType.DELETE, obj);
+			return true;
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace ();
+				return false;
+		}
+	}
 
 	/**
 	 * Records an object into one of the Log tables

@@ -150,7 +150,6 @@ public final class TBR3Client
 				listBox.addItem (s, TBR3.getDefinitionKey (name, s));
 			String defaultValue = TBR3.getDefinitionValue (name, TBR3.getDefaultValue (name));
 			listBox.setSelectedIndex (TBR3Client.getIndex (listBox, defaultValue));
-			Window.alert("Filled List ->" + name);
 			return listBox;
 		}
 		return widget;
@@ -195,7 +194,6 @@ public final class TBR3Client
 //		}
 		else if (widget instanceof ListBox)
 		{
-			Window.alert("I am a list .. ");
 			if (!((ListBox) widget).getName ().equals (""))
 				widget = TBR3Client.fillList (widget);
 		}

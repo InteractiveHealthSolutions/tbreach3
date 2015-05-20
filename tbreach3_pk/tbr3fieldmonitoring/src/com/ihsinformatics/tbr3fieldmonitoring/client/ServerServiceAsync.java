@@ -11,9 +11,15 @@
 */
 package com.ihsinformatics.tbr3fieldmonitoring.client;
 
+import java.util.ArrayList;
+
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Encounter;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterElement;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterResults;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterType;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.User;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Defaults;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Definition;
-
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Location;
 
@@ -23,16 +29,28 @@ import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Location;
  */
 public interface ServerServiceAsync
 {
-	void getLocation(String locationName, AsyncCallback<Location> asyncCallback);
-
-	void saveLocation(Location location, AsyncCallback<Boolean> asyncCallback);
+	void getLocation(String userName, String password, String locationName, AsyncCallback<String> asyncCallback);
+ 
+	void saveLocation(Location location, String userName, String password, String[] locationAttributes, AsyncCallback<Boolean> asyncCallback);
 	
 	void authenticate(String userName, String password, AsyncCallback<String> asyncCallback);
 
 	void setCurrentUser(String userName, AsyncCallback<Void> asyncCallback);
 	
-	void getDefaults (AsyncCallback<Defaults[]> callback) throws Exception;
+	void getDefaults (AsyncCallback<Defaults[]> asyncCallback) throws Exception;
 
-	void getDefinitions (AsyncCallback<Definition[]> callback) throws Exception;
+	void getDefinitions (AsyncCallback<Definition[]> asyncCallback) throws Exception;
+	
+	void getUserRoles(String userName, String password, AsyncCallback<String[]> asyncCallback);
+	
+	void findEncounterElement (String encounterType, String element, AsyncCallback<EncounterElement> callback) throws Exception;
+	
+	void findEncounterType (String encounterType, AsyncCallback<EncounterType> callback) throws Exception;
+	
+	void saveEncounterWithResults (Encounter encounter, EncounterResults[] encounterResults, AsyncCallback<String> asyncCallback);
+	
+	void deleteEncounter (Encounter encounter, AsyncCallback<Boolean> callback) throws Exception;
+	
+	void saveFormData(Encounter encounter, EncounterResults[] encounterResults, AsyncCallback<String> asyncCallback) throws Exception;
 	
 }

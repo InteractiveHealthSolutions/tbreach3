@@ -40,12 +40,13 @@ public final class TBR3
 	private static String		currentVersion					= "";
 	private static String		currentUserName					= "";
 //	private static String		currentRole						= "";
-//	private static String		currentLocation					= "";
+	private static String		currentLocation					= "";
 	private static String		passCode						= "";
+	private static String 		password = "";
 //	private static String[][]	schema;
 	private static Definition[]	definitions;
 	private static Defaults[]	defaults;
-	
+	private static String[] Roles;
 	
 	
 	public static String getHashingAlgorithm ()
@@ -285,6 +286,54 @@ public final class TBR3
 	public static String getResourcesPath ()
 	{
 		return resourcesPath;
+	}
+
+	/**
+	 * @return the currentLocation
+	 */
+	public static String getCurrentLocation()
+	{
+		return currentLocation;
+	}
+
+	/**
+	 * @param currentLocation the currentLocation to set
+	 */
+	public static void setCurrentLocation(String currentLocation)
+	{
+		TBR3.currentLocation = currentLocation;
+	}
+
+	/**
+	 * @return the roles
+	 */
+	public static String[] getRoles()
+	{
+		return Roles;
+	}
+
+	/**
+	 * @param roles the roles to set
+	 */
+	public static void setRoles(String[] roles)
+	{
+		Roles = roles;
+	}
+
+	/**
+	 * @return the password
+	 */
+	public static String getPassword()
+	{
+		return password;
+	}
+
+	/**
+	 * @param password the password to set
+	 */
+	public static void setPassword(String password)
+	{
+		TBR3.password = password;
 	}
 
 	/**

@@ -88,13 +88,10 @@ public class MainMenuComposite extends Composite implements ClickHandler
 		userNamePanel.add(rightBraceLabel);
 		loginAsLabel.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 		usernameLabel.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-		logoutAnchor.getElement().getStyle()
-				.setDisplay(Display.INLINE_BLOCK);
-		mainMenuAnchor.getElement().getStyle()
-				.setDisplay(Display.INLINE_BLOCK);
+		logoutAnchor.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+		mainMenuAnchor.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 		leftBraceLabel.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-		rightBraceLabel.getElement().getStyle()
-				.setDisplay(Display.INLINE_BLOCK);
+		rightBraceLabel.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 
 		userNamePanel.addStyleName("flowPanel");
 

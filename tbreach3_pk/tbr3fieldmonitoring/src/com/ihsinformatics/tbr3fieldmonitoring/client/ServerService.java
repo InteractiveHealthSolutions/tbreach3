@@ -13,7 +13,11 @@ package com.ihsinformatics.tbr3fieldmonitoring.client;
 
 import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Defaults;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Definition;
-
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Encounter;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterElement;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterResults;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterType;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.User;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Location;
@@ -29,12 +33,12 @@ public interface ServerService extends RemoteService
 	 * @param locationName
 	 * @return
 	 */
-	Location getLocation(String locationName) throws Exception;
+	String getLocation(String userName, String password, String locationName) throws Exception;
 	/**
 	 * @param location
 	 * @return
 	 */
-	Boolean saveLocation(Location location) throws Exception;
+	Boolean saveLocation(Location location, String userName, String password, String[] locationAttributes) throws Exception;
 	
 	String authenticate(String userName, String password) throws Exception;
 	
@@ -44,4 +48,15 @@ public interface ServerService extends RemoteService
 
 	Defaults[] getDefaults () throws Exception;
 	
+	String[] getUserRoles(String userName, String password) throws Exception;
+	
+	EncounterElement findEncounterElement(String encounterType, String element) throws Exception;
+	
+	EncounterType findEncounterType(String encounterType) throws Exception;
+	
+	String saveEncounterWithResults(Encounter encounter, EncounterResults[] encounterResults) throws Exception;
+	
+	Boolean deleteEncounter(Encounter encounter) throws Exception;
+	
+	String saveFormData(Encounter encounter, EncounterResults[] encounterResuls) throws Exception;
 }

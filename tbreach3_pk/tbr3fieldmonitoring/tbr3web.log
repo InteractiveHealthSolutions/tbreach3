@@ -991,3 +991,283 @@ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate n
 	at com.ihsinformatics.tbr3fieldmonitoring.server.util.HibernateUtil.<clinit>(HibernateUtil.java:32)
 	at com.ihsinformatics.tbr3fieldmonitoring.server.ServerServiceImpl.getDefaults(ServerServiceImpl.java:192)
 	at com.ihsinformatics.tbr3fieldmonitoring.server.ServerServiceImpl.main(ServerServiceImpl.java:178)
+WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.FormResource]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Person]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.ConceptStopWord]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.privileges]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.inheritedRoles]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.childRoles]; using defaults.
+ ERROR Timer-1 org.openmrs.scheduler.timer.TimerSchedulerTask - FATAL ERROR: Task [class org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper] failed due to exception [org.openmrs.api.APIException]
+ org.openmrs.api.APIException: Service not found: interface org.openmrs.logic.token.TokenService
+	at org.openmrs.api.context.ServiceContext.getService(ServiceContext.java:727)
+	at org.openmrs.api.context.Context.getService(Context.java:914)
+	at org.openmrs.logic.task.InitializeLogicRuleProvidersTask.execute(InitializeLogicRuleProvidersTask.java:46)
+	at org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper.execute(TaskThreadedInitializationWrapper.java:72)
+	at org.openmrs.scheduler.timer.TimerSchedulerTask.execute(TimerSchedulerTask.java:98)
+	at org.openmrs.api.context.Daemon$2.run(Daemon.java:118)
+WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.FormResource]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Person]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.ConceptStopWord]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.privileges]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.inheritedRoles]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.childRoles]; using defaults.
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.FormResource]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Person]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.ConceptStopWord]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.privileges]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.inheritedRoles]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.childRoles]; using defaults.
+ ERROR Timer-1 org.openmrs.scheduler.timer.TimerSchedulerTask - FATAL ERROR: Task [class org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper] failed due to exception [org.openmrs.api.APIException]
+ org.openmrs.api.APIException: Service not found: interface org.openmrs.logic.token.TokenService
+	at org.openmrs.api.context.ServiceContext.getService(ServiceContext.java:727)
+	at org.openmrs.api.context.Context.getService(Context.java:914)
+	at org.openmrs.logic.task.InitializeLogicRuleProvidersTask.execute(InitializeLogicRuleProvidersTask.java:46)
+	at org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper.execute(TaskThreadedInitializationWrapper.java:72)
+	at org.openmrs.scheduler.timer.TimerSchedulerTask.execute(TimerSchedulerTask.java:98)
+	at org.openmrs.api.context.Daemon$2.run(Daemon.java:118)
+WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.FormResource]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Person]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.ConceptStopWord]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.privileges]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.inheritedRoles]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.childRoles]; using defaults.
+ ERROR Timer-1 org.openmrs.scheduler.timer.TimerSchedulerTask - FATAL ERROR: Task [class org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper] failed due to exception [org.openmrs.api.APIException]
+ org.openmrs.api.APIException: Service not found: interface org.openmrs.logic.token.TokenService
+	at org.openmrs.api.context.ServiceContext.getService(ServiceContext.java:727)
+	at org.openmrs.api.context.Context.getService(Context.java:914)
+	at org.openmrs.logic.task.InitializeLogicRuleProvidersTask.execute(InitializeLogicRuleProvidersTask.java:46)
+	at org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper.execute(TaskThreadedInitializationWrapper.java:72)
+	at org.openmrs.scheduler.timer.TimerSchedulerTask.execute(TimerSchedulerTask.java:98)
+	at org.openmrs.api.context.Daemon$2.run(Daemon.java:118)
+WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.FormResource]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Person]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.ConceptStopWord]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.privileges]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.inheritedRoles]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.childRoles]; using defaults.
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.FormResource]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Person]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.ConceptStopWord]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.privileges]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.inheritedRoles]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.childRoles]; using defaults.
+ ERROR Timer-1 org.openmrs.scheduler.timer.TimerSchedulerTask - FATAL ERROR: Task [class org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper] failed due to exception [org.openmrs.api.APIException]
+ org.openmrs.api.APIException: Service not found: interface org.openmrs.logic.token.TokenService
+	at org.openmrs.api.context.ServiceContext.getService(ServiceContext.java:727)
+	at org.openmrs.api.context.Context.getService(Context.java:914)
+	at org.openmrs.logic.task.InitializeLogicRuleProvidersTask.execute(InitializeLogicRuleProvidersTask.java:46)
+	at org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper.execute(TaskThreadedInitializationWrapper.java:72)
+	at org.openmrs.scheduler.timer.TimerSchedulerTask.execute(TimerSchedulerTask.java:98)
+	at org.openmrs.api.context.Daemon$2.run(Daemon.java:118)
+WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.FormResource]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Person]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.ConceptStopWord]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.privileges]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.inheritedRoles]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.childRoles]; using defaults.
+ ERROR Timer-1 org.openmrs.scheduler.timer.TimerSchedulerTask - FATAL ERROR: Task [class org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper] failed due to exception [org.openmrs.api.APIException]
+ org.openmrs.api.APIException: Service not found: interface org.openmrs.logic.token.TokenService
+	at org.openmrs.api.context.ServiceContext.getService(ServiceContext.java:727)
+	at org.openmrs.api.context.Context.getService(Context.java:914)
+	at org.openmrs.logic.task.InitializeLogicRuleProvidersTask.execute(InitializeLogicRuleProvidersTask.java:46)
+	at org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper.execute(TaskThreadedInitializationWrapper.java:72)
+	at org.openmrs.scheduler.timer.TimerSchedulerTask.execute(TimerSchedulerTask.java:98)
+	at org.openmrs.api.context.Daemon$2.run(Daemon.java:118)
+WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.FormResource]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Person]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.ConceptStopWord]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.privileges]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.inheritedRoles]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.childRoles]; using defaults.
+ ERROR Timer-1 org.openmrs.scheduler.timer.TimerSchedulerTask - FATAL ERROR: Task [class org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper] failed due to exception [org.openmrs.api.APIException]
+ org.openmrs.api.APIException: Service not found: interface org.openmrs.logic.token.TokenService
+	at org.openmrs.api.context.ServiceContext.getService(ServiceContext.java:727)
+	at org.openmrs.api.context.Context.getService(Context.java:914)
+	at org.openmrs.logic.task.InitializeLogicRuleProvidersTask.execute(InitializeLogicRuleProvidersTask.java:46)
+	at org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper.execute(TaskThreadedInitializationWrapper.java:72)
+	at org.openmrs.scheduler.timer.TimerSchedulerTask.execute(TimerSchedulerTask.java:98)
+	at org.openmrs.api.context.Daemon$2.run(Daemon.java:118)
+WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.FormResource]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Person]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.ConceptStopWord]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.privileges]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.inheritedRoles]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.childRoles]; using defaults.
+ ERROR Timer-1 org.openmrs.scheduler.timer.TimerSchedulerTask - FATAL ERROR: Task [class org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper] failed due to exception [org.openmrs.api.APIException]
+ org.openmrs.api.APIException: Service not found: interface org.openmrs.logic.token.TokenService
+	at org.openmrs.api.context.ServiceContext.getService(ServiceContext.java:727)
+	at org.openmrs.api.context.Context.getService(Context.java:914)
+	at org.openmrs.logic.task.InitializeLogicRuleProvidersTask.execute(InitializeLogicRuleProvidersTask.java:46)
+	at org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper.execute(TaskThreadedInitializationWrapper.java:72)
+	at org.openmrs.scheduler.timer.TimerSchedulerTask.execute(TimerSchedulerTask.java:98)
+	at org.openmrs.api.context.Daemon$2.run(Daemon.java:118)
+WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.FormResource]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Person]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.ConceptStopWord]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.privileges]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.inheritedRoles]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.childRoles]; using defaults.
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.FormResource]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Person]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.ConceptStopWord]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.privileges]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.inheritedRoles]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.childRoles]; using defaults.
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.util.DTDEntityResolver - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.FormResource]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Person]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.ConceptStopWord]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.privileges]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.inheritedRoles]; using defaults.
+ WARN main org.hibernate.cache.EhCacheProvider - Could not find configuration [org.openmrs.Role.childRoles]; using defaults.
+ ERROR Timer-1 org.openmrs.scheduler.timer.TimerSchedulerTask - FATAL ERROR: Task [class org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper] failed due to exception [org.openmrs.api.APIException]
+ org.openmrs.api.APIException: Service not found: interface org.openmrs.logic.token.TokenService
+	at org.openmrs.api.context.ServiceContext.getService(ServiceContext.java:727)
+	at org.openmrs.api.context.Context.getService(Context.java:914)
+	at org.openmrs.logic.task.InitializeLogicRuleProvidersTask.execute(InitializeLogicRuleProvidersTask.java:46)
+	at org.openmrs.scheduler.tasks.TaskThreadedInitializationWrapper.execute(TaskThreadedInitializationWrapper.java:72)
+	at org.openmrs.scheduler.timer.TimerSchedulerTask.execute(TimerSchedulerTask.java:98)
+	at org.openmrs.api.context.Daemon$2.run(Daemon.java:118)

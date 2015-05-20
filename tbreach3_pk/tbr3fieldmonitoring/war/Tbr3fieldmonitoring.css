@@ -126,6 +126,15 @@ color:#fff;
 	font-size: 14px;
 }
 
+.hintLabel
+{
+	font-family: Verdana;
+	font-size: 14px;
+	font-weight: bolder;
+	color:black;
+	text-align: right;
+}
+
 
 
 

@@ -11,11 +11,31 @@
 */
 package com.ihsinformatics.tbr3fieldmonitoring.client;
 
+import java.util.ArrayList;
+import java.util.Date;
+
+
+
+import com.ihsinformatics.tbr3fieldmonitoring.shared.DateTimeUtil;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.CustomMessage;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.ErrorType;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.InfoType;
+import com.ihsinformatics.tbr3fieldmonitoring.client.ServerService;
+import com.ihsinformatics.tbr3fieldmonitoring.client.ServerServiceAsync;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.TBR3;
+import com.ihsinformatics.tbr3fieldmonitoring.client.TBR3Client;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Encounter;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterId;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterResults;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterResultsId;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Location;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
@@ -25,7 +45,6 @@ import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.IntegerBox;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.RichTextArea;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -40,6 +59,12 @@ import com.summatech.gwt.client.HourMinutePicker.PickerFormat;
  */
 public class FirstVisitComposite extends Composite implements IForm, ClickHandler
 {
+	private static ServerServiceAsync service = GWT.create(ServerService.class);
+	
+	private static final String formName = "FIRST_VIS";
+	
+	private boolean valid;
+	
 	private FlexTable mainFlexTable = new FlexTable();
 	private FlexTable userProfileFlexTable = new FlexTable();
 	private FlexTable headerFlexTable = new FlexTable();
@@ -89,8 +114,10 @@ public class FirstVisitComposite extends Composite implements IForm, ClickHandle
 	
 	private Button submitButton = new Button("Submit");
 	
-	MainMenuComposite mainMenu = new MainMenuComposite();
+	private final Label mobileNoHintLabel = new Label("(Format : 0333-1234567)");
 	
+	MainMenuComposite mainMenu;
+
 	public FirstVisitComposite() {
 		
 		
@@ -187,6 +214,9 @@ public class FirstVisitComposite extends Composite implements IForm, ClickHandle
 		mobileTextBox.setMaxLength(12);
 		mobileTextBox.setVisibleLength(12);
 		
+		firstVisitFlexTable.setWidget(8, 2, mobileNoHintLabel);
+		mobileNoHintLabel.addStyleName("hintLabel");
+		
 		firstVisitFlexTable.setWidget(9, 0, capacityLabel);
 		capacityLabel.addStyleName("text");
 		
@@ -240,12 +270,14 @@ public class FirstVisitComposite extends Composite implements IForm, ClickHandle
 		firstVisitFlexTable.getCellFormatter().setHorizontalAlignment(11, 1, HasHorizontalAlignment.ALIGN_LEFT);
 		firstVisitFlexTable.getCellFormatter().setHorizontalAlignment(12, 1, HasHorizontalAlignment.ALIGN_LEFT);
 		
+		firstVisitFlexTable.getCellFormatter().setHorizontalAlignment(8, 2, HasHorizontalAlignment.ALIGN_LEFT);
+		
 		mainFlexTable.setBorderWidth(1);
 		
 		submitButton.addClickHandler(this);
+		mainMenuHyperlink.addClickHandler(this);
 		
 		TBR3Client.refresh(firstVisitFlexTable);
-		Window.alert("page loaded");
 //		mainFlexTable.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_CENTER);
 //		mainFlexTable.getCellFormatter().setHorizontalAlignment(1, 0, HasHorizontalAlignment.ALIGN_RIGHT);
 
@@ -259,25 +291,19 @@ public class FirstVisitComposite extends Composite implements IForm, ClickHandle
 	{
 		Widget sender = (Widget) event.getSource();
 		if(sender == submitButton)
-		{
-			String timeMinutes = String.valueOf(endHourMinutePicker.getMinute());
-			String timeHour = String.valueOf(endHourMinutePicker.getHour());
-			
-			StringBuilder timeHoursStringBuilder = new StringBuilder();
-			StringBuilder endTimeStringBuilder = new StringBuilder();
-			
-			if(timeHour.length() == 1)
+		{	
+			try
 			{
-				timeHoursStringBuilder.append("0").append(timeHour);
-				timeHour = timeHoursStringBuilder.toString();
+				saveData();
 			}
-			
-			endTimeStringBuilder.append(timeHour).append(":" + timeMinutes).append(":00");
-			System.out.println("Hours = " + timeHour + " and Minutes = " + timeMinutes + "and complete time is " + endTimeStringBuilder.toString());
-			Window.alert(timeHour + ":" + timeMinutes + "and complete time is " + endTimeStringBuilder.toString());
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
 		}
 		else if(sender == mainMenuHyperlink)
 		{
+			mainMenu = new MainMenuComposite();
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(mainMenu);
 		}
@@ -292,41 +318,195 @@ public class FirstVisitComposite extends Composite implements IForm, ClickHandle
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see com.ihsinformatics.tbr3fieldmonitoring.client.IForm#validate()
-	 */
 	@Override
 	public boolean validate()
 	{
-		return false;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.ihsinformatics.tbr3fieldmonitoring.client.IForm#saveData()
-	 */
-	@Override
-	public void saveData()
-	{
+		valid = true;
+		
+		StringBuilder errorMessage = new StringBuilder();
+		
+		if(TBR3Client.get(locationNameTextBox).equals(""))
+			errorMessage.append("Location Name: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		if(TBR3Client.get(locationIDTextBox).equals(""))
+			errorMessage.append("Location ID: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		if(TBR3Client.get(capacityIntegerBox).equals(""))
+			errorMessage.append("Capacity: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		if(TBR3Client.get(specialityTextBox).equals(""))
+			errorMessage.append("Speciality: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		if(startHourMinutePicker.getHour() == -1)
+			errorMessage.append("Start time: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		
+		valid = errorMessage.length() == 0;
+		if (!valid)
+		{
+		    Window.alert(errorMessage.toString());
+		}
+		return valid;
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see com.ihsinformatics.tbr3fieldmonitoring.client.IForm#fillData()
-	 */
+	public void saveData()
+	{
+		if(validate())
+		{
+			final ArrayList<String> locationAttributeValues = new ArrayList<String>();
+			
+			final Date enteredDate = new Date();
+			final int eID = 0;
+			final String creator = TBR3.getCurrentUserName(); //pid1 and pid2 are same
+			final String address = TBR3Client.get(address1TextArea) + " " + TBR3Client.get(address2TextArea); 
+			service.getUserRoles(TBR3.getCurrentUserName(), TBR3.getPassword(), new AsyncCallback<String[]>()
+			{
+				
+				@Override
+				public void onSuccess(String[] result)
+				{
+					boolean hasPrivilege = java.util.Arrays.asList(result).contains("Health Worker") | java.util.Arrays.asList(result).contains("Program Admin") |  java.util.Arrays.asList(result).contains("Reporting") | java.util.Arrays.asList(result).contains("Supervisor") | java.util.Arrays.asList(result).contains("System Developer") | java.util.Arrays.asList(result).contains("System Implementer");
+					if(result == null)
+						Window.alert("You don't have privileges to add encounters.");
+					else
+					{
+						if(hasPrivilege)
+						{
+							EncounterId encounterId = new EncounterId(eID, creator, creator, formName);
+							Encounter encounter = new Encounter(encounterId, TBR3Client.get(locationIDTextBox));
+							encounter.setLocationId(TBR3Client.get(locationIDTextBox));
+							encounter.setDateEntered(enteredDate);
+							encounter.setDateStart(new Date());
+							encounter.setDateEnd(new Date());
+							ArrayList<EncounterResults> encounterResults = new ArrayList<EncounterResults>();
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "F_DATE"), DateTimeUtil.getFormattedDate(enteredDate, "yyyy-MM-dd HH:mm:ss") ));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "LOCATION_ID"), TBR3Client.get(locationIDTextBox)));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "LOCATION_NAME"), TBR3Client.get(locationNameTextBox)));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "LOCATION_TYPE"), TBR3Client.get(locationTypesListBox)));
+							if(!address.equals(""))
+								encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "ADDRESS"), address));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "TOWN"), TBR3Client.get(townListBox)));
+							if(!TBR3Client.get(mobileTextBox).equals(""))
+								encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "MOBILE_NO"), TBR3Client.get(mobileTextBox)));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "CAPACITY"), TBR3Client.get(capacityIntegerBox)));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "SPECIALITY"), TBR3Client.get(specialityTextBox)));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "START_TIME"), getTimeString(startHourMinutePicker.getMinute(), startHourMinutePicker.getHour())));
+							if(!String.valueOf(endHourMinutePicker.getHour()).equals("-1"))
+								encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "END_TIME"), getTimeString(endHourMinutePicker.getMinute(), endHourMinutePicker.getHour())));
+							
+							final Location location = new Location();
+							location.setLocationName(TBR3Client.get(locationNameTextBox));
+							location.setAddress1(address);
+							
+							locationAttributeValues.add(TBR3Client.get(locationIDTextBox));
+							locationAttributeValues.add(TBR3Client.get(mobileTextBox).equals("") ? " " : TBR3Client.get(mobileTextBox) );
+							locationAttributeValues.add(TBR3Client.get(locationTypesListBox));
+							locationAttributeValues.add(TBR3Client.get(townListBox));
+							locationAttributeValues.add(TBR3Client.get(capacityIntegerBox));
+							locationAttributeValues.add(TBR3Client.get(specialityTextBox));
+							locationAttributeValues.add(String.valueOf(startHourMinutePicker.getHour()).equals("-1") ? "00:00:00" : getTimeString(startHourMinutePicker.getMinute(), startHourMinutePicker.getHour()));
+							locationAttributeValues.add(String.valueOf(endHourMinutePicker.getHour()).equals("-1") ? "00:00:00" : getTimeString(endHourMinutePicker.getMinute(), endHourMinutePicker.getHour()));
+							
+							try
+							{
+								service.saveFormData(encounter, encounterResults.toArray(new EncounterResults[] {}), new AsyncCallback<String>()
+								{
+	
+									@Override
+									public void onFailure(Throwable caught)
+									{
+										caught.printStackTrace();
+									}
+	
+									@Override
+									public void onSuccess(String result)
+									{
+										 if (result.equals("SUCCESS"))
+										    {
+											 	service.saveLocation(location, TBR3.getCurrentUserName(), TBR3.getPassword(), locationAttributeValues.toArray(new String[] {}), new AsyncCallback<Boolean>()
+												{
+
+													@Override
+													public void onFailure(
+															Throwable caught)
+													{
+														caught.printStackTrace();
+														
+													}
+
+													@Override
+													public void onSuccess(
+															Boolean result)
+													{
+														if(result == true)
+														{
+															Window.alert(CustomMessage.getInfoMessage(InfoType.INSERTED));
+															clearUp();
+														}
+														else
+														{
+															Window.alert("Encounter saved successfully. Error saving location in OpenMRS.");
+														}
+													}
+												});
+											 	
+										    }
+										    else
+										    {
+										    	Window.alert(CustomMessage.getErrorMessage(ErrorType.INSERT_ERROR) + "\nDetails: " + result);
+										    }
+									}
+								});
+							}
+							catch (Exception e)
+							{
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+			
+					}
+				}
+				
+				@Override
+				public void onFailure(Throwable caught)
+				{
+					// TODO Auto-generated method stub
+					
+				}
+			});
+		}
+	}
+
 	@Override
 	public void fillData()
 	{
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see com.ihsinformatics.tbr3fieldmonitoring.client.IForm#setCurrent()
-	 */
 	@Override
 	public void setCurrent()
 	{
-		// TODO Auto-generated method stub
 		
+	}
+	
+	public static String getTimeString(int minutes, int hour)
+	{
+		String timeMinutes = String.valueOf(minutes);
+		String timeHour = String.valueOf(hour);
+		
+		StringBuilder timeHoursStringBuilder = new StringBuilder();
+		StringBuilder completeEndTimeStringBuilder = new StringBuilder();
+		
+		if(timeHour.length() == 1)
+		{
+			timeHoursStringBuilder.append("0").append(timeHour);
+			timeHour = timeHoursStringBuilder.toString();
+		}
+		
+		if(timeMinutes.length() == 1)
+		{
+			timeMinutes = "00";
+		}
+		
+		completeEndTimeStringBuilder.append(timeHour).append(":" + timeMinutes).append(":00");
+		return completeEndTimeStringBuilder.toString();
 	}
 	
 }
