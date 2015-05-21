@@ -358,7 +358,6 @@ public class Tbr3fieldmonitoring implements EntryPoint, ClickHandler
 		try
 		{
 			flushAll();
-			String userName = TBR3.getCurrentUserName();
 			setCookies("", "", "");
 			// service.recordLogout (userName, new AsyncCallback<Void> ()
 			// {

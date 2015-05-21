@@ -11,10 +11,18 @@
  */
 package com.ihsinformatics.tbr3fieldmonitoring.client;
 
+import java.awt.Choice;
+
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
@@ -30,6 +38,11 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.datepicker.client.DateBox;
 import com.google.gwt.user.datepicker.client.DateBox.DefaultFormat;
+import com.ihsinformatics.tbr3fieldmonitoring.server.ServerServiceImpl;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.CustomMessage;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.ErrorType;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.RegexUtil;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.TBR3;
 import com.summatech.gwt.client.HourMinutePicker;
 import com.summatech.gwt.client.HourMinutePicker.PickerFormat;
 
@@ -37,8 +50,11 @@ import com.summatech.gwt.client.HourMinutePicker.PickerFormat;
  * @author Tahira
  * 
  */
-public class DailyVisitComposite extends Composite implements ClickHandler
+public class DailyVisitComposite extends Composite implements IForm, ClickHandler, ValueChangeHandler<Boolean>
 {
+	private static ServerServiceAsync service = GWT.create(ServerService.class);
+	private static final String formName = "DAILY_VIS";
+	
 	private FlexTable mainFlexTable = new FlexTable();
 	private FlexTable userProfileFlexTable = new FlexTable();
 	private FlexTable headerFlexTable = new FlexTable();
@@ -59,7 +75,7 @@ public class DailyVisitComposite extends Composite implements ClickHandler
 	private DateBox formDateBox = new DateBox();
 
 	private Label locationIDLabel = new Label("Location ID");
-	private ListBox locationIDListBox = new ListBox();
+	private IntegerBox locationIdIntegerBox = new IntegerBox();
 
 	private TextBox locationNameTextBox = new TextBox();
 	private Label locationNameLabel = new Label("Location Name   ");
@@ -125,6 +141,9 @@ public class DailyVisitComposite extends Composite implements ClickHandler
 
 	private Label commentsLabel = new Label("Comments");
 	private TextArea commentsTextArea = new TextArea();
+	
+	private Anchor validateLocationIdAnchor = new Anchor(
+			"Validate Location ID", false);
 
 	private Button submitButton = new Button("Submit");
 
@@ -176,7 +195,8 @@ public class DailyVisitComposite extends Composite implements ClickHandler
 		dailyVisitFlexTable.setWidget(2, 0, locationIDLabel);
 		locationIDLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(2, 1, locationIDListBox);
+		dailyVisitFlexTable.setWidget(2, 1, locationIdIntegerBox);
+		locationIdIntegerBox.setStyleName("text");
 
 		dailyVisitFlexTable.setWidget(3, 0, locationNameLabel);
 		locationNameLabel.addStyleName("text");
@@ -316,6 +336,8 @@ public class DailyVisitComposite extends Composite implements ClickHandler
 				HasHorizontalAlignment.ALIGN_LEFT);
 
 		mainFlexTable.setBorderWidth(1);
+		
+		validateLocationIdAnchor.addClickHandler(this);
 
 		// mainFlexTable.getCellFormatter().setHorizontalAlignment(0, 0,
 		// HasHorizontalAlignment.ALIGN_CENTER);
@@ -344,6 +366,98 @@ public class DailyVisitComposite extends Composite implements ClickHandler
 		{
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(mainMenu);
+		}
+		else if(sender == validateLocationIdAnchor)
+		{
+			locationNameTextBox.setText("");
+			if (RegexUtil.isLocationID(TBR3Client.get(locationIdIntegerBox)))
+			{
+				service.getLocation(TBR3.getCurrentUserName(),
+						TBR3.getPassword(),
+						TBR3Client.get(locationIdIntegerBox),
+						new AsyncCallback<String>()
+						{
+							@Override
+							public void onSuccess(String result)
+							{
+								if (!result.contains("FAILED"))
+								{
+									locationNameTextBox.setText("");
+									locationNameTextBox.setText(result);
+									Window.alert("Loacation found: " + result);
+								}
+								else
+								{
+									Window.alert("Location "
+											+ TBR3Client
+													.get(locationIdIntegerBox)
+											+ ":"
+											+ CustomMessage
+													.getErrorMessage(ErrorType.ITEM_NOT_FOUND));
+								}
+							}
+
+							@Override
+							public void onFailure(Throwable caught)
+							{
+								// TODO Auto-generated method stub
+
+							}
+						});
+			}
+			else
+			{
+				Window.alert("Enter 6-digit Location ID.");
+			}
+
+		}
+		
+		
+	}
+
+	@Override
+	public void clearUp()
+	{
+		
+	}
+
+	@Override
+	public boolean validate()
+	{
+		
+		return false;
+	}
+
+	@Override
+	public void saveData()
+	{
+		
+	}
+
+	@Override
+	public void fillData()
+	{
+		
+	}
+
+	@Override
+	public void setCurrent()
+	{
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.google.gwt.event.logical.shared.ValueChangeHandler#onValueChange(com.google.gwt.event.logical.shared.ValueChangeEvent)
+	 */
+	@Override
+	public void onValueChange(ValueChangeEvent<Boolean> event)
+	{
+		Widget sender = (Widget) event.getSource();
+		if(sender == marketingYesRadioButton)
+		{
+			boolean marketing = marketingYesRadioButton.getValue();
+			marketingBudgetItemsTextBox.setEnabled(marketing);
+			
 		}
 	}
 

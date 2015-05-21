@@ -82,8 +82,8 @@ public class SupervisorVisitComposite extends Composite implements IForm,
 	private Label formDateLabel = new Label("Form Date   ");
 	private DateBox formDateBox = new DateBox();
 
-	private Label locationIDLabel = new Label("Location ID");
-	private IntegerBox locationIDIntegerBox = new IntegerBox();
+	private Label locationIdLabel = new Label("Location ID");
+	private IntegerBox locationIdIntegerBox = new IntegerBox();
 
 	private TextBox locationNameTextBox = new TextBox();
 	private Label locationNameLabel = new Label("Location Name   ");
@@ -160,13 +160,13 @@ public class SupervisorVisitComposite extends Composite implements IForm,
 		formDateBox.setFormat(new DefaultFormat(DateTimeFormat
 				.getFormat("yyyy-MM-dd")));
 
-		supervisorVisitFlexTable.setWidget(2, 0, locationIDLabel);
-		locationIDLabel.addStyleName("text");
+		supervisorVisitFlexTable.setWidget(2, 0, locationIdLabel);
+		locationIdLabel.addStyleName("text");
 
-		supervisorVisitFlexTable.setWidget(2, 1, locationIDIntegerBox);
-		locationIDIntegerBox.setMaxLength(6);
-		locationIDIntegerBox.setVisibleLength(6);
-		locationIDIntegerBox.addStyleName("textbox");
+		supervisorVisitFlexTable.setWidget(2, 1, locationIdIntegerBox);
+		locationIdIntegerBox.setMaxLength(6);
+		locationIdIntegerBox.setVisibleLength(6);
+		locationIdIntegerBox.addStyleName("textbox");
 
 		supervisorVisitFlexTable.setWidget(3, 1, validateLocationIdAnchor);
 		validateLocationIdAnchor.addStyleName("hyperlink");
@@ -305,11 +305,11 @@ public class SupervisorVisitComposite extends Composite implements IForm,
 		else if (sender == validateLocationIdAnchor)
 		{
 			locationNameTextBox.setText("");
-			if (RegexUtil.isLocationID(TBR3Client.get(locationIDIntegerBox)))
+			if (RegexUtil.isLocationID(TBR3Client.get(locationIdIntegerBox)))
 			{
 				service.getLocation(TBR3.getCurrentUserName(),
 						TBR3.getPassword(),
-						TBR3Client.get(locationIDIntegerBox),
+						TBR3Client.get(locationIdIntegerBox),
 						new AsyncCallback<String>()
 						{
 							@Override
@@ -325,7 +325,7 @@ public class SupervisorVisitComposite extends Composite implements IForm,
 								{
 									Window.alert("Location "
 											+ TBR3Client
-													.get(locationIDIntegerBox)
+													.get(locationIdIntegerBox)
 											+ ":"
 											+ CustomMessage
 													.getErrorMessage(ErrorType.ITEM_NOT_FOUND));
@@ -356,7 +356,7 @@ public class SupervisorVisitComposite extends Composite implements IForm,
 	public void clearUp()
 	{
 		TBR3Client.clearControls(supervisorVisitFlexTable);
-		IntegerBox[] integerBoxes = { locationIDIntegerBox };
+		IntegerBox[] integerBoxes = { locationIdIntegerBox };
 
 		ListBox[] listBoxes = { townListBox, gpPotentialListBox };
 		for (int i = 0; i < integerBoxes.length; i++)
@@ -381,7 +381,7 @@ public class SupervisorVisitComposite extends Composite implements IForm,
 
 		StringBuilder errorMessage = new StringBuilder();
 
-		if (TBR3Client.get(locationIDIntegerBox).equals(""))
+		if (TBR3Client.get(locationIdIntegerBox).equals(""))
 			errorMessage.append("Location ID: "
 					+ CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR)
 					+ "\n");
@@ -471,9 +471,9 @@ public class SupervisorVisitComposite extends Composite implements IForm,
 											eID, creator, creator, formName);
 									Encounter encounter = new Encounter(
 											encounterId, TBR3Client
-													.get(locationIDIntegerBox));
+													.get(locationIdIntegerBox));
 									encounter.setLocationId(TBR3Client
-											.get(locationIDIntegerBox));
+											.get(locationIdIntegerBox));
 									encounter.setDateEntered(enteredDate);
 									encounter.setDateStart(new Date());
 									encounter.setDateEnd(new Date());
@@ -489,7 +489,7 @@ public class SupervisorVisitComposite extends Composite implements IForm,
 											new EncounterResultsId(eID,
 													creator, creator, formName,
 													"LOCATION_ID"), TBR3Client
-													.get(locationIDIntegerBox)));
+													.get(locationIdIntegerBox)));
 									encounterResults
 											.add(new EncounterResults(
 													new EncounterResultsId(eID,
