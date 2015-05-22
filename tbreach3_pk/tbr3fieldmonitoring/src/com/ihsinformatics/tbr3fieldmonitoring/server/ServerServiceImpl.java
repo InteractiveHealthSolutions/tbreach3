@@ -50,8 +50,8 @@ public class ServerServiceImpl extends RemoteServiceServlet implements
 	private static final long serialVersionUID = 4123609914579659870L;
 
 	// Form Openmrs properties file
-	//static final String propFilePath = "C:\\Users\\Tahira\\AppData\\Roaming\\OpenMRS\\openmrs-runtime.properties";
-	static final String propFilePath = "/usr/share/tomcat6/.OpenMRS/openmrs-runtime.properties";
+	static final String propFilePath = "C:\\Users\\Tahira\\AppData\\Roaming\\OpenMRS\\openmrs-runtime.properties";
+//	static final String propFilePath = "/usr/share/tomcat6/.OpenMRS/openmrs-runtime.properties";
 	private static File propsFile;
 	private static Properties props;
 	private static String url, username, password;

@@ -639,6 +639,10 @@ public class FirstVisitComposite extends Composite implements IForm,
 										e.printStackTrace();
 									}
 								}
+								else
+								{
+									Window.alert("You don't have enough privileges to add encounters.");
+								}
 
 							}
 						}

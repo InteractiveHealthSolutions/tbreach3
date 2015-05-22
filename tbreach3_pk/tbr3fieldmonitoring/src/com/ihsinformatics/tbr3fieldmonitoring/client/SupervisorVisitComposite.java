@@ -428,7 +428,7 @@ public class SupervisorVisitComposite extends Composite implements IForm,
 			final int eID = 0;
 			final String creator = TBR3.getCurrentUserName(); // pid1
 
-			final String visitDateTime = TBR3Client.get(visitDateBox).split(
+			final String visitDate = TBR3Client.get(visitDateBox).split(
 					"\\s+")[0]
 					+ " "
 					+ FirstVisitComposite.getTimeString(
@@ -507,7 +507,7 @@ public class SupervisorVisitComposite extends Composite implements IForm,
 											new EncounterResultsId(eID,
 													creator, creator, formName,
 													"VISIT_DATE"),
-											visitDateTime));
+											visitDate));
 									encounterResults.add(new EncounterResults(
 											new EncounterResultsId(eID,
 													creator, creator, formName,

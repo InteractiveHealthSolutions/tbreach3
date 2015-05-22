@@ -12,6 +12,8 @@
 package com.ihsinformatics.tbr3fieldmonitoring.client;
 
 import java.awt.Choice;
+import java.util.ArrayList;
+import java.util.Date;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Display;
@@ -40,9 +42,16 @@ import com.google.gwt.user.datepicker.client.DateBox;
 import com.google.gwt.user.datepicker.client.DateBox.DefaultFormat;
 import com.ihsinformatics.tbr3fieldmonitoring.server.ServerServiceImpl;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.CustomMessage;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.DateTimeUtil;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.ErrorType;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.InfoType;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.RegexUtil;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.TBR3;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Encounter;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterId;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterResults;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterResultsId;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Location;
 import com.summatech.gwt.client.HourMinutePicker;
 import com.summatech.gwt.client.HourMinutePicker.PickerFormat;
 
@@ -54,6 +63,8 @@ public class DailyVisitComposite extends Composite implements IForm, ClickHandle
 {
 	private static ServerServiceAsync service = GWT.create(ServerService.class);
 	private static final String formName = "DAILY_VIS";
+	
+	private static boolean valid;
 	
 	private FlexTable mainFlexTable = new FlexTable();
 	private FlexTable userProfileFlexTable = new FlexTable();
@@ -85,7 +96,7 @@ public class DailyVisitComposite extends Composite implements IForm, ClickHandle
 
 	private Label visitDateLabel = new Label("Visit Date");
 	private DateBox visitDateBox = new DateBox();
-
+	
 	private Label arrivalTimeLabel = new Label("Arrival Time");
 	private HourMinutePicker arrivalHourMinutePicker = new HourMinutePicker(
 			PickerFormat._12_HOUR);
@@ -117,7 +128,7 @@ public class DailyVisitComposite extends Composite implements IForm, ClickHandle
 
 	private Label marketingDescriptionLabel = new Label(
 			"Marketing Activity Description");
-	private TextBox marketingDescriptionTextBox = new TextBox();
+	private TextArea marketingDescriptionTextArea = new TextArea();
 
 	private Label marketingBudgetItemsLabel = new Label(
 			"MR Marketing Budget Items");
@@ -196,106 +207,111 @@ public class DailyVisitComposite extends Composite implements IForm, ClickHandle
 		locationIDLabel.addStyleName("text");
 
 		dailyVisitFlexTable.setWidget(2, 1, locationIdIntegerBox);
-		locationIdIntegerBox.setStyleName("text");
+		locationIdIntegerBox.setStyleName("textbox");
 
-		dailyVisitFlexTable.setWidget(3, 0, locationNameLabel);
+		dailyVisitFlexTable.setWidget(3, 1, validateLocationIdAnchor);
+		
+		dailyVisitFlexTable.setWidget(4, 0, locationNameLabel);
 		locationNameLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(3, 1, locationNameTextBox);
+		dailyVisitFlexTable.setWidget(4, 1, locationNameTextBox);
 		locationNameTextBox.addStyleName("textbox");
 
-		dailyVisitFlexTable.setWidget(4, 0, townLabel);
+		dailyVisitFlexTable.setWidget(5, 0, townLabel);
 		townLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(4, 1, townListBox);
+		dailyVisitFlexTable.setWidget(5, 1, townListBox);
+		townListBox.setName("TOWN");
 
-		dailyVisitFlexTable.setWidget(5, 0, visitDateLabel);
+		dailyVisitFlexTable.setWidget(6, 0, visitDateLabel);
 		visitDateLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(5, 1, visitDateBox);
+		dailyVisitFlexTable.setWidget(6, 1, visitDateBox);
 		visitDateBox.addStyleName("textbox");
+		visitDateBox.setFormat(new DefaultFormat(DateTimeFormat
+				.getFormat("yyyy-MM-dd")));
 
-		dailyVisitFlexTable.setWidget(6, 0, arrivalTimeLabel);
+		dailyVisitFlexTable.setWidget(7, 0, arrivalTimeLabel);
 		arrivalTimeLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(6, 1, arrivalHourMinutePicker);
+		dailyVisitFlexTable.setWidget(7, 1, arrivalHourMinutePicker);
 
-		dailyVisitFlexTable.setWidget(7, 0, departureTimeLabel);
+		dailyVisitFlexTable.setWidget(8, 0, departureTimeLabel);
 		departureTimeLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(7, 1, departureHourMinutePicker);
+		dailyVisitFlexTable.setWidget(8, 1, departureHourMinutePicker);
 
-		dailyVisitFlexTable.setWidget(8, 0, metGpLabel);
+		dailyVisitFlexTable.setWidget(9, 0, metGpLabel);
 		metGpLabel.addStyleName("text");
 
 		metGpFlowPanel.add(metGpYesRadioButton);
 		metGpFlowPanel.add(metGpNoRadioButton);
 
-		dailyVisitFlexTable.setWidget(8, 1, metGpFlowPanel);
+		dailyVisitFlexTable.setWidget(9, 1, metGpFlowPanel);
 
-		dailyVisitFlexTable.setWidget(9, 0, givenCouponsLabel);
+		dailyVisitFlexTable.setWidget(10, 0, givenCouponsLabel);
 		givenCouponsLabel.addStyleName("text");
 
 		givenCouponsFlowPanel.add(givenCouponsYesRadioButton);
 		givenCouponsFlowPanel.add(givenCouponsNoRadioButton);
 
-		dailyVisitFlexTable.setWidget(9, 1, givenCouponsFlowPanel);
+		dailyVisitFlexTable.setWidget(10, 1, givenCouponsFlowPanel);
 
-		dailyVisitFlexTable.setWidget(10, 0, marketingActivityLabel);
+		dailyVisitFlexTable.setWidget(11, 0, marketingActivityLabel);
 		marketingActivityLabel.addStyleName("text");
 
 		marketingActivityFlowPanel.add(marketingYesRadioButton);
 		marketingActivityFlowPanel.add(marketingNoRadioButton);
 
-		dailyVisitFlexTable.setWidget(10, 1, marketingActivityFlowPanel);
+		dailyVisitFlexTable.setWidget(11, 1, marketingActivityFlowPanel);
 
-		dailyVisitFlexTable.setWidget(11, 0, marketingDescriptionLabel);
+		dailyVisitFlexTable.setWidget(12, 0, marketingDescriptionLabel);
 		marketingDescriptionLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(11, 1, marketingDescriptionTextBox);
-		marketingDescriptionTextBox.addStyleName("textbox");
+		dailyVisitFlexTable.setWidget(12, 1, marketingDescriptionTextArea);
+		marketingDescriptionTextArea.addStyleName("textbox");
 
-		dailyVisitFlexTable.setWidget(12, 0, marketingBudgetItemsLabel);
+		dailyVisitFlexTable.setWidget(13, 0, marketingBudgetItemsLabel);
 		marketingBudgetItemsLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(12, 1, marketingBudgetItemsTextBox);
+		dailyVisitFlexTable.setWidget(13, 1, marketingBudgetItemsTextBox);
 		marketingBudgetItemsTextBox.addStyleName("textbox");
 
-		dailyVisitFlexTable.setWidget(13, 0, amountLabel);
+		dailyVisitFlexTable.setWidget(14, 0, amountLabel);
 		amountLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(13, 1, amountIntegerBox);
+		dailyVisitFlexTable.setWidget(14, 1, amountIntegerBox);
 		amountIntegerBox.addStyleName("textbox");
 		amountIntegerBox.setMaxLength(8);
 		amountIntegerBox.setText("0");
 
-		dailyVisitFlexTable.setWidget(14, 0, institutionalMarketingItemsLabel);
+		dailyVisitFlexTable.setWidget(15, 0, institutionalMarketingItemsLabel);
 		institutionalMarketingItemsLabel.addStyleName("text");
 
-		dailyVisitFlexTable
-				.setWidget(14, 1, institutionalMarketingItemsListBox);
+		dailyVisitFlexTable.setWidget(15, 1, institutionalMarketingItemsListBox);
+		institutionalMarketingItemsListBox.setName("MARKETING_ITEMS");
 
-		dailyVisitFlexTable.setWidget(15, 0, countLabel);
+		dailyVisitFlexTable.setWidget(16, 0, countLabel);
 		countLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(15, 1, countIntegerBox);
+		dailyVisitFlexTable.setWidget(16, 1, countIntegerBox);
 		countIntegerBox.addStyleName("textbox");
 
-		dailyVisitFlexTable.setWidget(15, 2, addMoreButton);
+		dailyVisitFlexTable.setWidget(16, 2, addMoreButton);
 
-		dailyVisitFlexTable.setWidget(16, 0, gpPotentialLabel);
+		dailyVisitFlexTable.setWidget(17, 0, gpPotentialLabel);
 		gpPotentialLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(16, 1, gpPotentialListBox);
+		dailyVisitFlexTable.setWidget(17, 1, gpPotentialListBox);
 		gpPotentialListBox.setName("GP_POTENTIAL_RATING");
 
-		dailyVisitFlexTable.setWidget(17, 0, commentsLabel);
+		dailyVisitFlexTable.setWidget(18, 0, commentsLabel);
 		commentsLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(17, 1, commentsTextArea);
+		dailyVisitFlexTable.setWidget(18, 1, commentsTextArea);
 		commentsTextArea.addStyleName("textbox");
 
-		dailyVisitFlexTable.setWidget(18, 1, submitButton);
+		dailyVisitFlexTable.setWidget(19, 1, submitButton);
 		submitButton.setStyleName("submitButton");
 		submitButton.setSize("169", "30");
 
@@ -338,6 +354,8 @@ public class DailyVisitComposite extends Composite implements IForm, ClickHandle
 		mainFlexTable.setBorderWidth(1);
 		
 		validateLocationIdAnchor.addClickHandler(this);
+		
+		TBR3Client.refresh(dailyVisitFlexTable);
 
 		// mainFlexTable.getCellFormatter().setHorizontalAlignment(0, 0,
 		// HasHorizontalAlignment.ALIGN_CENTER);
@@ -424,13 +442,143 @@ public class DailyVisitComposite extends Composite implements IForm, ClickHandle
 	@Override
 	public boolean validate()
 	{
+		valid = true;
+		StringBuilder errorMessage = new StringBuilder();
+		if(TBR3Client.get(locationIdIntegerBox).equals(""))
+			errorMessage.append("Location ID: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR));
+		if(TBR3Client.get(locationNameTextBox).equals(""))
+			errorMessage.append("Location name: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR));
+		if(TBR3Client.get(visitDateBox).equals(""))
+			errorMessage.append("Visit Date: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR));
+		if (arrivalHourMinutePicker.getHour() == -1)
+			errorMessage.append("Arrival time: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		if (departureHourMinutePicker.getHour() == -1)
+			errorMessage.append("Departure time: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		if (!metGpYesRadioButton.isChecked() && !metGpNoRadioButton.isChecked())
+			errorMessage.append("Met GP: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		if (!givenCouponsYesRadioButton.isChecked() && !givenCouponsNoRadioButton.isChecked())
+			errorMessage.append("Given Coupons/Rx Pads: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		if (!marketingYesRadioButton.isChecked() && !marketingNoRadioButton.isChecked())
+			errorMessage.append("Marketing Activity: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		// write the rest here
 		
-		return false;
+		
+		return true;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void saveData()
 	{
+		if(validate())
+		{
+			final Date enteredDate = new Date();
+			final int eID = 0;
+			final String creator = TBR3.getCurrentUserName();
+			service.getUserRoles(TBR3.getCurrentUserName(), TBR3.getPassword(), new AsyncCallback<String[]>()
+			{
+
+				@Override
+				public void onSuccess(String[] result)
+				{
+					boolean hasPrivilege = java.util.Arrays.asList(
+							result).contains("Health Worker")
+							| java.util.Arrays.asList(result).contains(
+									"Program Admin")
+							| java.util.Arrays.asList(result).contains(
+									"Reporting")
+							| java.util.Arrays.asList(result).contains(
+									"Supervisor")
+							| java.util.Arrays.asList(result).contains(
+									"System Developer")
+							| java.util.Arrays.asList(result).contains(
+									"System Implementer");
+					
+					if (result == null)
+						Window.alert("You don't have privileges to add encounters.");
+					else
+					{
+						if (hasPrivilege)
+						{
+							EncounterId encounterId = new EncounterId(eID, creator, creator, formName);
+							
+							Encounter encounter = new Encounter(encounterId, TBR3Client.get(locationIdIntegerBox));
+							encounter.setLocationId(TBR3Client.get(locationIdIntegerBox));
+							encounter.setDateEntered(enteredDate);
+							encounter.setDateStart(new Date());
+							encounter.setDateEnd(new Date());
+							ArrayList<EncounterResults> encounterResults = new ArrayList<EncounterResults>();
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "F_DATE"), DateTimeUtil.getFormattedDate(enteredDate, "yyyy-MM-dd HH:mm:ss")));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "LOCATION_ID"), TBR3Client.get(locationIdIntegerBox)));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator,	formName, "LOCATION_NAME"),	TBR3Client.get(locationNameTextBox)));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "TOWN"), TBR3Client.get(townListBox)));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "VISIT_DATE"), TBR3Client.get(visitDateBox)));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "ARRIVAL_TIME"), FirstVisitComposite.getTimeString(arrivalHourMinutePicker.getMinute(), arrivalHourMinutePicker.getHour())));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "DEPARTURE_TIME"), FirstVisitComposite.getTimeString(arrivalHourMinutePicker.getMinute(), arrivalHourMinutePicker.getHour())));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "MET_GP"), metGpYesRadioButton.isChecked() ? "Yes" : "No"));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "GIVEN_COUPONS"), givenCouponsYesRadioButton.isChecked() ? "Yes" : "No"));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "MARKETING_ACTIVITY"), marketingYesRadioButton.isChecked() ? "Yes" : "No"));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "MARKETING_ACTIVITY_DESCRIPTION"), TBR3Client.get(marketingDescriptionTextArea)));
+							
+							if(marketingYesRadioButton.isChecked())
+							{
+								encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "MARKETING_BUDGET_ITEMS"), TBR3Client.get(marketingBudgetItemsTextBox)));
+								encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "AMOUNT"), TBR3Client.get(amountIntegerBox)));
+							}
+							
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "INSTITUTIONAL_MARKETING_ITEMS"), TBR3Client.get(institutionalMarketingItemsListBox)));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "COUNT"), TBR3Client.get(countIntegerBox)));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "GP_POTENTIAL"), TBR3Client.get(gpPotentialListBox)));
+							encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "COMMENTS"), TBR3Client.get(commentsTextArea)));
+							
+							try
+							{
+								service.saveFormData(encounter,encounterResults.toArray(new EncounterResults[] {}),	new AsyncCallback<String>()
+										{
+
+											@Override
+											public void onFailure(Throwable caught)
+											{
+												caught.printStackTrace();
+											}
+
+											@Override
+											public void onSuccess(String result)
+											{
+												if (result.equals("SUCCESS"))
+												{
+													
+												}
+												else
+												{
+													Window.alert(CustomMessage.getErrorMessage(ErrorType.INSERT_ERROR) + "\nDetails: " + result);
+												}
+											}
+										});
+							}
+							catch (Exception e)
+							{
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+						else
+						{
+							Window.alert("You don't have enough privileges to add encounters.");
+						}
+					}
+
+				}
+				
+				@Override
+				public void onFailure(Throwable caught)
+				{
+					// TODO Auto-generated method stub
+					
+				}
+
+			});
+		}
 		
 	}
 
@@ -457,8 +605,15 @@ public class DailyVisitComposite extends Composite implements IForm, ClickHandle
 		{
 			boolean marketing = marketingYesRadioButton.getValue();
 			marketingBudgetItemsTextBox.setEnabled(marketing);
-			
+			amountIntegerBox.setEnabled(marketing);
 		}
+		else if(sender == marketingNoRadioButton)
+		{
+			boolean marketing = marketingYesRadioButton.getValue();
+			marketingBudgetItemsTextBox.setEnabled(marketing);
+			amountIntegerBox.setEnabled(marketing);
+		}
+		
 	}
 
 }
