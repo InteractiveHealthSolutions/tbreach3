@@ -13,6 +13,8 @@ package com.ihsinformatics.tbr3fieldmonitoring.client;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Display;
@@ -55,6 +57,8 @@ import com.summatech.gwt.client.HourMinutePicker.PickerFormat;
 public class FirstVisitComposite extends Composite implements IForm,
 		ClickHandler
 {
+	private static Logger logger = Logger.getLogger(FirstVisitComposite.class
+			.getName());
 	private static ServerServiceAsync service = GWT.create(ServerService.class);
 
 	private static final String formName = "FIRST_VIS";
@@ -120,8 +124,8 @@ public class FirstVisitComposite extends Composite implements IForm,
 	@SuppressWarnings("deprecation")
 	public FirstVisitComposite()
 	{
-
 		initWidget(mainFlexTable);
+		logger.log(Level.INFO, "Composite initiated.");
 
 		// mainFlexTable.setStyleName("verticalPanel");
 		mainFlexTable.setSize("100%", "100%");
@@ -292,6 +296,7 @@ public class FirstVisitComposite extends Composite implements IForm,
 		mainMenuHyperlink.addClickHandler(this);
 
 		TBR3Client.refresh(firstVisitFlexTable);
+		logger.log(Level.INFO, "Components reset/refilled.");
 		firstVisitFlexTable.getCellFormatter().setHorizontalAlignment(8, 2,
 				HasHorizontalAlignment.ALIGN_LEFT);
 		// mainFlexTable.getCellFormatter().setHorizontalAlignment(0, 0,

@@ -14,6 +14,9 @@ package com.ihsinformatics.tbr3fieldmonitoring.client;
 import java.awt.Choice;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Display;
@@ -40,6 +43,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.datepicker.client.DateBox;
 import com.google.gwt.user.datepicker.client.DateBox.DefaultFormat;
+import com.google.web.bindery.requestfactory.vm.impl.Deobfuscator;
 import com.ihsinformatics.tbr3fieldmonitoring.server.ServerServiceImpl;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.CustomMessage;
 import com.ihsinformatics.tbr3fieldmonitoring.shared.DateTimeUtil;
@@ -61,8 +65,16 @@ import com.summatech.gwt.client.HourMinutePicker.PickerFormat;
  */
 public class DailyVisitComposite extends Composite implements IForm, ClickHandler, ValueChangeHandler<Boolean>
 {
+	private static Logger logger = Logger.getLogger(DailyVisitComposite.class.getName());
+	
 	private static ServerServiceAsync service = GWT.create(ServerService.class);
 	private static final String formName = "DAILY_VIS";
+
+	private List<String[]> mainItemsCount = new ArrayList<String[]>();
+	
+	private List<String> itemsList = new ArrayList<String>(); 
+	
+	private String[] singleItemWithCount;
 	
 	private static boolean valid;
 	
@@ -158,7 +170,7 @@ public class DailyVisitComposite extends Composite implements IForm, ClickHandle
 
 	private Button submitButton = new Button("Submit");
 
-	MainMenuComposite mainMenu = new MainMenuComposite();
+	MainMenuComposite mainMenu;
 
 	public DailyVisitComposite()
 	{
@@ -353,7 +365,16 @@ public class DailyVisitComposite extends Composite implements IForm, ClickHandle
 
 		mainFlexTable.setBorderWidth(1);
 		
+		usernameLabel.setText(TBR3.getCurrentUserName());
+		
 		validateLocationIdAnchor.addClickHandler(this);
+		addMoreButton.addClickHandler(this);
+		submitButton.addClickHandler(this);
+		mainMenuHyperlink.addClickHandler(this);
+		logoutHyperlink.addClickHandler(this);
+		marketingYesRadioButton.addValueChangeHandler(this);
+		marketingNoRadioButton.addValueChangeHandler(this);
+		
 		
 		TBR3Client.refresh(dailyVisitFlexTable);
 
@@ -377,13 +398,22 @@ public class DailyVisitComposite extends Composite implements IForm, ClickHandle
 		Widget sender = (Widget) event.getSource();
 		if (sender == submitButton)
 		{
-			// Tbr3fieldmonitoring.verticalPanel.clear();
-			// Tbr3fieldmonitoring.verticalPanel.add(firstVisit);
+			try
+			{
+				saveData();
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
 		}
 		else if (sender == mainMenuHyperlink)
 		{
+			logger.log(Level.INFO, "go to main menu");
+			mainMenu = new MainMenuComposite();
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(mainMenu);
+			
 		}
 		else if(sender == validateLocationIdAnchor)
 		{
@@ -427,16 +457,49 @@ public class DailyVisitComposite extends Composite implements IForm, ClickHandle
 			{
 				Window.alert("Enter 6-digit Location ID.");
 			}
-
 		}
-		
+		else if(sender == addMoreButton)
+		{
+			itemsList.add(TBR3Client.get(institutionalMarketingItemsListBox));
+			itemsList.add(TBR3Client.get(countIntegerBox));
+			Window.alert("itemsList size is " + itemsList.size());
+			singleItemWithCount = itemsList.toArray(new String[itemsList.size()]);
+			Window.alert("singleItemWithCount length is " + singleItemWithCount.length);
+			itemsList.clear();
+			mainItemsCount.add(singleItemWithCount);
+			Window.alert("mainItemsCount length is " + mainItemsCount.size());
+			
+			for(String[] arr : mainItemsCount)
+			{
+				Window.alert("Item is " + arr[0] + " and it's count is " + arr[1]);
+			}
+		}
+		else if (sender == logoutHyperlink)
+		{
+			Tbr3fieldmonitoring.logout();
+		}
 		
 	}
 
 	@Override
 	public void clearUp()
 	{
-		
+		TBR3Client.clearControls(dailyVisitFlexTable);
+		IntegerBox[] integerBoxes = { locationIdIntegerBox, amountIntegerBox, countIntegerBox};
+
+		ListBox[] listBoxes = { townListBox, gpPotentialListBox };
+		for (int i = 0; i < integerBoxes.length; i++)
+			integerBoxes[i].setText("0");
+		for (int i = 0; i < listBoxes.length; i++)
+			listBoxes[i].setSelectedIndex(0);
+		locationIdIntegerBox.setText("000000");
+		formDateBox.getTextBox().setText("");
+		visitDateBox.getTextBox().setText("");
+		arrivalHourMinutePicker.clear();
+		departureHourMinutePicker.clear();
+		metGpYesRadioButton.setChecked(true);
+		givenCouponsYesRadioButton.setChecked(true);
+		marketingYesRadioButton.setChecked(true);
 	}
 
 	@Override
@@ -460,10 +523,23 @@ public class DailyVisitComposite extends Composite implements IForm, ClickHandle
 			errorMessage.append("Given Coupons/Rx Pads: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
 		if (!marketingYesRadioButton.isChecked() && !marketingNoRadioButton.isChecked())
 			errorMessage.append("Marketing Activity: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
-		// write the rest here
+		if(TBR3Client.get(marketingDescriptionTextArea).equals(""))
+			errorMessage.append("Marketing Activity Description: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		if(TBR3Client.get(marketingBudgetItemsTextBox).equals(""))
+			errorMessage.append("Marketing Budget Items: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		if(TBR3Client.get(amountIntegerBox).equals(""))
+			errorMessage.append("Amount: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		if(TBR3Client.get(countIntegerBox).equals(""))
+			errorMessage.append("Count: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+		if(TBR3Client.get(commentsTextArea).equals(""))
+			errorMessage.append("Comments: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
 		
-		
-		return true;
+		valid = errorMessage.length() == 0;
+		if (!valid)
+		{
+			Window.alert(errorMessage.toString());
+		}
+		return valid;
 	}
 
 	@SuppressWarnings("deprecation")

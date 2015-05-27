@@ -11,16 +11,28 @@
  */
 package com.ihsinformatics.tbr3fieldmonitoring.client;
 
+import java.util.ArrayList;
+import java.util.Date;
+
+import org.hsqldb.Server;
+
+import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Hyperlink;
+import com.google.gwt.user.client.ui.IntegerBox;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RadioButton;
@@ -28,18 +40,42 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.datepicker.client.DateBox;
 import com.google.gwt.user.datepicker.client.DateBox.DefaultFormat;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.CustomMessage;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.DateTimeUtil;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.ErrorType;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.InfoType;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.RegexUtil;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.TBR3;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Encounter;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterId;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterResults;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.EncounterResultsId;
+import com.ihsinformatics.tbr3fieldmonitoring.shared.model.Location;
 
 /**
  * @author Tahira
  * 
  */
-public class TestEntryComposite extends Composite implements ClickHandler
+public class TestEntryComposite extends Composite implements IForm, ClickHandler, ValueChangeHandler<Boolean>
 {
-
+	private static final ServerServiceAsync service = GWT.create(ServerService.class);
+	private static final String formName = "TEST_ENTRY";
+	private static boolean valid;
+	
 	private FlexTable mainFlexTable = new FlexTable();
 	private FlexTable userProfileFlexTable = new FlexTable();
 	private FlexTable headerFlexTable = new FlexTable();
 	private FlexTable dailyVisitFlexTable = new FlexTable();
+	private FlexTable patientResultsFlexTable = new FlexTable();
+	
+	
+	///testing Test Type : Spirometry and Diabetes Toggle
+	private FlowPanel testTypeResultFlowPanel = new FlowPanel();
+	private Label patientResultLabel = new Label("Patient Result/Score");
+	private TextBox patientResultTextBox = new TextBox();
+	private TextBox patientResult2TextBox = new TextBox();
+	private TextBox patientResult3TextBox = new TextBox();
+    // till here	
 
 	private FlowPanel userNamePanel = new FlowPanel();
 
@@ -55,8 +91,8 @@ public class TestEntryComposite extends Composite implements ClickHandler
 	private Label formDateLabel = new Label("Form Date   ");
 	private DateBox formDateBox = new DateBox();
 
-	private Label locationIDLabel = new Label("Location ID");
-	private ListBox locationIDListBox = new ListBox();
+	private Label locationIdLabel = new Label("Location ID");
+	private IntegerBox locationIdIntegerBox = new IntegerBox();
 
 	private TextBox locationNameTextBox = new TextBox();
 	private Label locationNameLabel = new Label("Location Name   ");
@@ -77,10 +113,12 @@ public class TestEntryComposite extends Composite implements ClickHandler
 			"testTypeRadioGroup", "Diabetes");
 	private RadioButton testSpirometryRadioButton = new RadioButton(
 			"testTypeRadioGroup", "Spirometry");
+	
+	private Anchor validateLocationIdAnchor = new Anchor("Validate Location ID", false);
 
 	private Button submitButton = new Button("Submit");
 
-	MainMenuComposite mainMenu = new MainMenuComposite();
+	MainMenuComposite mainMenu;
 
 	public TestEntryComposite()
 	{
@@ -125,40 +163,65 @@ public class TestEntryComposite extends Composite implements ClickHandler
 		formDateBox.setFormat(new DefaultFormat(DateTimeFormat
 				.getFormat("yyyy-MM-dd")));
 
-		dailyVisitFlexTable.setWidget(2, 0, locationIDLabel);
-		locationIDLabel.addStyleName("text");
+		dailyVisitFlexTable.setWidget(2, 0, locationIdLabel);
+		locationIdLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(2, 1, locationIDListBox);
+		dailyVisitFlexTable.setWidget(2, 1, locationIdIntegerBox);
+		locationIdIntegerBox.addStyleName("textbox");
+		
+		dailyVisitFlexTable.setWidget(3, 1, validateLocationIdAnchor);
+		validateLocationIdAnchor.addStyleName("hyperlink");
 
-		dailyVisitFlexTable.setWidget(3, 0, locationNameLabel);
+		dailyVisitFlexTable.setWidget(4, 0, locationNameLabel);
 		locationNameLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(3, 1, locationNameTextBox);
+		dailyVisitFlexTable.setWidget(4, 1, locationNameTextBox);
 		locationNameTextBox.addStyleName("textbox");
 
-		dailyVisitFlexTable.setWidget(4, 0, patientAgeLabel);
+		dailyVisitFlexTable.setWidget(5, 0, patientAgeLabel);
 		patientAgeLabel.addStyleName("text");
 
-		dailyVisitFlexTable.setWidget(4, 1, patientAgeTextBox);
+		dailyVisitFlexTable.setWidget(5, 1, patientAgeTextBox);
 		patientAgeTextBox.addStyleName("textbox");
 
-		dailyVisitFlexTable.setWidget(5, 0, patientGenderLabel);
+		dailyVisitFlexTable.setWidget(6, 0, patientGenderLabel);
 		patientGenderLabel.addStyleName("text");
 
 		patientGenderFlowPanel.add(genderMaleRadioButton);
 		patientGenderFlowPanel.add(genderFemaleRadioButton);
 
-		dailyVisitFlexTable.setWidget(5, 1, patientGenderFlowPanel);
+		dailyVisitFlexTable.setWidget(6, 1, patientGenderFlowPanel);
 
-		dailyVisitFlexTable.setWidget(6, 0, testTypeLabel);
+		dailyVisitFlexTable.setWidget(7, 0, testTypeLabel);
 		testTypeLabel.addStyleName("text");
 
 		testTypeFlowPanel.add(testDiabetesRadioButton);
 		testTypeFlowPanel.add(testSpirometryRadioButton);
 
-		dailyVisitFlexTable.setWidget(6, 1, testTypeFlowPanel);
+		dailyVisitFlexTable.setWidget(7, 1, testTypeFlowPanel);
+		
+		//testing Patient Test Result Flow Panel
+		testTypeResultFlowPanel.add(patientResultLabel);
+		testTypeResultFlowPanel.add(patientResultTextBox);
+		patientResultTextBox.addStyleName(".table-textbox");
+		testTypeResultFlowPanel.add(patientResult2TextBox);
+		patientResult2TextBox.addStyleName(".table-textbox");
+		testTypeResultFlowPanel.add(patientResult3TextBox);
+		patientResult3TextBox.addStyleName(".table-textbox");
+		patientResultLabel.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+		patientResultTextBox.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+		patientResult2TextBox.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+		patientResult3TextBox.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+		
+		testTypeResultFlowPanel.addStyleName("flowPanel");
+		
+		
+		patientResultsFlexTable.setWidget(0, 0, testTypeResultFlowPanel);
+		patientResultsFlexTable.getCellFormatter().setHorizontalAlignment(0, 2, HasHorizontalAlignment.ALIGN_CENTER);
+		//till here 
+		
 
-		dailyVisitFlexTable.setWidget(7, 1, submitButton);
+		dailyVisitFlexTable.setWidget(8, 1, submitButton);
 		submitButton.setStyleName("submitButton");
 		submitButton.setSize("169", "30");
 
@@ -200,6 +263,15 @@ public class TestEntryComposite extends Composite implements ClickHandler
 
 		mainFlexTable.setBorderWidth(1);
 
+		usernameLabel.setText(TBR3.getCurrentUserName());
+		
+		submitButton.addClickHandler(this);
+		validateLocationIdAnchor.addClickHandler(this);
+		logoutHyperlink.addClickHandler(this);
+		mainMenuHyperlink.addClickHandler(this);
+		testDiabetesRadioButton.addValueChangeHandler(this);
+		testSpirometryRadioButton.addValueChangeHandler(this);
+
 		// mainMenuHyperlink.addClickHandler(this);
 	}
 
@@ -216,15 +288,276 @@ public class TestEntryComposite extends Composite implements ClickHandler
 		Widget sender = (Widget) event.getSource();
 		if (sender == submitButton)
 		{
-			// Tbr3fieldmonitoring.verticalPanel.clear();
-			// Tbr3fieldmonitoring.verticalPanel.add(firstVisit);
+			try
+			{
+				saveData();
+			}
+			catch (Exception e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		// else if(sender == mainMenuHyperlink)
-		// {
-		// Tbr3fieldmonitoring.verticalPanel.clear();
-		// Tbr3fieldmonitoring.verticalPanel.add(mainMenu);
-		// }
+		 else if(sender == mainMenuHyperlink)
+		 {
+			 mainMenu = new MainMenuComposite();
+			 Tbr3fieldmonitoring.verticalPanel.clear();
+			 Tbr3fieldmonitoring.verticalPanel.add(mainMenu);
+		 }
+		 else if (sender == validateLocationIdAnchor)
+			{
+				locationNameTextBox.setText("");
+				if (RegexUtil.isLocationID(TBR3Client.get(locationIdIntegerBox)))
+				{
+					service.getLocation(TBR3.getCurrentUserName(),
+							TBR3.getPassword(),
+							TBR3Client.get(locationIdIntegerBox),
+							new AsyncCallback<String>()
+							{
+								@Override
+								public void onSuccess(String result)
+								{
+									if (!result.contains("FAILED"))
+									{
+										locationNameTextBox.setText("");
+										locationNameTextBox.setText(result);
+										Window.alert("Loacation found: " + result);
+									}
+									else
+									{
+										Window.alert("Location "
+												+ TBR3Client
+														.get(locationIdIntegerBox)
+												+ ":"
+												+ CustomMessage
+														.getErrorMessage(ErrorType.ITEM_NOT_FOUND));
+									}
+								}
 
+								@Override
+								public void onFailure(Throwable caught)
+								{
+									// TODO Auto-generated method stub
+
+								}
+							});
+				}
+				else
+				{
+					Window.alert("Enter 6-digit Location ID.");
+				}
+			}
+		 else if (sender == logoutHyperlink)
+		 {
+			Tbr3fieldmonitoring.logout();
+		 }
+	}
+
+	/* (non-Javadoc)
+	 * @see com.ihsinformatics.tbr3fieldmonitoring.client.IForm#clearUp()
+	 */
+	@Override
+	public void clearUp()
+	{
+		TBR3Client.clearControls(dailyVisitFlexTable);
+		IntegerBox[] integerBoxes = { locationIdIntegerBox };
+
+		//ListBox[] listBoxes = { townListBox  };
+		for (int i = 0; i < integerBoxes.length; i++)
+			integerBoxes[i].setText("0");
+//		for (int i = 0; i < listBoxes.length; i++)
+//			listBoxes[i].setSelectedIndex(0);
+		locationIdIntegerBox.setText("000000");
+		formDateBox.getTextBox().setText("");
+	}
+
+	/* (non-Javadoc)
+	 * @see com.ihsinformatics.tbr3fieldmonitoring.client.IForm#validate()
+	 */
+	@Override
+	public boolean validate()
+	{
+		valid = true;
+		StringBuilder errorMessage = new StringBuilder();
+//		if(TBR3Client.get(locationIdIntegerBox).equals(""))
+//			errorMessage.append("Location ID: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR));
+//		if(TBR3Client.get(locationNameTextBox).equals(""))
+//			errorMessage.append("Location name: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR));
+//		if(TBR3Client.get(visitDateBox).equals(""))
+//			errorMessage.append("Visit Date: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR));
+//		if (arrivalHourMinutePicker.getHour() == -1)
+//			errorMessage.append("Arrival time: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+//		if (departureHourMinutePicker.getHour() == -1)
+//			errorMessage.append("Departure time: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+//		if (!metGpYesRadioButton.isChecked() && !metGpNoRadioButton.isChecked())
+//			errorMessage.append("Met GP: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+//		if (!givenCouponsYesRadioButton.isChecked() && !givenCouponsNoRadioButton.isChecked())
+//			errorMessage.append("Given Coupons/Rx Pads: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+//		if (!marketingYesRadioButton.isChecked() && !marketingNoRadioButton.isChecked())
+//			errorMessage.append("Marketing Activity: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+//		if(TBR3Client.get(marketingDescriptionTextArea).equals(""))
+//			errorMessage.append("Marketing Activity Description: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+//		if(TBR3Client.get(marketingBudgetItemsTextBox).equals(""))
+//			errorMessage.append("Marketing Budget Items: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+//		if(TBR3Client.get(amountIntegerBox).equals(""))
+//			errorMessage.append("Amount: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+//		if(TBR3Client.get(countIntegerBox).equals(""))
+//			errorMessage.append("Count: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+//		if(TBR3Client.get(commentsTextArea).equals(""))
+//			errorMessage.append("Comments: " + CustomMessage.getErrorMessage(ErrorType.EMPTY_DATA_ERROR) + "\n");
+//		
+		valid = errorMessage.length() == 0;
+		if (!valid)
+		{
+			Window.alert(errorMessage.toString());
+		}
+		return valid;
+
+	}
+
+	/* (non-Javadoc)
+	 * @see com.ihsinformatics.tbr3fieldmonitoring.client.IForm#saveData()
+	 */
+	@Override
+	public void saveData()
+	{
+		if(validate())
+		{
+			final Date enteredDate = new Date();
+			final int eID = 0;
+			final String creator = TBR3.getCurrentUserName(); // pid1
+
+			service.getUserRoles(TBR3.getCurrentUserName(), TBR3.getPassword(),
+					new AsyncCallback<String[]>()
+					{
+
+						@Override
+						public void onFailure(Throwable caught)
+						{
+							// TODO Auto-generated method stub
+
+						}
+
+						@Override
+						public void onSuccess(String[] result)
+						{
+							boolean hasPrivilege = java.util.Arrays.asList(
+									result).contains("Health Worker")
+									| java.util.Arrays.asList(result).contains(
+											"Program Admin")
+									| java.util.Arrays.asList(result).contains(
+											"Reporting")
+									| java.util.Arrays.asList(result).contains(
+											"Supervisor")
+									| java.util.Arrays.asList(result).contains(
+											"System Developer")
+									| java.util.Arrays.asList(result).contains(
+											"System Implementer");
+							if (result == null)
+								Window.alert("You don't have privileges to add encounters.");
+							else
+							{
+								if (hasPrivilege)
+								{
+									EncounterId encounterId = new EncounterId(
+											eID, creator, creator, formName);
+									Encounter encounter = new Encounter(
+											encounterId, TBR3Client
+													.get(locationIdIntegerBox));
+									encounter.setLocationId(TBR3Client
+											.get(locationIdIntegerBox));
+									encounter.setDateEntered(enteredDate);
+									encounter.setDateStart(new Date());
+									encounter.setDateEnd(new Date());
+									ArrayList<EncounterResults> encounterResults = new ArrayList<EncounterResults>();
+									encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "F_DATE"), DateTimeUtil.getFormattedDate(	enteredDate, "yyyy-MM-dd HH:mm:ss")));
+									encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator, formName, "LOCATION_ID"), TBR3Client.get(locationIdIntegerBox)));
+									encounterResults.add(new EncounterResults(new EncounterResultsId(eID, creator, creator,	formName, "LOCATION_NAME"), TBR3Client.get(locationNameTextBox)));
+									
+									// TODO : complete it
+									
+									final Location location = new Location();
+									location.setLocationName(TBR3Client
+											.get(locationNameTextBox));
+
+									try
+									{
+										service.saveFormData(
+												encounter,
+												encounterResults
+														.toArray(new EncounterResults[] {}),
+												new AsyncCallback<String>()
+												{
+
+													@Override
+													public void onFailure(
+															Throwable caught)
+													{
+														caught.printStackTrace();
+													}
+
+													@Override
+													public void onSuccess(
+															String result)
+													{
+														if (result
+																.equals("SUCCESS"))
+														{
+
+															Window.alert(CustomMessage
+																	.getInfoMessage(InfoType.INSERTED));
+															clearUp();
+														}
+														else
+														{
+															Window.alert(CustomMessage
+																	.getErrorMessage(ErrorType.INSERT_ERROR)
+																	+ "\nDetails: "
+																	+ result);
+														}
+													}
+												});
+									}
+									catch (Exception e)
+									{
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+								}
+
+							}
+
+						}
+					});
+		}
+	}
+	
+	@Override
+	public void fillData()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void setCurrent()
+	{
+		
+	}
+
+	@Override
+	public void onValueChange(ValueChangeEvent<Boolean> event)
+	{
+		Widget sender = (Widget) event.getSource();
+		if(sender == testDiabetesRadioButton)
+		{
+			mainFlexTable.setWidget(3, 0, patientResultsFlexTable);
+//			dailyVisitFlexTable.setWidget(8, 1, patientResultsFlexTable);
+			dailyVisitFlexTable.setWidget(9, 1, submitButton);
+		}
+		else if(sender == testSpirometryRadioButton)
+		{
+		}
 	}
 
 }

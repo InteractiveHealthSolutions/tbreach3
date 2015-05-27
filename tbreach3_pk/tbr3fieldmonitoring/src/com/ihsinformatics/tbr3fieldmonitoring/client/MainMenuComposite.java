@@ -11,6 +11,9 @@
  */
 package com.ihsinformatics.tbr3fieldmonitoring.client;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -31,12 +34,7 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public class MainMenuComposite extends Composite implements ClickHandler
 {
-	private FirstVisitComposite firstVisitComposite;
-	private SupervisorVisitComposite supervisorVisitComposite;
-	private DailyVisitComposite dailyVisitComposite;
-	private CampInformationComposite campInformationComposite;
-	private TestEntryComposite testEntryComposite;
-	private MainMenuComposite mainMenuComposite;
+	private static Logger logger = Logger.getLogger(MainMenuComposite.class.getName());
 
 	private FlexTable mainFlexTable = new FlexTable();
 	private FlexTable userProfileFlexTable = new FlexTable();
@@ -159,50 +157,51 @@ public class MainMenuComposite extends Composite implements ClickHandler
 	@Override
 	public void onClick(ClickEvent event)
 	{
-		Widget widget = (Widget) event.getSource();
-		if (widget == firstFieldVisitAnchor)
+		logger.log(Level.INFO, "Click event fired by " + event.getSource());
+		Widget sender = (Widget) event.getSource();
+		if (sender == firstFieldVisitAnchor)
 		{
-			firstVisitComposite = new FirstVisitComposite();
+			final FirstVisitComposite firstVisitComposite = new FirstVisitComposite();
 			Cookies.setCookie("CurrentMenu", "First Visit");
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(firstVisitComposite);
 		}
-		else if (widget == supervisorVisitAnchor)
+		else if (sender == supervisorVisitAnchor)
 		{
-			supervisorVisitComposite = new SupervisorVisitComposite();
+			final SupervisorVisitComposite supervisorVisitComposite = new SupervisorVisitComposite();
 			Cookies.setCookie("CurrentMenu", "Supervisor Visit");
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(supervisorVisitComposite);
 		}
-		else if (widget == dailyVisitAnchor)
+		else if (sender == dailyVisitAnchor)
 		{
-			dailyVisitComposite = new DailyVisitComposite();
+			final DailyVisitComposite dailyVisitComposite = new DailyVisitComposite();
 			Cookies.setCookie("CurrentMenu", "Daily Visit");
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(dailyVisitComposite);
 		}
-		else if (widget == campInformationAnchor)
+		else if (sender == campInformationAnchor)
 		{
-			campInformationComposite = new CampInformationComposite();
+			final CampInformationComposite campInformationComposite = new CampInformationComposite();
 			Cookies.setCookie("CurrentMenu", "Camp Information");
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(campInformationComposite);
 		}
-		else if (widget == testFormAnchor)
+		else if (sender == testFormAnchor)
 		{
-			testEntryComposite = new TestEntryComposite();
+			final TestEntryComposite testEntryComposite = new TestEntryComposite();
 			Cookies.setCookie("CurrentMenu", "Test Entry");
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(testEntryComposite);
 		}
-		else if (widget == mainMenuHyperlink)
+		else if (sender == mainMenuHyperlink)
 		{
-			mainMenuComposite = new MainMenuComposite();
+			final MainMenuComposite mainMenuComposite = new MainMenuComposite();
 			Cookies.setCookie("CurrentMenu", "Main Menu");
 			Tbr3fieldmonitoring.verticalPanel.clear();
 			Tbr3fieldmonitoring.verticalPanel.add(mainMenuComposite);
 		}
-		else if (widget == logoutHyperlink)
+		else if (sender == logoutHyperlink)
 		{
 			Tbr3fieldmonitoring.logout();
 		}
