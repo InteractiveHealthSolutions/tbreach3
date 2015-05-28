@@ -18,7 +18,7 @@
                 <column name="encounter_type" length="10" />
             </key-property>
             <key-property name="element" type="string">
-                <column name="element" length="20" />
+                <column name="element" length="30" />
             </key-property>
         </composite-id>
         <property name="value" type="string">

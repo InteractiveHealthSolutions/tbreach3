@@ -64,6 +64,16 @@ h1 {
 	text-align: right;
 }
 
+.text-bold
+{
+	font-family: Verdana;
+	font-size: 14px;
+	color:#7BC041;
+	text-align: right;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
 .textbox
 {
 /* 	background-image:url(../images/form_bg.jpg); */
@@ -75,7 +85,20 @@ h1 {
 	margin-right:4px;
 	margin-bottom:8px;
 	font-family:tahoma, arial, sans-serif;
-	border-color: #7BC041;
+	text-align: left;
+}
+
+.textbox-spiro
+{
+/* 	background-image:url(../images/form_bg.jpg); */
+/* 	background-repeat:repeat-x; */
+	border:1px solid #7BC041;
+	width: 80px;
+	color:#333333;
+	padding:3px;
+	margin-right:4px;
+	margin-bottom:8px;
+	font-family:tahoma, arial, sans-serif;
 	text-align: left;
 }
 

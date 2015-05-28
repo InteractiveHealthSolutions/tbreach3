@@ -73,8 +73,32 @@ public class TestEntryComposite extends Composite implements IForm, ClickHandler
 	private FlowPanel testTypeResultFlowPanel = new FlowPanel();
 	private Label patientResultLabel = new Label("Patient Result/Score");
 	private TextBox patientResultTextBox = new TextBox();
-	private TextBox patientResult2TextBox = new TextBox();
-	private TextBox patientResult3TextBox = new TextBox();
+	
+	private Label spirometryResultLabel = new Label("Spirometry Results");
+	private Label actualResultLabel = new Label("Actual Result");
+	private Label predictedResultLabel = new Label("Predicted Result");
+	private Label percentageLabel = new Label("%");
+	
+	private Label fvcLabel = new Label("FVC");
+	private TextBox fvcActualResultTextBox = new TextBox();
+	private TextBox fvcPredictedResultTextBox = new TextBox();
+	private TextBox fvcPercentageResultTextBox = new TextBox();
+	
+	private Label fev1Label = new Label("FEV1");
+	private TextBox fev1ActualResultTextBox = new TextBox();
+	private TextBox fev1PredictedResultTextBox = new TextBox();
+	private TextBox fev1PercentageResultTextBox = new TextBox();
+	
+	private Label ratioLabel = new Label("FVC/FEV1 Ratio");
+	private TextBox ratioActualResultTextBox = new TextBox();
+	private TextBox ratioPredictedResultTextBox = new TextBox();
+	private TextBox ratioPercentageResultTextBox = new TextBox();
+	
+	private Label pefLabel = new Label("PEF Result");
+	private TextBox pefActualResultTextBox = new TextBox();
+	private TextBox pefPredictedResultTextBox = new TextBox();
+	private TextBox pefPercentageResultTextBox = new TextBox();
+	
     // till here	
 
 	private FlowPanel userNamePanel = new FlowPanel();
@@ -86,7 +110,7 @@ public class TestEntryComposite extends Composite implements IForm, ClickHandler
 	private Hyperlink logoutHyperlink = new Hyperlink("Logout,", "");
 	private Hyperlink mainMenuHyperlink = new Hyperlink("Back to Menu", "");
 
-	private Label formHeadingLabel = new Label("DAILY VISIT FORM");
+	private Label formHeadingLabel = new Label("DIABETES/SPIROMETRY ENTRY FORM");
 
 	private Label formDateLabel = new Label("Form Date   ");
 	private DateBox formDateBox = new DateBox();
@@ -201,23 +225,39 @@ public class TestEntryComposite extends Composite implements IForm, ClickHandler
 		dailyVisitFlexTable.setWidget(7, 1, testTypeFlowPanel);
 		
 		//testing Patient Test Result Flow Panel
-		testTypeResultFlowPanel.add(patientResultLabel);
-		testTypeResultFlowPanel.add(patientResultTextBox);
-		patientResultTextBox.addStyleName(".table-textbox");
-		testTypeResultFlowPanel.add(patientResult2TextBox);
-		patientResult2TextBox.addStyleName(".table-textbox");
-		testTypeResultFlowPanel.add(patientResult3TextBox);
-		patientResult3TextBox.addStyleName(".table-textbox");
-		patientResultLabel.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-		patientResultTextBox.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-		patientResult2TextBox.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
-		patientResult3TextBox.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+//		testTypeResultFlowPanel.add(patientResultLabel);
+//		testTypeResultFlowPanel.add(patientResultTextBox);
+//		patientResultTextBox.addStyleName(".table-textbox");
+//		testTypeResultFlowPanel.add(fvcActualResultTextBox);
+//		fvcActualResultTextBox.addStyleName(".table-textbox");
+//		testTypeResultFlowPanel.add(TextBox);
+//		TextBox.addStyleName(".table-textbox");
+//		patientResultLabel.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+//		patientResultTextBox.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+//		fvcActualResultTextBox.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+//		TextBox.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
+//		
+		//testTypeResultFlowPanel.addStyleName("flowPanel");
 		
-		testTypeResultFlowPanel.addStyleName("flowPanel");
+		patientResultsFlexTable.setWidget(1, 0, spirometryResultLabel);
+		spirometryResultLabel.addStyleName("text-bold");
+		patientResultsFlexTable.setWidget(1, 1, actualResultLabel);
+		actualResultLabel.addStyleName("text");
+		patientResultsFlexTable.setWidget(1, 2, predictedResultLabel);
+		predictedResultLabel.addStyleName("text");
+		patientResultsFlexTable.setWidget(1, 3, percentageLabel);
+		percentageLabel.addStyleName("text");
+		
+		patientResultsFlexTable.setWidget(2, 0, fvcLabel);
+		fvcLabel.addStyleName("text");
+		patientResultsFlexTable.setWidget(2, 1, fvcActualResultTextBox);
+		patientResultsFlexTable.setWidget(2, 2, fvcPredictedResultTextBox);
+		patientResultsFlexTable.setWidget(2, 3, fvcPercentageResultTextBox);
 		
 		
-		patientResultsFlexTable.setWidget(0, 0, testTypeResultFlowPanel);
-		patientResultsFlexTable.getCellFormatter().setHorizontalAlignment(0, 2, HasHorizontalAlignment.ALIGN_CENTER);
+		
+		//patientResultsFlexTable.setWidget(0, 0, testTypeResultFlowPanel);
+		//patientResultsFlexTable.getCellFormatter().setHorizontalAlignment(0, 2, HasHorizontalAlignment.ALIGN_CENTER);
 		//till here 
 		
 
@@ -549,14 +589,28 @@ public class TestEntryComposite extends Composite implements IForm, ClickHandler
 	public void onValueChange(ValueChangeEvent<Boolean> event)
 	{
 		Widget sender = (Widget) event.getSource();
-		if(sender == testDiabetesRadioButton)
+		if(sender == testSpirometryRadioButton)
 		{
+			dailyVisitFlexTable.remove(submitButton);
+			dailyVisitFlexTable.remove(patientResultLabel);
+			dailyVisitFlexTable.remove(patientResultTextBox);
+			patientResultsFlexTable.setWidget(3, 1, submitButton);
+			patientResultsFlexTable.getCellFormatter().setHorizontalAlignment(3	, 1, HasHorizontalAlignment.ALIGN_RIGHT);
 			mainFlexTable.setWidget(3, 0, patientResultsFlexTable);
 //			dailyVisitFlexTable.setWidget(8, 1, patientResultsFlexTable);
-			dailyVisitFlexTable.setWidget(9, 1, submitButton);
+			//dailyVisitFlexTable.setWidget(9, 1, submitButton);
 		}
-		else if(sender == testSpirometryRadioButton)
+		else if(sender == testDiabetesRadioButton)
 		{
+			mainFlexTable.remove(patientResultsFlexTable);
+			
+			dailyVisitFlexTable.remove(submitButton);
+			dailyVisitFlexTable.setWidget(8, 0, patientResultLabel);
+			patientResultLabel.addStyleName("text");
+			dailyVisitFlexTable.getCellFormatter().setHorizontalAlignment(8, 0, HasHorizontalAlignment.ALIGN_RIGHT);
+			dailyVisitFlexTable.setWidget(8, 1, patientResultTextBox);
+			patientResultTextBox.addStyleName("textbox");
+			dailyVisitFlexTable.setWidget(9, 1, submitButton);
 		}
 	}
 
